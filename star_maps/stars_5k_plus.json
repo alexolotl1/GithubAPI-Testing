@@ -1,0 +1,2146 @@
+{
+  "category": "5K+",
+  "count": 214,
+  "repositories": [
+    {
+      "name": "pentaho/pentaho-kettle",
+      "owner": "pentaho",
+      "owner_type": "Organization",
+      "url": "https://github.com/pentaho/pentaho-kettle",
+      "stars": 8339,
+      "forks": 3580,
+      "language": "Java",
+      "created_at": "2013-10-08T18:27:11Z"
+    },
+    {
+      "name": "micropython/micropython",
+      "owner": "micropython",
+      "owner_type": "Organization",
+      "url": "https://github.com/micropython/micropython",
+      "stars": 21666,
+      "forks": 8811,
+      "language": "C",
+      "created_at": "2013-12-20T11:47:07Z"
+    },
+    {
+      "name": "Nuitka/Nuitka",
+      "owner": "Nuitka",
+      "owner_type": "Organization",
+      "url": "https://github.com/Nuitka/Nuitka",
+      "stars": 14791,
+      "forks": 773,
+      "language": "Python",
+      "created_at": "2013-04-23T15:40:33Z"
+    },
+    {
+      "name": "docker-library/official-images",
+      "owner": "docker-library",
+      "owner_type": "Organization",
+      "url": "https://github.com/docker-library/official-images",
+      "stars": 6946,
+      "forks": 2513,
+      "language": "Shell",
+      "created_at": "2013-10-17T17:27:12Z"
+    },
+    {
+      "name": "warmcat/libwebsockets",
+      "owner": "warmcat",
+      "owner_type": "Organization",
+      "url": "https://github.com/warmcat/libwebsockets",
+      "stars": 5267,
+      "forks": 1591,
+      "language": "C",
+      "created_at": "2013-02-06T07:00:44Z"
+    },
+    {
+      "name": "s3fs-fuse/s3fs-fuse",
+      "owner": "s3fs-fuse",
+      "owner_type": "Organization",
+      "url": "https://github.com/s3fs-fuse/s3fs-fuse",
+      "stars": 9830,
+      "forks": 1074,
+      "language": "C++",
+      "created_at": "2013-11-22T19:31:12Z"
+    },
+    {
+      "name": "tldr-pages/tldr",
+      "owner": "tldr-pages",
+      "owner_type": "Organization",
+      "url": "https://github.com/tldr-pages/tldr",
+      "stars": 62318,
+      "forks": 5205,
+      "language": "Markdown",
+      "created_at": "2013-12-08T07:34:43Z"
+    },
+    {
+      "name": "syncthing/syncthing",
+      "owner": "syncthing",
+      "owner_type": "Organization",
+      "url": "https://github.com/syncthing/syncthing",
+      "stars": 83354,
+      "forks": 5137,
+      "language": "Go",
+      "created_at": "2013-11-26T09:48:21Z"
+    },
+    {
+      "name": "zmap/zmap",
+      "owner": "zmap",
+      "owner_type": "Organization",
+      "url": "https://github.com/zmap/zmap",
+      "stars": 6177,
+      "forks": 968,
+      "language": "C",
+      "created_at": "2013-01-23T01:30:09Z"
+    },
+    {
+      "name": "coteditor/CotEditor",
+      "owner": "coteditor",
+      "owner_type": "Organization",
+      "url": "https://github.com/coteditor/CotEditor",
+      "stars": 7938,
+      "forks": 492,
+      "language": "Swift",
+      "created_at": "2013-04-05T14:51:28Z"
+    },
+    {
+      "name": "hajimehoshi/ebiten",
+      "owner": "hajimehoshi",
+      "owner_type": "User",
+      "url": "https://github.com/hajimehoshi/ebiten",
+      "stars": 13137,
+      "forks": 764,
+      "language": "Go",
+      "created_at": "2013-06-16T15:13:01Z"
+    },
+    {
+      "name": "ArduPilot/ardupilot",
+      "owner": "ArduPilot",
+      "owner_type": "Organization",
+      "url": "https://github.com/ArduPilot/ardupilot",
+      "stars": 14986,
+      "forks": 20729,
+      "language": "C++",
+      "created_at": "2013-01-09T00:58:52Z"
+    },
+    {
+      "name": "electron/electron",
+      "owner": "electron",
+      "owner_type": "Organization",
+      "url": "https://github.com/electron/electron",
+      "stars": 121088,
+      "forks": 17155,
+      "language": "C++",
+      "created_at": "2013-04-12T01:47:36Z"
+    },
+    {
+      "name": "openedx/openedx-platform",
+      "owner": "openedx",
+      "owner_type": "Organization",
+      "url": "https://github.com/openedx/openedx-platform",
+      "stars": 8086,
+      "forks": 4270,
+      "language": "Python",
+      "created_at": "2013-05-30T20:20:38Z"
+    },
+    {
+      "name": "elastic/kibana",
+      "owner": "elastic",
+      "owner_type": "Organization",
+      "url": "https://github.com/elastic/kibana",
+      "stars": 21062,
+      "forks": 8570,
+      "language": "TypeScript",
+      "created_at": "2013-01-26T04:00:59Z"
+    },
+    {
+      "name": "uutils/coreutils",
+      "owner": "uutils",
+      "owner_type": "Organization",
+      "url": "https://github.com/uutils/coreutils",
+      "stars": 23188,
+      "forks": 1839,
+      "language": "Rust",
+      "created_at": "2013-08-02T16:22:56Z"
+    },
+    {
+      "name": "netdata/netdata",
+      "owner": "netdata",
+      "owner_type": "Organization",
+      "url": "https://github.com/netdata/netdata",
+      "stars": 78659,
+      "forks": 6426,
+      "language": "C",
+      "created_at": "2013-06-17T18:39:10Z"
+    },
+    {
+      "name": "merbanan/rtl_433",
+      "owner": "merbanan",
+      "owner_type": "User",
+      "url": "https://github.com/merbanan/rtl_433",
+      "stars": 7413,
+      "forks": 1507,
+      "language": "C",
+      "created_at": "2013-01-19T16:40:34Z"
+    },
+    {
+      "name": "gocd/gocd",
+      "owner": "gocd",
+      "owner_type": "Organization",
+      "url": "https://github.com/gocd/gocd",
+      "stars": 7392,
+      "forks": 978,
+      "language": "Java",
+      "created_at": "2013-12-13T05:26:16Z"
+    },
+    {
+      "name": "felixonmars/dnsmasq-china-list",
+      "owner": "felixonmars",
+      "owner_type": "User",
+      "url": "https://github.com/felixonmars/dnsmasq-china-list",
+      "stars": 6034,
+      "forks": 944,
+      "language": "Ruby",
+      "created_at": "2013-06-02T03:10:59Z"
+    },
+    {
+      "name": "grafana/grafana",
+      "owner": "grafana",
+      "owner_type": "Organization",
+      "url": "https://github.com/grafana/grafana",
+      "stars": 73521,
+      "forks": 13821,
+      "language": "TypeScript",
+      "created_at": "2013-12-11T15:59:56Z"
+    },
+    {
+      "name": "jestjs/jest",
+      "owner": "jestjs",
+      "owner_type": "Organization",
+      "url": "https://github.com/jestjs/jest",
+      "stars": 45336,
+      "forks": 6648,
+      "language": "TypeScript",
+      "created_at": "2013-12-10T00:18:04Z"
+    },
+    {
+      "name": "umbraco/Umbraco-CMS",
+      "owner": "umbraco",
+      "owner_type": "Organization",
+      "url": "https://github.com/umbraco/Umbraco-CMS",
+      "stars": 5163,
+      "forks": 2881,
+      "language": "C#",
+      "created_at": "2013-06-10T13:50:46Z"
+    },
+    {
+      "name": "sebastianbergmann/version",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/version",
+      "stars": 6582,
+      "forks": 36,
+      "language": "PHP",
+      "created_at": "2013-01-05T14:17:33Z"
+    },
+    {
+      "name": "discourse/discourse",
+      "owner": "discourse",
+      "owner_type": "Organization",
+      "url": "https://github.com/discourse/discourse",
+      "stars": 46941,
+      "forks": 8900,
+      "language": "Ruby",
+      "created_at": "2013-01-12T00:25:55Z"
+    },
+    {
+      "name": "sebastianbergmann/exporter",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/exporter",
+      "stars": 6822,
+      "forks": 36,
+      "language": "PHP",
+      "created_at": "2013-02-04T21:15:26Z"
+    },
+    {
+      "name": "sebastianbergmann/diff",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/diff",
+      "stars": 7662,
+      "forks": 85,
+      "language": "PHP",
+      "created_at": "2013-02-12T08:34:51Z"
+    },
+    {
+      "name": "sebastianbergmann/comparator",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/comparator",
+      "stars": 7055,
+      "forks": 68,
+      "language": "PHP",
+      "created_at": "2013-11-05T00:36:12Z"
+    },
+    {
+      "name": "home-assistant/core",
+      "owner": "home-assistant",
+      "owner_type": "Organization",
+      "url": "https://github.com/home-assistant/core",
+      "stars": 86879,
+      "forks": 37397,
+      "language": "Python",
+      "created_at": "2013-09-17T07:29:48Z"
+    },
+    {
+      "name": "python-visualization/folium",
+      "owner": "python-visualization",
+      "owner_type": "Organization",
+      "url": "https://github.com/python-visualization/folium",
+      "stars": 7361,
+      "forks": 2252,
+      "language": "Python",
+      "created_at": "2013-05-09T04:21:35Z"
+    },
+    {
+      "name": "mamedev/mame",
+      "owner": "mamedev",
+      "owner_type": "Organization",
+      "url": "https://github.com/mamedev/mame",
+      "stars": 10114,
+      "forks": 2368,
+      "language": "C++",
+      "created_at": "2013-11-11T14:32:13Z"
+    },
+    {
+      "name": "ankidroid/Anki-Android",
+      "owner": "ankidroid",
+      "owner_type": "Organization",
+      "url": "https://github.com/ankidroid/Anki-Android",
+      "stars": 11074,
+      "forks": 2776,
+      "language": "Kotlin",
+      "created_at": "2013-01-20T13:55:53Z"
+    },
+    {
+      "name": "ionic-team/ionic-framework",
+      "owner": "ionic-team",
+      "owner_type": "Organization",
+      "url": "https://github.com/ionic-team/ionic-framework",
+      "stars": 52488,
+      "forks": 13387,
+      "language": "TypeScript",
+      "created_at": "2013-08-20T23:06:02Z"
+    },
+    {
+      "name": "checkstyle/checkstyle",
+      "owner": "checkstyle",
+      "owner_type": "Organization",
+      "url": "https://github.com/checkstyle/checkstyle",
+      "stars": 8930,
+      "forks": 4088,
+      "language": "Java",
+      "created_at": "2013-08-31T02:05:05Z"
+    },
+    {
+      "name": "jhipster/generator-jhipster",
+      "owner": "jhipster",
+      "owner_type": "Organization",
+      "url": "https://github.com/jhipster/generator-jhipster",
+      "stars": 22405,
+      "forks": 4173,
+      "language": "TypeScript",
+      "created_at": "2013-10-21T20:07:22Z"
+    },
+    {
+      "name": "kovidgoyal/calibre",
+      "owner": "kovidgoyal",
+      "owner_type": "User",
+      "url": "https://github.com/kovidgoyal/calibre",
+      "stars": 24735,
+      "forks": 2595,
+      "language": "Python",
+      "created_at": "2013-05-28T10:03:23Z"
+    },
+    {
+      "name": "cookiecutter/cookiecutter-django",
+      "owner": "cookiecutter",
+      "owner_type": "Organization",
+      "url": "https://github.com/cookiecutter/cookiecutter-django",
+      "stars": 13495,
+      "forks": 3059,
+      "language": "Python",
+      "created_at": "2013-08-14T17:43:31Z"
+    },
+    {
+      "name": "ColorlibHQ/AdminLTE",
+      "owner": "ColorlibHQ",
+      "owner_type": "Organization",
+      "url": "https://github.com/ColorlibHQ/AdminLTE",
+      "stars": 45376,
+      "forks": 18237,
+      "language": "CSS",
+      "created_at": "2013-12-25T02:52:40Z"
+    },
+    {
+      "name": "keycloak/keycloak",
+      "owner": "keycloak",
+      "owner_type": "Organization",
+      "url": "https://github.com/keycloak/keycloak",
+      "stars": 34156,
+      "forks": 8298,
+      "language": "Java",
+      "created_at": "2013-07-02T13:38:51Z"
+    },
+    {
+      "name": "AvaloniaUI/Avalonia",
+      "owner": "AvaloniaUI",
+      "owner_type": "Organization",
+      "url": "https://github.com/AvaloniaUI/Avalonia",
+      "stars": 30675,
+      "forks": 2673,
+      "language": "C#",
+      "created_at": "2013-12-05T20:13:21Z"
+    },
+    {
+      "name": "huginn/huginn",
+      "owner": "huginn",
+      "owner_type": "Organization",
+      "url": "https://github.com/huginn/huginn",
+      "stars": 49214,
+      "forks": 4252,
+      "language": "Ruby",
+      "created_at": "2013-03-10T06:00:31Z"
+    },
+    {
+      "name": "JetBrains/Exposed",
+      "owner": "JetBrains",
+      "owner_type": "Organization",
+      "url": "https://github.com/JetBrains/Exposed",
+      "stars": 9228,
+      "forks": 779,
+      "language": "Kotlin",
+      "created_at": "2013-07-30T12:55:27Z"
+    },
+    {
+      "name": "openstack/openstack",
+      "owner": "openstack",
+      "owner_type": "Organization",
+      "url": "https://github.com/openstack/openstack",
+      "stars": 5893,
+      "forks": 1618,
+      "language": "Python",
+      "created_at": "2013-10-24T17:38:08Z"
+    },
+    {
+      "name": "wesnoth/wesnoth",
+      "owner": "wesnoth",
+      "owner_type": "Organization",
+      "url": "https://github.com/wesnoth/wesnoth",
+      "stars": 6610,
+      "forks": 1181,
+      "language": "C++",
+      "created_at": "2013-04-14T17:13:06Z"
+    },
+    {
+      "name": "koreader/koreader",
+      "owner": "koreader",
+      "owner_type": "Organization",
+      "url": "https://github.com/koreader/koreader",
+      "stars": 26555,
+      "forks": 1692,
+      "language": "Lua",
+      "created_at": "2013-03-24T13:09:42Z"
+    },
+    {
+      "name": "dolphin-emu/dolphin",
+      "owner": "dolphin-emu",
+      "owner_type": "Organization",
+      "url": "https://github.com/dolphin-emu/dolphin",
+      "stars": 14964,
+      "forks": 3059,
+      "language": "C++",
+      "created_at": "2013-07-22T09:07:57Z"
+    },
+    {
+      "name": "gcc-mirror/gcc",
+      "owner": "gcc-mirror",
+      "owner_type": "Organization",
+      "url": "https://github.com/gcc-mirror/gcc",
+      "stars": 10890,
+      "forks": 4747,
+      "language": "C++",
+      "created_at": "2014-08-07T06:50:37Z"
+    },
+    {
+      "name": "ag-grid/ag-grid",
+      "owner": "ag-grid",
+      "owner_type": "Organization",
+      "url": "https://github.com/ag-grid/ag-grid",
+      "stars": 15274,
+      "forks": 2066,
+      "language": "TypeScript",
+      "created_at": "2014-12-23T16:20:14Z"
+    },
+    {
+      "name": "stamparm/maltrail",
+      "owner": "stamparm",
+      "owner_type": "User",
+      "url": "https://github.com/stamparm/maltrail",
+      "stars": 8425,
+      "forks": 1254,
+      "language": "Python",
+      "created_at": "2014-12-04T21:33:46Z"
+    },
+    {
+      "name": "apache/spark",
+      "owner": "apache",
+      "owner_type": "Organization",
+      "url": "https://github.com/apache/spark",
+      "stars": 43217,
+      "forks": 29168,
+      "language": "Scala",
+      "created_at": "2014-02-25T08:00:08Z"
+    },
+    {
+      "name": "odoo/odoo",
+      "owner": "odoo",
+      "owner_type": "Organization",
+      "url": "https://github.com/odoo/odoo",
+      "stars": 50404,
+      "forks": 32237,
+      "language": "Python",
+      "created_at": "2014-05-13T15:38:58Z"
+    },
+    {
+      "name": "rust-unofficial/awesome-rust",
+      "owner": "rust-unofficial",
+      "owner_type": "Organization",
+      "url": "https://github.com/rust-unofficial/awesome-rust",
+      "stars": 57034,
+      "forks": 3326,
+      "language": "Rust",
+      "created_at": "2014-07-17T10:45:10Z"
+    },
+    {
+      "name": "yeasy/docker_practice",
+      "owner": "yeasy",
+      "owner_type": "User",
+      "url": "https://github.com/yeasy/docker_practice",
+      "stars": 26004,
+      "forks": 5784,
+      "language": "Go",
+      "created_at": "2014-09-05T04:06:39Z"
+    },
+    {
+      "name": "home-assistant/home-assistant.io",
+      "owner": "home-assistant",
+      "owner_type": "Organization",
+      "url": "https://github.com/home-assistant/home-assistant.io",
+      "stars": 9176,
+      "forks": 8288,
+      "language": "HTML",
+      "created_at": "2014-12-21T20:59:21Z"
+    },
+    {
+      "name": "apache/flink",
+      "owner": "apache",
+      "owner_type": "Organization",
+      "url": "https://github.com/apache/flink",
+      "stars": 25971,
+      "forks": 13927,
+      "language": "Java",
+      "created_at": "2014-06-07T07:00:10Z"
+    },
+    {
+      "name": "redisson/redisson",
+      "owner": "redisson",
+      "owner_type": "Organization",
+      "url": "https://github.com/redisson/redisson",
+      "stars": 24313,
+      "forks": 5487,
+      "language": "Java",
+      "created_at": "2014-01-11T14:06:25Z"
+    },
+    {
+      "name": "stylelint/stylelint",
+      "owner": "stylelint",
+      "owner_type": "Organization",
+      "url": "https://github.com/stylelint/stylelint",
+      "stars": 11452,
+      "forks": 1003,
+      "language": "JavaScript",
+      "created_at": "2014-12-04T16:25:23Z"
+    },
+    {
+      "name": "freeCodeCamp/freeCodeCamp",
+      "owner": "freeCodeCamp",
+      "owner_type": "Organization",
+      "url": "https://github.com/freeCodeCamp/freeCodeCamp",
+      "stars": 443954,
+      "forks": 44438,
+      "language": "TypeScript",
+      "created_at": "2014-12-24T17:49:19Z"
+    },
+    {
+      "name": "wireshark/wireshark",
+      "owner": "wireshark",
+      "owner_type": "Organization",
+      "url": "https://github.com/wireshark/wireshark",
+      "stars": 9278,
+      "forks": 2127,
+      "language": "C",
+      "created_at": "2014-06-29T18:37:22Z"
+    },
+    {
+      "name": "nodejs/docker-node",
+      "owner": "nodejs",
+      "owner_type": "Organization",
+      "url": "https://github.com/nodejs/docker-node",
+      "stars": 8536,
+      "forks": 1988,
+      "language": "Dockerfile",
+      "created_at": "2014-12-12T16:48:48Z"
+    },
+    {
+      "name": "duplicati/duplicati",
+      "owner": "duplicati",
+      "owner_type": "Organization",
+      "url": "https://github.com/duplicati/duplicati",
+      "stars": 14504,
+      "forks": 1039,
+      "language": "C#",
+      "created_at": "2014-08-05T08:28:16Z"
+    },
+    {
+      "name": "WinMerge/winmerge",
+      "owner": "WinMerge",
+      "owner_type": "Organization",
+      "url": "https://github.com/WinMerge/winmerge",
+      "stars": 8752,
+      "forks": 972,
+      "language": "C++",
+      "created_at": "2014-11-11T16:38:42Z"
+    },
+    {
+      "name": "SubtitleEdit/subtitleedit",
+      "owner": "SubtitleEdit",
+      "owner_type": "Organization",
+      "url": "https://github.com/SubtitleEdit/subtitleedit",
+      "stars": 12752,
+      "forks": 1196,
+      "language": "C#",
+      "created_at": "2014-02-03T08:17:41Z"
+    },
+    {
+      "name": "fffaraz/awesome-cpp",
+      "owner": "fffaraz",
+      "owner_type": "User",
+      "url": "https://github.com/fffaraz/awesome-cpp",
+      "stars": 71030,
+      "forks": 8272,
+      "language": null,
+      "created_at": "2014-07-17T08:51:11Z"
+    },
+    {
+      "name": "seaweedfs/seaweedfs",
+      "owner": "seaweedfs",
+      "owner_type": "Organization",
+      "url": "https://github.com/seaweedfs/seaweedfs",
+      "stars": 31999,
+      "forks": 2807,
+      "language": "Go",
+      "created_at": "2014-07-14T16:41:37Z"
+    },
+    {
+      "name": "emacs-mirror/emacs",
+      "owner": "emacs-mirror",
+      "owner_type": "Organization",
+      "url": "https://github.com/emacs-mirror/emacs",
+      "stars": 5037,
+      "forks": 1368,
+      "language": "Emacs Lisp",
+      "created_at": "2014-08-07T06:58:17Z"
+    },
+    {
+      "name": "mesonbuild/meson",
+      "owner": "mesonbuild",
+      "owner_type": "Organization",
+      "url": "https://github.com/mesonbuild/meson",
+      "stars": 6484,
+      "forks": 1867,
+      "language": "Python",
+      "created_at": "2014-05-14T15:08:16Z"
+    },
+    {
+      "name": "telegramdesktop/tdesktop",
+      "owner": "telegramdesktop",
+      "owner_type": "Organization",
+      "url": "https://github.com/telegramdesktop/tdesktop",
+      "stars": 31624,
+      "forks": 6658,
+      "language": "C++",
+      "created_at": "2014-05-02T12:36:31Z"
+    },
+    {
+      "name": "godotengine/godot",
+      "owner": "godotengine",
+      "owner_type": "Organization",
+      "url": "https://github.com/godotengine/godot",
+      "stars": 110158,
+      "forks": 25163,
+      "language": "C++",
+      "created_at": "2014-01-04T16:05:36Z"
+    },
+    {
+      "name": "Alamofire/Alamofire",
+      "owner": "Alamofire",
+      "owner_type": "Organization",
+      "url": "https://github.com/Alamofire/Alamofire",
+      "stars": 42374,
+      "forks": 7651,
+      "language": "Swift",
+      "created_at": "2014-07-31T05:56:19Z"
+    },
+    {
+      "name": "bazelbuild/bazel",
+      "owner": "bazelbuild",
+      "owner_type": "Organization",
+      "url": "https://github.com/bazelbuild/bazel",
+      "stars": 25348,
+      "forks": 4454,
+      "language": "Java",
+      "created_at": "2014-06-12T16:00:38Z"
+    },
+    {
+      "name": "rancher/rancher",
+      "owner": "rancher",
+      "owner_type": "Organization",
+      "url": "https://github.com/rancher/rancher",
+      "stars": 25535,
+      "forks": 3182,
+      "language": "Go",
+      "created_at": "2014-11-07T20:49:31Z"
+    },
+    {
+      "name": "scylladb/scylladb",
+      "owner": "scylladb",
+      "owner_type": "Organization",
+      "url": "https://github.com/scylladb/scylladb",
+      "stars": 15511,
+      "forks": 1478,
+      "language": "C++",
+      "created_at": "2014-12-24T13:16:33Z"
+    },
+    {
+      "name": "apache/pinot",
+      "owner": "apache",
+      "owner_type": "Organization",
+      "url": "https://github.com/apache/pinot",
+      "stars": 6071,
+      "forks": 1475,
+      "language": "Java",
+      "created_at": "2014-05-19T23:27:48Z"
+    },
+    {
+      "name": "react-cosmos/react-cosmos",
+      "owner": "react-cosmos",
+      "owner_type": "Organization",
+      "url": "https://github.com/react-cosmos/react-cosmos",
+      "stars": 8671,
+      "forks": 392,
+      "language": "TypeScript",
+      "created_at": "2014-02-05T18:48:27Z"
+    },
+    {
+      "name": "vcmi/vcmi",
+      "owner": "vcmi",
+      "owner_type": "Organization",
+      "url": "https://github.com/vcmi/vcmi",
+      "stars": 5615,
+      "forks": 608,
+      "language": "C++",
+      "created_at": "2014-04-06T13:42:23Z"
+    },
+    {
+      "name": "sebastianbergmann/global-state",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/global-state",
+      "stars": 6606,
+      "forks": 19,
+      "language": "PHP",
+      "created_at": "2014-08-22T08:11:55Z"
+    },
+    {
+      "name": "sebastianbergmann/environment",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/environment",
+      "stars": 6777,
+      "forks": 37,
+      "language": "PHP",
+      "created_at": "2014-02-10T15:39:28Z"
+    },
+    {
+      "name": "google/skia",
+      "owner": "google",
+      "owner_type": "Organization",
+      "url": "https://github.com/google/skia",
+      "stars": 10666,
+      "forks": 1712,
+      "language": "C++",
+      "created_at": "2014-01-09T17:09:57Z"
+    },
+    {
+      "name": "neovim/neovim",
+      "owner": "neovim",
+      "owner_type": "Organization",
+      "url": "https://github.com/neovim/neovim",
+      "stars": 99246,
+      "forks": 6860,
+      "language": "Vim Script",
+      "created_at": "2014-01-31T13:39:22Z"
+    },
+    {
+      "name": "docker-library/docs",
+      "owner": "docker-library",
+      "owner_type": "Organization",
+      "url": "https://github.com/docker-library/docs",
+      "stars": 5275,
+      "forks": 2235,
+      "language": "Shell",
+      "created_at": "2014-07-31T21:02:22Z"
+    },
+    {
+      "name": "brython-dev/brython",
+      "owner": "brython-dev",
+      "owner_type": "Organization",
+      "url": "https://github.com/brython-dev/brython",
+      "stars": 6591,
+      "forks": 530,
+      "language": "Python",
+      "created_at": "2014-09-15T06:58:21Z"
+    },
+    {
+      "name": "v8/v8",
+      "owner": "v8",
+      "owner_type": "Organization",
+      "url": "https://github.com/v8/v8",
+      "stars": 24998,
+      "forks": 4260,
+      "language": "C++",
+      "created_at": "2014-09-24T15:24:30Z"
+    },
+    {
+      "name": "MariaDB/server",
+      "owner": "MariaDB",
+      "owner_type": "Organization",
+      "url": "https://github.com/MariaDB/server",
+      "stars": 7522,
+      "forks": 2038,
+      "language": "C++",
+      "created_at": "2014-05-15T10:58:50Z"
+    },
+    {
+      "name": "grpc/grpc",
+      "owner": "grpc",
+      "owner_type": "Organization",
+      "url": "https://github.com/grpc/grpc",
+      "stars": 44695,
+      "forks": 11144,
+      "language": "C++",
+      "created_at": "2014-12-08T18:58:53Z"
+    },
+    {
+      "name": "protocolbuffers/protobuf",
+      "owner": "protocolbuffers",
+      "owner_type": "Organization",
+      "url": "https://github.com/protocolbuffers/protobuf",
+      "stars": 71176,
+      "forks": 16113,
+      "language": "C++",
+      "created_at": "2014-08-26T15:52:15Z"
+    },
+    {
+      "name": "rust-lang/rfcs",
+      "owner": "rust-lang",
+      "owner_type": "Organization",
+      "url": "https://github.com/rust-lang/rfcs",
+      "stars": 6452,
+      "forks": 1686,
+      "language": "Markdown",
+      "created_at": "2014-03-07T21:29:00Z"
+    },
+    {
+      "name": "facebook/flow",
+      "owner": "facebook",
+      "owner_type": "Organization",
+      "url": "https://github.com/facebook/flow",
+      "stars": 22206,
+      "forks": 1885,
+      "language": "Rust",
+      "created_at": "2014-10-28T17:17:45Z"
+    },
+    {
+      "name": "aeron-io/aeron",
+      "owner": "aeron-io",
+      "owner_type": "Organization",
+      "url": "https://github.com/aeron-io/aeron",
+      "stars": 8609,
+      "forks": 1033,
+      "language": "Java",
+      "created_at": "2014-02-07T17:16:58Z"
+    },
+    {
+      "name": "mermaid-js/mermaid",
+      "owner": "mermaid-js",
+      "owner_type": "Organization",
+      "url": "https://github.com/mermaid-js/mermaid",
+      "stars": 87747,
+      "forks": 8924,
+      "language": "TypeScript",
+      "created_at": "2014-11-01T23:52:32Z"
+    },
+    {
+      "name": "pingcap/tidb",
+      "owner": "pingcap",
+      "owner_type": "Organization",
+      "url": "https://github.com/pingcap/tidb",
+      "stars": 40047,
+      "forks": 6178,
+      "language": "Go",
+      "created_at": "2015-09-06T04:01:52Z"
+    },
+    {
+      "name": "wazuh/wazuh",
+      "owner": "wazuh",
+      "owner_type": "Organization",
+      "url": "https://github.com/wazuh/wazuh",
+      "stars": 15450,
+      "forks": 2285,
+      "language": "C++",
+      "created_at": "2015-08-11T17:39:03Z"
+    },
+    {
+      "name": "facebook/infer",
+      "owner": "facebook",
+      "owner_type": "Organization",
+      "url": "https://github.com/facebook/infer",
+      "stars": 15595,
+      "forks": 2089,
+      "language": "OCaml",
+      "created_at": "2015-01-26T11:19:13Z"
+    },
+    {
+      "name": "rollup/rollup",
+      "owner": "rollup",
+      "owner_type": "Organization",
+      "url": "https://github.com/rollup/rollup",
+      "stars": 26269,
+      "forks": 1709,
+      "language": "JavaScript",
+      "created_at": "2015-05-14T22:26:28Z"
+    },
+    {
+      "name": "coturn/coturn",
+      "owner": "coturn",
+      "owner_type": "Organization",
+      "url": "https://github.com/coturn/coturn",
+      "stars": 13936,
+      "forks": 2237,
+      "language": "C",
+      "created_at": "2015-07-17T08:15:16Z"
+    },
+    {
+      "name": "datahub-project/datahub",
+      "owner": "datahub-project",
+      "owner_type": "Organization",
+      "url": "https://github.com/datahub-project/datahub",
+      "stars": 11864,
+      "forks": 3464,
+      "language": "Java",
+      "created_at": "2015-11-18T05:47:40Z"
+    },
+    {
+      "name": "apache/groovy",
+      "owner": "apache",
+      "owner_type": "Organization",
+      "url": "https://github.com/apache/groovy",
+      "stars": 5443,
+      "forks": 1908,
+      "language": "Java",
+      "created_at": "2015-04-16T07:00:05Z"
+    },
+    {
+      "name": "valyala/fasthttp",
+      "owner": "valyala",
+      "owner_type": "User",
+      "url": "https://github.com/valyala/fasthttp",
+      "stars": 23346,
+      "forks": 1817,
+      "language": "Go",
+      "created_at": "2015-10-18T22:19:57Z"
+    },
+    {
+      "name": "element-hq/element-web",
+      "owner": "element-hq",
+      "owner_type": "Organization",
+      "url": "https://github.com/element-hq/element-web",
+      "stars": 13055,
+      "forks": 2587,
+      "language": "TypeScript",
+      "created_at": "2015-07-22T05:32:15Z"
+    },
+    {
+      "name": "swiftlang/swift-corelibs-foundation",
+      "owner": "swiftlang",
+      "owner_type": "Organization",
+      "url": "https://github.com/swiftlang/swift-corelibs-foundation",
+      "stars": 5426,
+      "forks": 1173,
+      "language": "C",
+      "created_at": "2015-11-09T20:12:23Z"
+    },
+    {
+      "name": "home-assistant/frontend",
+      "owner": "home-assistant",
+      "owner_type": "Organization",
+      "url": "https://github.com/home-assistant/frontend",
+      "stars": 5433,
+      "forks": 3653,
+      "language": "TypeScript",
+      "created_at": "2015-07-12T23:58:06Z"
+    },
+    {
+      "name": "termux/termux-packages",
+      "owner": "termux",
+      "owner_type": "Organization",
+      "url": "https://github.com/termux/termux-packages",
+      "stars": 16136,
+      "forks": 4064,
+      "language": "Shell",
+      "created_at": "2015-06-12T21:48:33Z"
+    },
+    {
+      "name": "quasarframework/quasar",
+      "owner": "quasarframework",
+      "owner_type": "Organization",
+      "url": "https://github.com/quasarframework/quasar",
+      "stars": 27134,
+      "forks": 3681,
+      "language": "JavaScript",
+      "created_at": "2015-10-05T15:45:36Z"
+    },
+    {
+      "name": "junit-team/junit-framework",
+      "owner": "junit-team",
+      "owner_type": "Organization",
+      "url": "https://github.com/junit-team/junit-framework",
+      "stars": 7007,
+      "forks": 1676,
+      "language": "Java",
+      "created_at": "2015-01-11T19:06:10Z"
+    },
+    {
+      "name": "microsoft/vscode",
+      "owner": "microsoft",
+      "owner_type": "Organization",
+      "url": "https://github.com/microsoft/vscode",
+      "stars": 184431,
+      "forks": 39590,
+      "language": "TypeScript",
+      "created_at": "2015-09-03T20:23:38Z"
+    },
+    {
+      "name": "MaterialDesignInXAML/MaterialDesignInXamlToolkit",
+      "owner": "MaterialDesignInXAML",
+      "owner_type": "Organization",
+      "url": "https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit",
+      "stars": 16128,
+      "forks": 3497,
+      "language": "C#",
+      "created_at": "2015-02-07T23:30:48Z"
+    },
+    {
+      "name": "pytest-dev/pytest",
+      "owner": "pytest-dev",
+      "owner_type": "Organization",
+      "url": "https://github.com/pytest-dev/pytest",
+      "stars": 13818,
+      "forks": 3109,
+      "language": "Python",
+      "created_at": "2015-06-15T20:28:27Z"
+    },
+    {
+      "name": "Jackett/Jackett",
+      "owner": "Jackett",
+      "owner_type": "Organization",
+      "url": "https://github.com/Jackett/Jackett",
+      "stars": 15277,
+      "forks": 1497,
+      "language": "C#",
+      "created_at": "2015-10-29T16:23:19Z"
+    },
+    {
+      "name": "iCHAIT/awesome-macOS",
+      "owner": "iCHAIT",
+      "owner_type": "User",
+      "url": "https://github.com/iCHAIT/awesome-macOS",
+      "stars": 18446,
+      "forks": 1207,
+      "language": null,
+      "created_at": "2015-05-25T16:24:12Z"
+    },
+    {
+      "name": "netbootxyz/netboot.xyz",
+      "owner": "netbootxyz",
+      "owner_type": "Organization",
+      "url": "https://github.com/netbootxyz/netboot.xyz",
+      "stars": 11680,
+      "forks": 809,
+      "language": "Jinja",
+      "created_at": "2015-08-30T17:11:23Z"
+    },
+    {
+      "name": "visgl/deck.gl",
+      "owner": "visgl",
+      "owner_type": "Organization",
+      "url": "https://github.com/visgl/deck.gl",
+      "stars": 14128,
+      "forks": 2214,
+      "language": "TypeScript",
+      "created_at": "2015-12-15T08:38:29Z"
+    },
+    {
+      "name": "flutter/flutter",
+      "owner": "flutter",
+      "owner_type": "Organization",
+      "url": "https://github.com/flutter/flutter",
+      "stars": 176153,
+      "forks": 30300,
+      "language": "Dart",
+      "created_at": "2015-03-06T22:54:58Z"
+    },
+    {
+      "name": "tensorflow/tensorflow",
+      "owner": "tensorflow",
+      "owner_type": "Organization",
+      "url": "https://github.com/tensorflow/tensorflow",
+      "stars": 194944,
+      "forks": 75304,
+      "language": "C++",
+      "created_at": "2015-11-07T01:19:20Z"
+    },
+    {
+      "name": "metabase/metabase",
+      "owner": "metabase",
+      "owner_type": "Organization",
+      "url": "https://github.com/metabase/metabase",
+      "stars": 47131,
+      "forks": 6422,
+      "language": "Clojure",
+      "created_at": "2015-02-02T19:25:47Z"
+    },
+    {
+      "name": "mattermost/mattermost",
+      "owner": "mattermost",
+      "owner_type": "Organization",
+      "url": "https://github.com/mattermost/mattermost",
+      "stars": 36485,
+      "forks": 8579,
+      "language": "TypeScript",
+      "created_at": "2015-06-15T06:50:02Z"
+    },
+    {
+      "name": "dart-lang/sdk",
+      "owner": "dart-lang",
+      "owner_type": "Organization",
+      "url": "https://github.com/dart-lang/sdk",
+      "stars": 11124,
+      "forks": 1805,
+      "language": "Dart",
+      "created_at": "2015-05-16T14:14:58Z"
+    },
+    {
+      "name": "godotengine/godot-docs",
+      "owner": "godotengine",
+      "owner_type": "Organization",
+      "url": "https://github.com/godotengine/godot-docs",
+      "stars": 5232,
+      "forks": 3649,
+      "language": "reStructuredText",
+      "created_at": "2015-12-12T15:02:06Z"
+    },
+    {
+      "name": "sebastianbergmann/recursion-context",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/recursion-context",
+      "stars": 6575,
+      "forks": 19,
+      "language": "PHP",
+      "created_at": "2015-01-22T17:19:19Z"
+    },
+    {
+      "name": "dotnet/roslyn",
+      "owner": "dotnet",
+      "owner_type": "Organization",
+      "url": "https://github.com/dotnet/roslyn",
+      "stars": 20393,
+      "forks": 4252,
+      "language": "C#",
+      "created_at": "2015-01-11T02:39:03Z"
+    },
+    {
+      "name": "unisonweb/unison",
+      "owner": "unisonweb",
+      "owner_type": "Organization",
+      "url": "https://github.com/unisonweb/unison",
+      "stars": 6600,
+      "forks": 303,
+      "language": "Haskell",
+      "created_at": "2015-05-06T14:53:49Z"
+    },
+    {
+      "name": "facebook/zstd",
+      "owner": "facebook",
+      "owner_type": "Organization",
+      "url": "https://github.com/facebook/zstd",
+      "stars": 27047,
+      "forks": 2468,
+      "language": "C",
+      "created_at": "2015-01-24T00:22:38Z"
+    },
+    {
+      "name": "yaronn/blessed-contrib",
+      "owner": "yaronn",
+      "owner_type": "User",
+      "url": "https://github.com/yaronn/blessed-contrib",
+      "stars": 15732,
+      "forks": 839,
+      "language": "JavaScript",
+      "created_at": "2015-01-14T14:18:07Z"
+    },
+    {
+      "name": "gitkraken/vscode-gitlens",
+      "owner": "gitkraken",
+      "owner_type": "Organization",
+      "url": "https://github.com/gitkraken/vscode-gitlens",
+      "stars": 9795,
+      "forks": 1713,
+      "language": "TypeScript",
+      "created_at": "2016-08-08T14:50:30Z"
+    },
+    {
+      "name": "facebook/redex",
+      "owner": "facebook",
+      "owner_type": "Organization",
+      "url": "https://github.com/facebook/redex",
+      "stars": 6283,
+      "forks": 681,
+      "language": "C++",
+      "created_at": "2016-03-24T18:26:35Z"
+    },
+    {
+      "name": "ClickHouse/ClickHouse",
+      "owner": "ClickHouse",
+      "owner_type": "Organization",
+      "url": "https://github.com/ClickHouse/ClickHouse",
+      "stars": 47148,
+      "forks": 8360,
+      "language": "C++",
+      "created_at": "2016-06-02T08:28:18Z"
+    },
+    {
+      "name": "MicrosoftDocs/azure-docs",
+      "owner": "MicrosoftDocs",
+      "owner_type": "Organization",
+      "url": "https://github.com/MicrosoftDocs/azure-docs",
+      "stars": 10829,
+      "forks": 21830,
+      "language": "Markdown",
+      "created_at": "2016-11-02T22:00:37Z"
+    },
+    {
+      "name": "PowerShell/PowerShell",
+      "owner": "PowerShell",
+      "owner_type": "Organization",
+      "url": "https://github.com/PowerShell/PowerShell",
+      "stars": 53245,
+      "forks": 8297,
+      "language": "C#",
+      "created_at": "2016-01-13T23:41:35Z"
+    },
+    {
+      "name": "commaai/openpilot",
+      "owner": "commaai",
+      "owner_type": "Organization",
+      "url": "https://github.com/commaai/openpilot",
+      "stars": 60761,
+      "forks": 10865,
+      "language": "Python",
+      "created_at": "2016-11-24T01:33:30Z"
+    },
+    {
+      "name": "microsoft/WSL",
+      "owner": "microsoft",
+      "owner_type": "Organization",
+      "url": "https://github.com/microsoft/WSL",
+      "stars": 32098,
+      "forks": 1702,
+      "language": "C++",
+      "created_at": "2016-04-06T17:32:56Z"
+    },
+    {
+      "name": "pulumi/pulumi",
+      "owner": "pulumi",
+      "owner_type": "Organization",
+      "url": "https://github.com/pulumi/pulumi",
+      "stars": 25126,
+      "forks": 1362,
+      "language": "Go",
+      "created_at": "2016-10-31T21:02:47Z"
+    },
+    {
+      "name": "PaperMC/Paper",
+      "owner": "PaperMC",
+      "owner_type": "Organization",
+      "url": "https://github.com/PaperMC/Paper",
+      "stars": 12219,
+      "forks": 3394,
+      "language": "Java",
+      "created_at": "2016-01-22T05:40:19Z"
+    },
+    {
+      "name": "redpanda-data/connect",
+      "owner": "redpanda-data",
+      "owner_type": "Organization",
+      "url": "https://github.com/redpanda-data/connect",
+      "stars": 8655,
+      "forks": 939,
+      "language": "Go",
+      "created_at": "2016-03-22T01:18:48Z"
+    },
+    {
+      "name": "zephyrproject-rtos/zephyr",
+      "owner": "zephyrproject-rtos",
+      "owner_type": "Organization",
+      "url": "https://github.com/zephyrproject-rtos/zephyr",
+      "stars": 15119,
+      "forks": 9067,
+      "language": "C",
+      "created_at": "2016-05-26T17:54:19Z"
+    },
+    {
+      "name": "kovidgoyal/kitty",
+      "owner": "kovidgoyal",
+      "owner_type": "User",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "stars": 32694,
+      "forks": 1356,
+      "language": "Python",
+      "created_at": "2016-10-16T14:48:28Z"
+    },
+    {
+      "name": "Homebrew/homebrew-core",
+      "owner": "Homebrew",
+      "owner_type": "Organization",
+      "url": "https://github.com/Homebrew/homebrew-core",
+      "stars": 15260,
+      "forks": 13521,
+      "language": "Ruby",
+      "created_at": "2016-03-01T06:58:36Z"
+    },
+    {
+      "name": "storybookjs/storybook",
+      "owner": "storybookjs",
+      "owner_type": "Organization",
+      "url": "https://github.com/storybookjs/storybook",
+      "stars": 89834,
+      "forks": 10040,
+      "language": "TypeScript",
+      "created_at": "2016-03-18T04:23:44Z"
+    },
+    {
+      "name": "firstcontributions/first-contributions",
+      "owner": "firstcontributions",
+      "owner_type": "Organization",
+      "url": "https://github.com/firstcontributions/first-contributions",
+      "stars": 53768,
+      "forks": 101904,
+      "language": null,
+      "created_at": "2016-09-20T14:35:09Z"
+    },
+    {
+      "name": "pytorch/pytorch",
+      "owner": "pytorch",
+      "owner_type": "Organization",
+      "url": "https://github.com/pytorch/pytorch",
+      "stars": 99569,
+      "forks": 27630,
+      "language": "Python",
+      "created_at": "2016-08-13T05:26:41Z"
+    },
+    {
+      "name": "eggjs/egg",
+      "owner": "eggjs",
+      "owner_type": "Organization",
+      "url": "https://github.com/eggjs/egg",
+      "stars": 18998,
+      "forks": 1811,
+      "language": "TypeScript",
+      "created_at": "2016-06-18T06:53:23Z"
+    },
+    {
+      "name": "refined-github/refined-github",
+      "owner": "refined-github",
+      "owner_type": "Organization",
+      "url": "https://github.com/refined-github/refined-github",
+      "stars": 31226,
+      "forks": 1733,
+      "language": "TypeScript",
+      "created_at": "2016-02-15T16:45:02Z"
+    },
+    {
+      "name": "llvm/llvm-project",
+      "owner": "llvm",
+      "owner_type": "Organization",
+      "url": "https://github.com/llvm/llvm-project",
+      "stars": 38123,
+      "forks": 17011,
+      "language": "LLVM",
+      "created_at": "2016-12-07T09:39:33Z"
+    },
+    {
+      "name": "phpstan/phpstan",
+      "owner": "phpstan",
+      "owner_type": "Organization",
+      "url": "https://github.com/phpstan/phpstan",
+      "stars": 13925,
+      "forks": 949,
+      "language": "PHP",
+      "created_at": "2016-01-04T18:22:16Z"
+    },
+    {
+      "name": "uBlockOrigin/uAssets",
+      "owner": "uBlockOrigin",
+      "owner_type": "Organization",
+      "url": "https://github.com/uBlockOrigin/uAssets",
+      "stars": 5698,
+      "forks": 991,
+      "language": "Adblock Filter List",
+      "created_at": "2016-04-01T11:41:37Z"
+    },
+    {
+      "name": "nextcloud/server",
+      "owner": "nextcloud",
+      "owner_type": "Organization",
+      "url": "https://github.com/nextcloud/server",
+      "stars": 34781,
+      "forks": 4835,
+      "language": "PHP",
+      "created_at": "2016-06-02T07:44:14Z"
+    },
+    {
+      "name": "expo/expo",
+      "owner": "expo",
+      "owner_type": "Organization",
+      "url": "https://github.com/expo/expo",
+      "stars": 49126,
+      "forks": 12013,
+      "language": "TypeScript",
+      "created_at": "2016-08-15T17:14:25Z"
+    },
+    {
+      "name": "Homebrew/brew",
+      "owner": "Homebrew",
+      "owner_type": "Organization",
+      "url": "https://github.com/Homebrew/brew",
+      "stars": 47804,
+      "forks": 11088,
+      "language": "Ruby",
+      "created_at": "2016-03-06T05:08:38Z"
+    },
+    {
+      "name": "weaviate/weaviate",
+      "owner": "weaviate",
+      "owner_type": "Organization",
+      "url": "https://github.com/weaviate/weaviate",
+      "stars": 16111,
+      "forks": 1269,
+      "language": "Go",
+      "created_at": "2016-03-30T15:03:17Z"
+    },
+    {
+      "name": "sebastianbergmann/object-enumerator",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/object-enumerator",
+      "stars": 6542,
+      "forks": 9,
+      "language": "PHP",
+      "created_at": "2016-01-28T06:34:32Z"
+    },
+    {
+      "name": "TanStack/table",
+      "owner": "TanStack",
+      "owner_type": "Organization",
+      "url": "https://github.com/TanStack/table",
+      "stars": 27943,
+      "forks": 3485,
+      "language": "TypeScript",
+      "created_at": "2016-10-20T17:25:08Z"
+    },
+    {
+      "name": "yugabyte/yugabyte-db",
+      "owner": "yugabyte",
+      "owner_type": "Organization",
+      "url": "https://github.com/yugabyte/yugabyte-db",
+      "stars": 10251,
+      "forks": 1251,
+      "language": "C",
+      "created_at": "2017-10-05T21:56:00Z"
+    },
+    {
+      "name": "WordPress/gutenberg",
+      "owner": "WordPress",
+      "owner_type": "Organization",
+      "url": "https://github.com/WordPress/gutenberg",
+      "stars": 11630,
+      "forks": 4785,
+      "language": "JavaScript",
+      "created_at": "2017-02-03T19:34:19Z"
+    },
+    {
+      "name": "inventree/InvenTree",
+      "owner": "inventree",
+      "owner_type": "Organization",
+      "url": "https://github.com/inventree/InvenTree",
+      "stars": 6902,
+      "forks": 1346,
+      "language": "Python",
+      "created_at": "2017-03-23T01:44:10Z"
+    },
+    {
+      "name": "aquasecurity/kube-bench",
+      "owner": "aquasecurity",
+      "owner_type": "Organization",
+      "url": "https://github.com/aquasecurity/kube-bench",
+      "stars": 8032,
+      "forks": 1320,
+      "language": "Go",
+      "created_at": "2017-06-19T13:27:02Z"
+    },
+    {
+      "name": "sebastianbergmann/object-reflector",
+      "owner": "sebastianbergmann",
+      "owner_type": "User",
+      "url": "https://github.com/sebastianbergmann/object-reflector",
+      "stars": 6283,
+      "forks": 3,
+      "language": "PHP",
+      "created_at": "2017-03-12T15:02:28Z"
+    },
+    {
+      "name": "python/cpython",
+      "owner": "python",
+      "owner_type": "Organization",
+      "url": "https://github.com/python/cpython",
+      "stars": 72534,
+      "forks": 34525,
+      "language": "Python",
+      "created_at": "2017-02-10T19:23:51Z"
+    },
+    {
+      "name": "nestjs/nest",
+      "owner": "nestjs",
+      "owner_type": "Organization",
+      "url": "https://github.com/nestjs/nest",
+      "stars": 75350,
+      "forks": 8295,
+      "language": "TypeScript",
+      "created_at": "2017-02-04T20:12:52Z"
+    },
+    {
+      "name": "mickael-kerjean/filestash",
+      "owner": "mickael-kerjean",
+      "owner_type": "User",
+      "url": "https://github.com/mickael-kerjean/filestash",
+      "stars": 14125,
+      "forks": 976,
+      "language": "Go",
+      "created_at": "2017-06-13T05:34:14Z"
+    },
+    {
+      "name": "DIYgod/RSSHub",
+      "owner": "DIYgod",
+      "owner_type": "User",
+      "url": "https://github.com/DIYgod/RSSHub",
+      "stars": 43748,
+      "forks": 9701,
+      "language": "TypeScript",
+      "created_at": "2018-04-02T14:43:21Z"
+    },
+    {
+      "name": "microsoft/onnxruntime",
+      "owner": "microsoft",
+      "owner_type": "Organization",
+      "url": "https://github.com/microsoft/onnxruntime",
+      "stars": 20397,
+      "forks": 3880,
+      "language": "C++",
+      "created_at": "2018-11-10T02:22:53Z"
+    },
+    {
+      "name": "kitao/pyxel",
+      "owner": "kitao",
+      "owner_type": "User",
+      "url": "https://github.com/kitao/pyxel",
+      "stars": 17432,
+      "forks": 925,
+      "language": "Rust",
+      "created_at": "2018-06-10T04:58:54Z"
+    },
+    {
+      "name": "klzgrad/naiveproxy",
+      "owner": "klzgrad",
+      "owner_type": "User",
+      "url": "https://github.com/klzgrad/naiveproxy",
+      "stars": 8564,
+      "forks": 986,
+      "language": "C++",
+      "created_at": "2018-01-27T16:02:33Z"
+    },
+    {
+      "name": "tuist/tuist",
+      "owner": "tuist",
+      "owner_type": "Organization",
+      "url": "https://github.com/tuist/tuist",
+      "stars": 5630,
+      "forks": 736,
+      "language": "Swift",
+      "created_at": "2018-04-16T07:02:54Z"
+    },
+    {
+      "name": "duckdb/duckdb",
+      "owner": "duckdb",
+      "owner_type": "Organization",
+      "url": "https://github.com/duckdb/duckdb",
+      "stars": 37865,
+      "forks": 3194,
+      "language": "C++",
+      "created_at": "2018-06-26T15:04:45Z"
+    },
+    {
+      "name": "ChilliCream/graphql-platform",
+      "owner": "ChilliCream",
+      "owner_type": "Organization",
+      "url": "https://github.com/ChilliCream/graphql-platform",
+      "stars": 5688,
+      "forks": 803,
+      "language": "C#",
+      "created_at": "2018-01-11T13:12:21Z"
+    },
+    {
+      "name": "huggingface/transformers",
+      "owner": "huggingface",
+      "owner_type": "Organization",
+      "url": "https://github.com/huggingface/transformers",
+      "stars": 160133,
+      "forks": 33069,
+      "language": "Python",
+      "created_at": "2018-10-29T13:56:00Z"
+    },
+    {
+      "name": "nautechsystems/nautilus_trader",
+      "owner": "nautechsystems",
+      "owner_type": "Organization",
+      "url": "https://github.com/nautechsystems/nautilus_trader",
+      "stars": 22371,
+      "forks": 2734,
+      "language": "Rust",
+      "created_at": "2018-06-25T06:26:16Z"
+    },
+    {
+      "name": "SerenityOS/serenity",
+      "owner": "SerenityOS",
+      "owner_type": "Organization",
+      "url": "https://github.com/SerenityOS/serenity",
+      "stars": 33118,
+      "forks": 3325,
+      "language": "C++",
+      "created_at": "2018-12-02T19:28:41Z"
+    },
+    {
+      "name": "Azure/Azure-Sentinel",
+      "owner": "Azure",
+      "owner_type": "Organization",
+      "url": "https://github.com/Azure/Azure-Sentinel",
+      "stars": 5802,
+      "forks": 3614,
+      "language": "Python",
+      "created_at": "2018-08-18T02:25:15Z"
+    },
+    {
+      "name": "openjdk/jdk",
+      "owner": "openjdk",
+      "owner_type": "Organization",
+      "url": "https://github.com/openjdk/jdk",
+      "stars": 22831,
+      "forks": 6317,
+      "language": "Java",
+      "created_at": "2018-09-17T12:29:20Z"
+    },
+    {
+      "name": "chromium/chromium",
+      "owner": "chromium",
+      "owner_type": "Organization",
+      "url": "https://github.com/chromium/chromium",
+      "stars": 23563,
+      "forks": 8816,
+      "language": "C++",
+      "created_at": "2018-02-05T20:55:32Z"
+    },
+    {
+      "name": "pion/webrtc",
+      "owner": "pion",
+      "owner_type": "Organization",
+      "url": "https://github.com/pion/webrtc",
+      "stars": 16260,
+      "forks": 1838,
+      "language": "Go",
+      "created_at": "2018-05-18T23:10:05Z"
+    },
+    {
+      "name": "python-poetry/poetry",
+      "owner": "python-poetry",
+      "owner_type": "Organization",
+      "url": "https://github.com/python-poetry/poetry",
+      "stars": 34276,
+      "forks": 2435,
+      "language": "Python",
+      "created_at": "2018-02-28T15:23:47Z"
+    },
+    {
+      "name": "openvinotoolkit/openvino",
+      "owner": "openvinotoolkit",
+      "owner_type": "Organization",
+      "url": "https://github.com/openvinotoolkit/openvino",
+      "stars": 10161,
+      "forks": 3197,
+      "language": "C++",
+      "created_at": "2018-10-15T10:54:40Z"
+    },
+    {
+      "name": "optuna/optuna",
+      "owner": "optuna",
+      "owner_type": "Organization",
+      "url": "https://github.com/optuna/optuna",
+      "stars": 14088,
+      "forks": 1322,
+      "language": "Python",
+      "created_at": "2018-02-21T06:12:56Z"
+    },
+    {
+      "name": "fastapi/fastapi",
+      "owner": "fastapi",
+      "owner_type": "Organization",
+      "url": "https://github.com/fastapi/fastapi",
+      "stars": 97800,
+      "forks": 9178,
+      "language": "Python",
+      "created_at": "2018-12-08T08:21:47Z"
+    },
+    {
+      "name": "argoproj/argo-cd",
+      "owner": "argoproj",
+      "owner_type": "Organization",
+      "url": "https://github.com/argoproj/argo-cd",
+      "stars": 22770,
+      "forks": 7144,
+      "language": "Go",
+      "created_at": "2018-02-09T11:12:01Z"
+    },
+    {
+      "name": "denoland/deno",
+      "owner": "denoland",
+      "owner_type": "Organization",
+      "url": "https://github.com/denoland/deno",
+      "stars": 106576,
+      "forks": 6039,
+      "language": "Rust",
+      "created_at": "2018-05-15T01:34:26Z"
+    },
+    {
+      "name": "n8n-io/n8n",
+      "owner": "n8n-io",
+      "owner_type": "Organization",
+      "url": "https://github.com/n8n-io/n8n",
+      "stars": 186319,
+      "forks": 57269,
+      "language": "TypeScript",
+      "created_at": "2019-06-22T09:24:21Z"
+    },
+    {
+      "name": "adobe/react-spectrum",
+      "owner": "adobe",
+      "owner_type": "Organization",
+      "url": "https://github.com/adobe/react-spectrum",
+      "stars": 15046,
+      "forks": 1415,
+      "language": "TypeScript",
+      "created_at": "2019-09-13T23:32:51Z"
+    },
+    {
+      "name": "TwiN/gatus",
+      "owner": "TwiN",
+      "owner_type": "User",
+      "url": "https://github.com/TwiN/gatus",
+      "stars": 10810,
+      "forks": 728,
+      "language": "Go",
+      "created_at": "2019-09-04T02:35:40Z"
+    },
+    {
+      "name": "supabase/supabase",
+      "owner": "supabase",
+      "owner_type": "Organization",
+      "url": "https://github.com/supabase/supabase",
+      "stars": 101679,
+      "forks": 12241,
+      "language": "TypeScript",
+      "created_at": "2019-10-12T05:56:49Z"
+    },
+    {
+      "name": "microsoft/winget-pkgs",
+      "owner": "microsoft",
+      "owner_type": "Organization",
+      "url": "https://github.com/microsoft/winget-pkgs",
+      "stars": 10531,
+      "forks": 6854,
+      "language": null,
+      "created_at": "2019-07-16T22:21:48Z"
+    },
+    {
+      "name": "TanStack/query",
+      "owner": "TanStack",
+      "owner_type": "Organization",
+      "url": "https://github.com/TanStack/query",
+      "stars": 49292,
+      "forks": 3804,
+      "language": "TypeScript",
+      "created_at": "2019-09-10T19:23:58Z"
+    },
+    {
+      "name": "trinodb/trino",
+      "owner": "trinodb",
+      "owner_type": "Organization",
+      "url": "https://github.com/trinodb/trino",
+      "stars": 12768,
+      "forks": 3586,
+      "language": "Java",
+      "created_at": "2019-01-19T06:38:14Z"
+    },
+    {
+      "name": "blender/blender",
+      "owner": "blender",
+      "owner_type": "Organization",
+      "url": "https://github.com/blender/blender",
+      "stars": 18258,
+      "forks": 2903,
+      "language": "C++",
+      "created_at": "2019-10-09T12:47:28Z"
+    },
+    {
+      "name": "chatwoot/chatwoot",
+      "owner": "chatwoot",
+      "owner_type": "Organization",
+      "url": "https://github.com/chatwoot/chatwoot",
+      "stars": 28961,
+      "forks": 7122,
+      "language": "Ruby",
+      "created_at": "2019-08-14T06:50:51Z"
+    },
+    {
+      "name": "slint-ui/slint",
+      "owner": "slint-ui",
+      "owner_type": "Organization",
+      "url": "https://github.com/slint-ui/slint",
+      "stars": 22438,
+      "forks": 873,
+      "language": "Rust",
+      "created_at": "2020-05-04T08:53:03Z"
+    },
+    {
+      "name": "siyuan-note/siyuan",
+      "owner": "siyuan-note",
+      "owner_type": "Organization",
+      "url": "https://github.com/siyuan-note/siyuan",
+      "stars": 43320,
+      "forks": 2743,
+      "language": "TypeScript",
+      "created_at": "2020-08-30T09:21:35Z"
+    },
+    {
+      "name": "SimplifyJobs/Summer2026-Internships",
+      "owner": "SimplifyJobs",
+      "owner_type": "Organization",
+      "url": "https://github.com/SimplifyJobs/Summer2026-Internships",
+      "stars": 44385,
+      "forks": 3177,
+      "language": "Python",
+      "created_at": "2020-05-23T20:53:18Z"
+    },
+    {
+      "name": "remotion-dev/remotion",
+      "owner": "remotion-dev",
+      "owner_type": "Organization",
+      "url": "https://github.com/remotion-dev/remotion",
+      "stars": 45355,
+      "forks": 3082,
+      "language": "TypeScript",
+      "created_at": "2020-06-23T19:49:10Z"
+    },
+    {
+      "name": "PostHog/posthog",
+      "owner": "PostHog",
+      "owner_type": "Organization",
+      "url": "https://github.com/PostHog/posthog",
+      "stars": 34222,
+      "forks": 2672,
+      "language": "Python",
+      "created_at": "2020-01-23T22:46:58Z"
+    },
+    {
+      "name": "lightdash/lightdash",
+      "owner": "lightdash",
+      "owner_type": "Organization",
+      "url": "https://github.com/lightdash/lightdash",
+      "stars": 5753,
+      "forks": 704,
+      "language": "TypeScript",
+      "created_at": "2021-03-19T09:44:40Z"
+    },
+    {
+      "name": "raycast/extensions",
+      "owner": "raycast",
+      "owner_type": "Organization",
+      "url": "https://github.com/raycast/extensions",
+      "stars": 7435,
+      "forks": 5953,
+      "language": "TypeScript",
+      "created_at": "2021-09-21T14:43:50Z"
+    },
+    {
+      "name": "holoviz/panel",
+      "owner": "holoviz",
+      "owner_type": "Organization",
+      "url": "https://github.com/holoviz/panel",
+      "stars": 5666,
+      "forks": 604,
+      "language": "Python",
+      "created_at": "2018-08-23T12:14:24Z"
+    },
+    {
+      "name": "horsicq/Detect-It-Easy",
+      "owner": "horsicq",
+      "owner_type": "User",
+      "url": "https://github.com/horsicq/Detect-It-Easy",
+      "stars": 10679,
+      "forks": 899,
+      "language": "JavaScript",
+      "created_at": "2014-06-01T21:37:32Z"
+    },
+    {
+      "name": "larksuite/cli",
+      "owner": "larksuite",
+      "owner_type": "Organization",
+      "url": "https://github.com/larksuite/cli",
+      "stars": 9100,
+      "forks": 607,
+      "language": "Go",
+      "created_at": "2026-03-25T07:13:30Z"
+    },
+    {
+      "name": "ai-dynamo/dynamo",
+      "owner": "ai-dynamo",
+      "owner_type": "Organization",
+      "url": "https://github.com/ai-dynamo/dynamo",
+      "stars": 6707,
+      "forks": 1076,
+      "language": "Rust",
+      "created_at": "2025-03-03T18:40:07Z"
+    },
+    {
+      "name": "rust-lang/rust-analyzer",
+      "owner": "rust-lang",
+      "owner_type": "Organization",
+      "url": "https://github.com/rust-lang/rust-analyzer",
+      "stars": 16354,
+      "forks": 2058,
+      "language": "Rust",
+      "created_at": "2017-12-21T19:24:42Z"
+    },
+    {
+      "name": "openai/codex",
+      "owner": "openai",
+      "owner_type": "Organization",
+      "url": "https://github.com/openai/codex",
+      "stars": 79240,
+      "forks": 11355,
+      "language": "Rust",
+      "created_at": "2025-04-13T05:37:54Z"
+    },
+    {
+      "name": "rust-lang/rust",
+      "owner": "rust-lang",
+      "owner_type": "Organization",
+      "url": "https://github.com/rust-lang/rust",
+      "stars": 112458,
+      "forks": 14863,
+      "language": "Rust",
+      "created_at": "2010-06-16T20:39:03Z"
+    },
+    {
+      "name": "sinelaw/fresh",
+      "owner": "sinelaw",
+      "owner_type": "User",
+      "url": "https://github.com/sinelaw/fresh",
+      "stars": 6969,
+      "forks": 244,
+      "language": "Rust",
+      "created_at": "2024-12-24T19:50:15Z"
+    },
+    {
+      "name": "defold/defold",
+      "owner": "defold",
+      "owner_type": "Organization",
+      "url": "https://github.com/defold/defold",
+      "stars": 5938,
+      "forks": 419,
+      "language": "C++",
+      "created_at": "2012-05-13T16:03:44Z"
+    },
+    {
+      "name": "millionco/react-doctor",
+      "owner": "millionco",
+      "owner_type": "Organization",
+      "url": "https://github.com/millionco/react-doctor",
+      "stars": 6320,
+      "forks": 199,
+      "language": "TypeScript",
+      "created_at": "2026-02-13T09:02:13Z"
+    },
+    {
+      "name": "highcharts/highcharts",
+      "owner": "highcharts",
+      "owner_type": "Organization",
+      "url": "https://github.com/highcharts/highcharts",
+      "stars": 12439,
+      "forks": 3856,
+      "language": "TypeScript",
+      "created_at": "2010-06-11T12:23:53Z"
+    },
+    {
+      "name": "Homebrew/homebrew-cask",
+      "owner": "Homebrew",
+      "owner_type": "Organization",
+      "url": "https://github.com/Homebrew/homebrew-cask",
+      "stars": 21991,
+      "forks": 11475,
+      "language": "Ruby",
+      "created_at": "2012-03-05T02:05:17Z"
+    },
+    {
+      "name": "WebKit/WebKit",
+      "owner": "WebKit",
+      "owner_type": "Organization",
+      "url": "https://github.com/WebKit/WebKit",
+      "stars": 9778,
+      "forks": 1944,
+      "language": "JavaScript",
+      "created_at": "2020-12-11T17:11:43Z"
+    },
+    {
+      "name": "nashsu/llm_wiki",
+      "owner": "nashsu",
+      "owner_type": "User",
+      "url": "https://github.com/nashsu/llm_wiki",
+      "stars": 5259,
+      "forks": 631,
+      "language": "TypeScript",
+      "created_at": "2026-04-08T11:24:01Z"
+    },
+    {
+      "name": "breezy-weather/breezy-weather",
+      "owner": "breezy-weather",
+      "owner_type": "Organization",
+      "url": "https://github.com/breezy-weather/breezy-weather",
+      "stars": 9924,
+      "forks": 333,
+      "language": "Kotlin",
+      "created_at": "2022-04-16T13:45:06Z"
+    },
+    {
+      "name": "bensadeh/tailspin",
+      "owner": "bensadeh",
+      "owner_type": "User",
+      "url": "https://github.com/bensadeh/tailspin",
+      "stars": 7818,
+      "forks": 136,
+      "language": "Rust",
+      "created_at": "2022-07-03T08:56:53Z"
+    },
+    {
+      "name": "DearVa/Everywhere",
+      "owner": "DearVa",
+      "owner_type": "User",
+      "url": "https://github.com/DearVa/Everywhere",
+      "stars": 5862,
+      "forks": 354,
+      "language": "C#",
+      "created_at": "2025-04-23T08:19:33Z"
+    },
+    {
+      "name": "xournalpp/xournalpp",
+      "owner": "xournalpp",
+      "owner_type": "Organization",
+      "url": "https://github.com/xournalpp/xournalpp",
+      "stars": 14688,
+      "forks": 1055,
+      "language": "C++",
+      "created_at": "2013-08-08T20:58:27Z"
+    },
+    {
+      "name": "kamyu104/LeetCode-Solutions",
+      "owner": "kamyu104",
+      "owner_type": "User",
+      "url": "https://github.com/kamyu104/LeetCode-Solutions",
+      "stars": 5200,
+      "forks": 1653,
+      "language": "C++",
+      "created_at": "2018-10-11T17:38:35Z"
+    },
+    {
+      "name": "NVIDIA/NemoClaw",
+      "owner": "NVIDIA",
+      "owner_type": "Organization",
+      "url": "https://github.com/NVIDIA/NemoClaw",
+      "stars": 20008,
+      "forks": 2548,
+      "language": "TypeScript",
+      "created_at": "2026-03-15T17:04:09Z"
+    },
+    {
+      "name": "iOfficeAI/AionUi",
+      "owner": "iOfficeAI",
+      "owner_type": "Organization",
+      "url": "https://github.com/iOfficeAI/AionUi",
+      "stars": 23239,
+      "forks": 2012,
+      "language": "TypeScript",
+      "created_at": "2025-08-07T10:29:51Z"
+    }
+  ]
+}
