@@ -38,7 +38,7 @@ AI_KEYWORDS = {
     "langchain": 8,
     "huggingface": 7,
     "mistral": 8,
-    "llama": 8,          # fixed from "lama"
+    "llama": 8,          
     "cursor": 7,
     "devin": 8,
     "codewhisperer": 9,
@@ -61,7 +61,6 @@ EXTRA_FILES_TO_SCAN = [
 # Set via environment variable: export GITHUB_TOKEN=ghp_xxxx
 import os
 # GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-github token here but i removed it for you claude
 
 class GitHubAPIScanner:
     def __init__(self, repos_json_path: str, output_json_path: str):

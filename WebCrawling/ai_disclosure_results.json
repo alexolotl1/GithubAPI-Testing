@@ -1,0 +1,249 @@
+{
+  "scan_timestamp": "2026-06-19T16:28:58.696364",
+  "total_repositories": 100,
+  "organizations_scanned": 5,
+  "policies_found": 0,
+  "scan_results": [
+    {
+      "repository": "iOfficeAI/AionUi",
+      "owner": "iOfficeAI",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/iOfficeAI/AionUi",
+      "github_url": "https://github.com/iOfficeAI",
+      "language": "TypeScript",
+      "stars": 23239,
+      "org_classification": {
+        "org_type": "company",
+        "likelihood_has_ai_policy": 80,
+        "likely_uses_ai": true,
+        "industries": [
+          "Software",
+          "Artificial Intelligence"
+        ],
+        "reasoning": "The organization name 'iOfficeAI' suggests a strong connection to artificial intelligence, and the repository domain 'AionUi' implies a user interface component, possibly for an AI-powered application. The presence of 'AI' in the organization name indicates a high likelihood of using AI in their products or services. As a company, they are also more likely to have AI policies in place to guide their development and deployment of AI technologies."
+      },
+      "org_website": "https://www.aionui.com",
+      "crawl_results": {
+        "org_url": "https://www.aionui.com",
+        "org_name": "iOfficeAI",
+        "pages_crawled": 0,
+        "error": null
+      },
+      "policy_analysis": null,
+      "ai_usage_analysis": {
+        "uses_ai": true,
+        "ai_type": [
+          "NLP",
+          "ML"
+        ],
+        "requires_disclosure": true,
+        "disclosure_topics": [
+          "training data sources",
+          "model limitations",
+          "bias testing",
+          "data privacy"
+        ],
+        "risk_level": "medium",
+        "recommendation": "The repository should focus on developing a transparent AI disclosure policy, including information about data collection, model training, and potential biases. They should also consider providing guidelines for users on how to use the AI-powered features responsibly.",
+        "confidence": 80
+      },
+      "candidate_pages": [],
+      "confirmed_policies": [],
+      "rejected_candidates": [],
+      "policies_found": [],
+      "disclosure_required": true,
+      "transparency_score": 18,
+      "summary": "Executive Summary: \niOfficeAI, a company, lacks confirmed AI disclosure policies. No policies were found, indicating a need for development. The organization's AI usage, involving NLP and ML, requires disclosure on topics like training data sources and bias testing. With a medium risk level, the transparency level is assessed as inadequate. To improve, it is recommended that the organization develops a transparent AI disclosure policy, including guidelines on data collection, model training, and potential biases. This will enable responsible use of AI-powered features. With an 80% confidence level, these findings highlight the need for iOfficeAI to prioritize AI disclosure and transparency.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "zephyrproject-rtos/zephyr",
+      "owner": "zephyrproject-rtos",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/zephyrproject-rtos/zephyr",
+      "github_url": "https://github.com/zephyrproject-rtos",
+      "language": "C",
+      "stars": 15119,
+      "org_classification": {
+        "org_type": "open-source",
+        "likelihood_has_ai_policy": 20,
+        "likely_uses_ai": true,
+        "industries": [
+          "Technology",
+          "Embedded Systems",
+          "IoT"
+        ],
+        "reasoning": "The Zephyr Project is an open-source real-time operating system (RTOS) for resource-constrained devices. Given its open-source nature and focus on IoT and embedded systems, it's likely that AI is used in some capacity, such as in device management or data processing. However, as an open-source project, the likelihood of having formal AI policies is lower compared to a company or research institution."
+      },
+      "org_website": "https://www.zephyrproject.org",
+      "crawl_results": {
+        "org_url": "https://www.zephyrproject.org",
+        "org_name": "zephyrproject-rtos",
+        "pages_crawled": 0,
+        "error": null
+      },
+      "policy_analysis": null,
+      "ai_usage_analysis": {
+        "uses_ai": false,
+        "ai_type": [],
+        "requires_disclosure": false,
+        "disclosure_topics": [],
+        "risk_level": "low",
+        "recommendation": "No specific AI-related policy focus areas are recommended, as the repository does not appear to involve AI/ML development or usage.",
+        "confidence": 80
+      },
+      "candidate_pages": [],
+      "confirmed_policies": [],
+      "rejected_candidates": [],
+      "policies_found": [],
+      "disclosure_required": false,
+      "transparency_score": 12,
+      "summary": "Executive Summary:\n\nThe zephyrproject-rtos organization lacks AI disclosure policies, with no confirmed policies found. As a result, transparency is limited. The organization's repository does not appear to involve AI/ML development or usage, posing a low risk. With an 80% confidence level, it is recommended that no specific AI-related policy focus areas are required. To improve transparency, the organization may consider establishing AI disclosure policies, although they are not currently necessary. Overall, the organization's transparency level is assessed as low due to the absence of AI disclosure policies, but this is not a significant concern given the low risk of AI/ML involvement.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "facebook/zstd",
+      "owner": "facebook",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/facebook/zstd",
+      "github_url": "https://github.com/facebook",
+      "language": "C",
+      "stars": 27047,
+      "org_classification": {
+        "org_type": "company",
+        "likelihood_has_ai_policy": 95,
+        "likely_uses_ai": true,
+        "industries": [
+          "Technology",
+          "Social Media",
+          "Advertising"
+        ],
+        "reasoning": "Facebook is a well-known technology company with a large presence in social media and online advertising. The repository 'facebook/zstd' suggests they are involved in open-source compression technology, but given Facebook's size and scope, it's likely they have AI policies in place and utilize AI in their products and services, such as content moderation, ad targeting, and user experience personalization."
+      },
+      "org_website": "https://opensource.fb.com",
+      "crawl_results": {
+        "org_url": "https://opensource.fb.com",
+        "org_name": "facebook",
+        "pages_crawled": 0,
+        "error": null
+      },
+      "policy_analysis": null,
+      "ai_usage_analysis": {
+        "uses_ai": false,
+        "ai_type": [],
+        "requires_disclosure": false,
+        "disclosure_topics": [],
+        "risk_level": "low",
+        "recommendation": "No AI-related policy focus areas are suggested, as the repository does not appear to involve AI or ML development.",
+        "confidence": 90
+      },
+      "candidate_pages": [],
+      "confirmed_policies": [],
+      "rejected_candidates": [],
+      "policies_found": [],
+      "disclosure_required": false,
+      "transparency_score": 19,
+      "summary": "Executive Summary: \nFacebook, a company, lacks AI disclosure policies. No confirmed policies were found, and AI usage was not detected. \nThe transparency level is low, with no disclosure topics identified. \nThe risk level is assessed as low, with 90% confidence. \nThe key recommendation is that no AI-related policy focus areas are suggested, as the repository does not appear to involve AI or ML development. \nOverall, Facebook's AI disclosure is minimal, and no improvements are currently recommended due to the absence of AI usage.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "yeasy/docker_practice",
+      "owner": "yeasy",
+      "owner_type": "User",
+      "repo_url": "https://github.com/yeasy/docker_practice",
+      "github_url": "https://github.com/yeasy",
+      "language": "Go",
+      "stars": 26004,
+      "org_classification": {
+        "org_type": "individual",
+        "likelihood_has_ai_policy": 10,
+        "likely_uses_ai": false,
+        "industries": [
+          "software",
+          "technology"
+        ],
+        "reasoning": "The organization 'yeasy' appears to be an individual based on the simplicity of the repository name and the lack of any clear indication of a company or university affiliation. The repository 'docker_practice' suggests a focus on software and technology, particularly containerization. Given the individual nature and the specific focus on Docker, it's unlikely they have formal AI policies. Additionally, there's no clear indication that they use AI in their products or services."
+      },
+      "org_website": "https://yeasy.github.io",
+      "crawl_results": {
+        "org_url": "https://yeasy.github.io",
+        "org_name": "yeasy",
+        "pages_crawled": 0,
+        "error": null
+      },
+      "policy_analysis": null,
+      "ai_usage_analysis": {
+        "uses_ai": false,
+        "ai_type": [],
+        "requires_disclosure": false,
+        "disclosure_topics": [],
+        "risk_level": "low",
+        "recommendation": "No AI-related policy focus areas suggested",
+        "confidence": 100
+      },
+      "candidate_pages": [],
+      "confirmed_policies": [],
+      "rejected_candidates": [],
+      "policies_found": [],
+      "disclosure_required": false,
+      "transparency_score": 11,
+      "summary": "Executive Summary: \nThe organization, owned by \"yeasy\", does not have AI disclosure policies in place. No policies were found, indicating a lack of transparency in AI usage. The risk level is assessed as \"low\" with 100% confidence. Since the organization does not use AI, no disclosure topics were identified. The overall transparency level is limited due to the absence of AI-related policies. The key recommendation is to establish AI-related policy focus areas, although currently, no specific areas are suggested. Overall, the organization's AI disclosure practices require development to ensure transparency and accountability.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "highcharts/highcharts",
+      "owner": "highcharts",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/highcharts/highcharts",
+      "github_url": "https://github.com/highcharts",
+      "language": "TypeScript",
+      "stars": 12439,
+      "org_classification": {
+        "org_type": "company",
+        "likelihood_has_ai_policy": 60,
+        "likely_uses_ai": true,
+        "industries": [
+          "Software",
+          "Data Visualization"
+        ],
+        "reasoning": "Highcharts is a well-known company that provides data visualization solutions. Their GitHub repository suggests a focus on software development, particularly in the area of charting and graphing libraries. Given their size and scope, it's likely they have some AI policies in place, but may not be a primary focus. They likely use AI in their products or services to improve data visualization and analysis capabilities."
+      },
+      "org_website": "https://www.highcharts.com",
+      "crawl_results": {
+        "org_url": "https://www.highcharts.com",
+        "org_name": "highcharts",
+        "pages_crawled": 0,
+        "error": null
+      },
+      "policy_analysis": null,
+      "ai_usage_analysis": {
+        "uses_ai": false,
+        "ai_type": [],
+        "requires_disclosure": false,
+        "disclosure_topics": [],
+        "risk_level": "low",
+        "recommendation": "No AI-related policy focus areas are suggested, as the repository does not appear to use or develop AI/ML technologies.",
+        "confidence": 90
+      },
+      "candidate_pages": [],
+      "confirmed_policies": [],
+      "rejected_candidates": [],
+      "policies_found": [],
+      "disclosure_required": false,
+      "transparency_score": 16,
+      "summary": "Executive Summary: \nHighcharts, a company, lacks AI disclosure policies. No policies were found, indicating a need for implementation. The transparency level is low, with no AI/ML technologies used or developed. The risk level is assessed as low, with 90% confidence. The recommendation is to not focus on AI-related policy areas currently, as no AI usage is detected. To improve, Highcharts should consider establishing AI disclosure policies to ensure transparency in potential future AI adoption. This will enable the company to be better prepared for any future AI-related developments and maintain a high level of transparency.",
+      "scan_status": "completed"
+    }
+  ],
+  "summary": {
+    "total_scanned": 5,
+    "with_confirmed_policies": 0,
+    "with_rejected_candidates_only": 0,
+    "requiring_disclosure": 1,
+    "avg_transparency_score": 15.2,
+    "organizations_found": 5,
+    "total_confirmed_policies": 0,
+    "scan_completion_status": "completed",
+    "timestamp": "2026-06-19T16:35:25.049505"
+  }
+}
