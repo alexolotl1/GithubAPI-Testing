@@ -5,14 +5,27 @@ Collects ~4000-6000 GitHub repositories using pseudo-random sampling
 across different creation dates and languages, then categorizes by star count.
 """
 
+import os
 import requests
 import time
 import matplotlib.pyplot as plt
 from typing import Dict, List, Set
 import sys
 import random
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    def load_dotenv(*_args, **_kwargs):
+        return False
 
-GITHUB_TOKEN = "API_TOKEN_HERE"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_DIR = os.path.dirname(BASE_DIR)
+
+# Shared secrets live in WebCrawling/.env (single .env for the whole repo,
+# gitignored) rather than pasted directly into source here.
+load_dotenv(os.path.join(REPO_DIR, 'WebCrawling', '.env'))
+
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
 GITHUB_API_BASE = "https://api.github.com"
 SEARCH_ENDPOINT = f"{GITHUB_API_BASE}/search/repositories"
@@ -34,7 +47,6 @@ GENERAL_QUERIES = ["stars:>0", "stars:>10"]
 
 
 def create_headers() -> Dict[str, str]:
-    """Create request headers with GitHub authentication."""
     return {
         "Authorization": f"token {GITHUB_TOKEN}",
         "Accept": "application/vnd.github.v3+json"
@@ -42,7 +54,6 @@ def create_headers() -> Dict[str, str]:
 
 
 def check_rate_limit() -> Dict:
-    """Check current GitHub API rate limit status."""
     headers = create_headers()
     try:
         response = requests.get(RATE_LIMIT_STATUS_ENDPOINT, headers=headers)
@@ -60,52 +71,32 @@ def check_rate_limit() -> Dict:
 
 
 def generate_queries() -> List[str]:
-    """
-    Generate diverse search queries to simulate random sampling.
-    
-    Uses varied creation dates and languages to avoid biasing toward
-    high-star or recently created repositories.
-    """
+    """Varied creation dates + languages, to avoid biasing toward high-star
+    or recently created repositories."""
     queries = []
-    
-    # Date-based queries across different years
+
     for year in YEARS_TO_SAMPLE:
         start = f"{year}-01-01"
         end = f"{year}-12-31"
         queries.append(f"created:{start}..{end}")
-    
-    # Language-specific queries
+
     for lang in LANGUAGES:
         queries.append(f"language:{lang}")
-    
-    # General open-ended queries
+
     queries.extend(GENERAL_QUERIES)
-    
+
     return queries
 
 
 def validate_token() -> bool:
-    """Validate that a GitHub token is set."""
-    if GITHUB_TOKEN == "YOUR_GITHUB_TOKEN_HERE":
-        print("ERROR: Please set your GitHub Personal Access Token in GITHUB_TOKEN")
+    if not GITHUB_TOKEN:
+        print("ERROR: Set GITHUB_TOKEN in WebCrawling/.env (see WebCrawling/.env.example)")
         return False
     return True
 
 
 def fetch_repositories(query: str, max_repos: int = 1000) -> List[Dict]:
-    """
-    Fetch repositories for a single query with randomized pagination.
-    
-    Handles rate limiting and returns parsed repository data.
-    Randomizes page selection to avoid bias toward high-star repos.
-    
-    Args:
-        query: GitHub search query string
-        max_repos: Maximum repos to fetch per query (API limits to ~1000)
-    
-    Returns:
-        List of repository dictionaries with id and stargazers_count
-    """
+    """Randomizes page selection to avoid bias toward high-star repos."""
     repos = []
     headers = create_headers()
     pages_to_fetch = (max_repos // RESULTS_PER_PAGE) + 1
@@ -159,15 +150,6 @@ def fetch_repositories(query: str, max_repos: int = 1000) -> List[Dict]:
 
 
 def bucket_repositories(repos: List[Dict]) -> Dict[str, int]:
-    """
-    Categorize repositories into star ranges.
-    
-    Args:
-        repos: List of repository dicts with 'stars' key
-    
-    Returns:
-        Dictionary mapping star range labels to counts
-    """
     buckets = {
         "0-100": 0,
         "100-500": 0,
@@ -194,12 +176,6 @@ def bucket_repositories(repos: List[Dict]) -> Dict[str, int]:
 
 
 def plot_results(buckets: Dict[str, int]) -> None:
-    """
-    Create and save a bar chart visualization of star distribution.
-    
-    Args:
-        buckets: Dictionary mapping star ranges to repository counts
-    """
     labels = list(buckets.keys())
     counts = list(buckets.values())
     
@@ -222,13 +198,13 @@ def plot_results(buckets: Dict[str, int]) -> None:
     ax.set_axisbelow(True)
     
     plt.tight_layout()
-    plt.savefig("star_distribution.png", dpi=300, bbox_inches='tight')
-    print("\n✓ Graph saved as 'star_distribution.png'")
+    output_path = os.path.join(BASE_DIR, "star_distribution.png")
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    print(f"\n✓ Graph saved as '{output_path}'")
     plt.show()
 
 
 def main():
-    """Main entry point for the analysis."""
     if not validate_token():
         sys.exit(1)
     
@@ -274,8 +250,7 @@ def main():
         print(f"\nTotal repositories collected: {len(all_repos)}")
         
         buckets = bucket_repositories(all_repos)
-        
-        # Print summary
+
         print("\n" + "="*70)
         print("Results")
         print("="*70)

@@ -13,14 +13,26 @@ from typing import Dict, List, Set
 import sys
 import random
 from pathlib import Path
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    def load_dotenv(*_args, **_kwargs):
+        return False
 
-GITHUB_TOKEN = "___"
+BASE_DIR = Path(__file__).resolve().parent
+REPO_DIR = BASE_DIR.parent
+
+# Shared secrets live in WebCrawling/.env (single .env for the whole repo,
+# gitignored) rather than pasted directly into source here.
+load_dotenv(REPO_DIR / 'WebCrawling' / '.env')
+
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
 GITHUB_API_BASE = "https://api.github.com"
 SEARCH_ENDPOINT = f"{GITHUB_API_BASE}/search/repositories"
 RATE_LIMIT_STATUS_ENDPOINT = f"{GITHUB_API_BASE}/rate_limit"
 GRAPHQL_ENDPOINT = "https://api.github.com/graphql"
-CHECKPOINT_FILE = "checkpoint.json"
+CHECKPOINT_FILE = BASE_DIR / "checkpoint.json"
 
 # Target collection
 TARGET_REPOS = 5000
@@ -38,7 +50,6 @@ GENERAL_QUERIES = ["stars:>0", "stars:>10"]
 
 
 def create_headers() -> Dict[str, str]:
-    """Create request headers with GitHub authentication."""
     return {
         "Authorization": f"token {GITHUB_TOKEN}",
         "Accept": "application/vnd.github.v3+json"
@@ -46,7 +57,6 @@ def create_headers() -> Dict[str, str]:
 
 
 def check_rate_limit() -> Dict:
-    """Check current GitHub API rate limit status."""
     headers = create_headers()
     try:
         response = requests.get(RATE_LIMIT_STATUS_ENDPOINT, headers=headers)
@@ -64,12 +74,8 @@ def check_rate_limit() -> Dict:
 
 
 def generate_queries() -> List[str]:
-    """
-    Generate diverse search queries to simulate random sampling.
-    
-    Uses varied creation dates and languages to avoid biasing toward
-    high-star or recently created repositories.
-    """
+    """Varied creation dates + languages, to avoid biasing toward high-star
+    or recently created repositories."""
     queries = []
     
     for year in YEARS_TO_SAMPLE:
@@ -86,9 +92,8 @@ def generate_queries() -> List[str]:
 
 
 def validate_token() -> bool:
-    """Validate that a GitHub token is set."""
-    if GITHUB_TOKEN == "YOUR_GITHUB_TOKEN_HERE":
-        print("ERROR: Please set your GitHub Personal Access Token in GITHUB_TOKEN")
+    if not GITHUB_TOKEN:
+        print("ERROR: Set GITHUB_TOKEN in WebCrawling/.env (see WebCrawling/.env.example)")
         return False
     return True
 
@@ -112,21 +117,12 @@ def load_checkpoint():
 
 
 def fetch_repos_graphql(repo_list: List[Dict]) -> List[Dict]:
-    """
-    Batch fetch repo details using GraphQL (up to 100 repos per request).
-    This is much faster than individual REST API calls.
-    
-    Args:
-        repo_list: List of dicts with "owner" and "name" keys
-    
-    Returns:
-        List of enriched repository dictionaries
-    """
+    """Batch fetch repo details via GraphQL (up to 100 per request) —
+    much faster than individual REST calls."""
     if not repo_list:
         return []
-    
+
     try:
-        # Build GraphQL query with aliases for each repo
         aliases = []
         for i, repo in enumerate(repo_list):
             owner = repo.get("owner", "")
@@ -175,18 +171,7 @@ def fetch_repos_graphql(repo_list: List[Dict]) -> List[Dict]:
 
 
 def fetch_repositories(query: str, max_repos: int = 100) -> List[Dict]:
-    """
-    Fetch repositories for a single query with randomized pagination.
-    
-    Handles rate limiting and returns full repository data.
-    
-    Args:
-        query: GitHub search query string
-        max_repos: Maximum repos to fetch per query (API limits to ~1000)
-    
-    Returns:
-        List of repository dictionaries with full details
-    """
+    """Randomizes page selection to avoid bias toward high-star repos."""
     repos = []
     headers = create_headers()
     pages_to_fetch = (max_repos // RESULTS_PER_PAGE) + 1
@@ -237,15 +222,6 @@ def fetch_repositories(query: str, max_repos: int = 100) -> List[Dict]:
 
 
 def bucket_repositories(repos: List[Dict]) -> Dict[str, int]:
-    """
-    Categorize repositories into star ranges.
-    
-    Args:
-        repos: List of repository dicts with 'stars' key
-    
-    Returns:
-        Dictionary mapping star range labels to counts
-    """
     buckets = {
         "0-100": 0,
         "100-500": 0,
@@ -272,16 +248,7 @@ def bucket_repositories(repos: List[Dict]) -> Dict[str, int]:
 
 
 def fetch_repo_details(repo_data: Dict) -> Dict:
-    """
-    Extract repository data from search API response.
-    Returns data in format needed for GraphQL enrichment.
-    
-    Args:
-        repo_data: Repository dict from GitHub search API
-    
-    Returns:
-        Dictionary with owner and name for GraphQL batching
-    """
+    """Extract owner/name from a search API result for GraphQL batching."""
     try:
         owner_obj = repo_data.get("owner", {})
         owner = owner_obj.get("login", "unknown")
@@ -297,21 +264,9 @@ def fetch_repo_details(repo_data: Dict) -> Dict:
 
 
 def export_to_json_files(repos: List[Dict]) -> None:
-    """
-    Export repositories organized by star count to 5 JSON files.
-    Merges with existing data instead of overwriting.
-    
-    Creates a 'star_maps' directory with 5 files:
-    - stars_0_100.json
-    - stars_100_500.json
-    - stars_500_1k.json
-    - stars_1k_5k.json
-    - stars_5k_plus.json
-    
-    Args:
-        repos: List of full repository dictionaries
-    """
-    output_dir = Path("star_maps")
+    """Writes star_maps/*.json (5 files by star range), merging with
+    existing data instead of overwriting."""
+    output_dir = BASE_DIR / "star_maps"
     output_dir.mkdir(exist_ok=True)
     
     # Define star categories (use None instead of float('inf') for JSON serialization)
@@ -343,7 +298,6 @@ def export_to_json_files(repos: List[Dict]) -> None:
         file_path = output_dir / f"{key}.json"
         new_repos = sorted_buckets[key]
         
-        # Load existing repos from file if it exists
         existing_repos = []
         if file_path.exists():
             try:
@@ -352,12 +306,10 @@ def export_to_json_files(repos: List[Dict]) -> None:
                     existing_repos = data.get("repositories", [])
             except:
                 pass
-        
-        # Merge: deduplicate by repo name
+
         existing_names = {r["name"] for r in existing_repos}
         merged = existing_repos + [r for r in new_repos if r["name"] not in existing_names]
-        
-        # Write merged data
+
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump({
                 "category": label,
@@ -373,7 +325,6 @@ def export_to_json_files(repos: List[Dict]) -> None:
 
 
 def main():
-    """Main entry point - fetch repos and export to JSON files."""
     if not validate_token():
         sys.exit(1)
     
@@ -390,7 +341,6 @@ def main():
         print("⚠️  Rate limit too low. Please wait before running again.")
         sys.exit(1)
 
-    # Load checkpoint if resuming
     all_repos, seen_ids = load_checkpoint()
     if all_repos:
         print(f"✓ Resuming from checkpoint: {len(all_repos)} repos already collected\n")
@@ -405,10 +355,8 @@ def main():
         for i, query in enumerate(queries, 1):
             print(f"[{i}/{len(queries)}] Query: {query}")
             
-            # Fetch raw repos from search API
             raw_repos = fetch_repositories(query, max_repos=repos_per_query)
-            
-            # Extract owner info for GraphQL batching
+
             repos_for_graphql = []
             for repo in raw_repos:
                 repo_id = repo.get("id")
@@ -417,28 +365,22 @@ def main():
                     if basic_info:
                         repos_for_graphql.append(basic_info)
                         seen_ids.add(repo_id)
-            
-            # Batch fetch details via GraphQL (100 repos per request)
+
             for batch_start in range(0, len(repos_for_graphql), 100):
                 batch = repos_for_graphql[batch_start:batch_start + 100]
                 enriched_batch = fetch_repos_graphql(batch)
                 all_repos.extend(enriched_batch)
-            
+
             print(f"  Collected: {len(raw_repos)} repos (unique: {len(all_repos)})")
-            
-            # Save checkpoint after each query
             save_checkpoint(all_repos, seen_ids)
-            
+
             if len(all_repos) >= TARGET_REPOS:
                 print(f"\nTarget reached! ({len(all_repos)} repos)")
                 break
-        
+
         print(f"\nTotal repositories collected: {len(all_repos)}")
-        
-        # Export to JSON files
         export_to_json_files(all_repos)
-        
-        # Clean up checkpoint on successful completion
+
         if Path(CHECKPOINT_FILE).exists():
             Path(CHECKPOINT_FILE).unlink()
         

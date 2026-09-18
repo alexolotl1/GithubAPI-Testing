@@ -1,0 +1,184 @@
+project,project_url,policy_url,ai_llms_allowed,disclosure_required,copyright_statement,human_in_loop,notes,github_owner,github_repo,is_github,resolved_by_hand
+Adwaita,https://gitlab.gnome.org/GNOME/libadwaita,https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/CONTRIBUTING.md?ref_type=heads#use-of-generative-ai,No,-,-,-,,,,False,False
+Alacritty,https://github.com/alacritty/alacritty,https://github.com/alacritty/alacritty/blob/master/CONTRIBUTING.md#llmai-contributions,No,-,-,-,,alacritty,alacritty,True,False
+Allium,https://allium.moongarden.dev,https://github.com/moongardenmods/allium/blob/main/CONTRIBUTING.md#ai-contributions,No,-,-,-,-,moongardenmods,allium,True,False
+Amberol,https://gitlab.gnome.org/World/amberol,https://gitlab.gnome.org/World/amberol/-/blob/main/CONTRIBUTING.md#use-of-generative-ai,No,-,Yes,-,"Use of AI to ""answer questions and find information"" permitted but strongly discouraged in favour of ""existing documentation"" and ""chats and forums""",,,False,False
+Apache Airflow,https://airflow.apache.org/,https://github.com/apache/airflow/blob/main/contributing-docs/05_pull_requests.rst#gen-ai-assisted-contributions,Yes,Yes,Yes,Yes,[Add Copilot code review instructions to catch AI-slop PRs#62442](https://github.com/apache/airflow/pull/62442),apache,airflow,True,False
+Apache CouchDB,https://couchdb.apache.org,https://github.com/apache/couchdb/blob/main/CONTRIBUTING.md#artificial-intelligence-and-large-language-models-contributions-policy,No,-,-,-,,apache,couchdb,True,False
+Apache DataFusion,https://datafusion.apache.org,https://datafusion.apache.org/contributor-guide/index.html#ai-assisted-contributions,Yes,No,No,Yes,[Better ways to contribute than an AI dump](https://datafusion.apache.org/contributor-guide/index.html#better-ways-to-contribute-than-an-ai-dump),,,False,False
+Apache Kvrocks,https://kvrocks.apache.org/,https://kvrocks.apache.org/community/contributing/#guidelines-for-ai-assisted-contributions,Yes,Yes,Yes,Yes,,apache,kvrocks,True,True
+Apache PouchDB,https://pouchdb.com,https://github.com/apache/pouchdb/blob/master/CONTRIBUTING.md#artificial-intelligence-and-large-language-models-contributions-policy,No,-,-,-,,apache,pouchdb,True,False
+Apache® Software Foundation (ASF),https://www.apache.org/,https://www.apache.org/legal/generative-tooling.html,Yes,Yes,Yes,-,"Applies to all ASF projects, but enforcement is decentralized. Requires use of ""Generated-by:"" in commit message.",,,False,False
+Arcalibre,https://codeberg.org/rereading/arcalibre,https://blog.rereading.space/rereading-because-books-are-art-and-art-is-labor,No,-,-,-,-,,,False,False
+Arrow,https://arrow.apache.org,https://arrow.apache.org/docs/dev/developers/overview.html#ai-generated-code,Yes,Yes,Yes,Yes,,apache,arrow,True,True
+Asahi Linux,https://asahilinux.org,https://asahilinux.org/docs/project/policies/slop/,No,-,-,-,,,,False,False
+Astropy,https://www.astropy.org/,https://github.com/astropy/astropy-project/blob/main/policies/ai-policy.md,Yes,No,No,Yes,,astropy,astropy-project,True,False
+attrs,https://github.com/python-attrs/attrs,https://github.com/python-attrs/attrs/blob/main/.github/AI_POLICY.md,Yes,?,Yes,Yes,"""No LLM bots in Co-authored-by:s.""",python-attrs,attrs,True,False
+Avoyd,https://www.avoyd.com,https://www.enkisoftware.com/faq#nogenAI,No,-,-,-,It is AI image denoising that uses training data with appropriate rights. It doesn't allow LLM use for writing the code.,,,False,False
+Bevy,https://bevy.org,https://bevy.org/learn/contribute/policies/ai/,No,-,Yes,-,-,,,False,False
+Bobby,https://github.com/hbons/Bobby,https://github.com/hbons/Bobby?tab=contributing-ov-file#use-of-generative-ai,No,-,Yes,-,-,hbons,Bobby,True,False
+Borgmatic,https://torsion.org/borgmatic,https://projects.torsion.org/borgmatic-collective/borgmatic/src/branch/main/AGENTS.md,No*,-,-,-,"An AGENTS.md file is provided, which instructs the agent to not modify the code. AI is allowed to interact with the code in a read-only manner.",,,False,False
+CapyPDF,https://github.com/jpakkane/capypdf,https://github.com/jpakkane/capypdf/?tab=readme-ov-file#ai-policy,No,-,-,-,,jpakkane,capypdf,True,False
+Cataclysm: Dark Days Ahead,http://cataclysmdda.org/,https://github.com/CleverRaven/Cataclysm-DDA/blob/master/CONTRIBUTING.md#licensing-and-authorship,No,-,-,-,,CleverRaven,Cataclysm-DDA,True,False
+CCExtractor,https://ccextractor.org/,https://ccextractor.org/public/gsoc/ai_policy/,Yes,Yes,Yes,Yes,"Mark PRs as ""AI-generated/AI-assisted/No AI used""",CCExtractor,ccextractor,True,True
+CC Open Source,https://opensource.creativecommons.org/,https://opensource.creativecommons.org/contributing-code/,No,-,-,-,,,,False,False
+Cheese Paper,https://brie.gay/cheese-paper,https://codeberg.org/ByteOfBrie/cheese-paper#ai,No,-,Yes,-,-,,,False,False
+chezmoi,https://www.chezmoi.io,https://www.chezmoi.io/developer-guide/,No,-,-,-,Shows a Claude banner due to [a single Claude commit](https://slopscan.ava.pet/repo/https%3A%2F%2Fgithub%2Ecom%2Ftwpayne%2Fchezmoi) that was created before the [introduction of the ban](https://github.com/twpayne/chezmoi/commit/7938c65ca55aaeaf6fc56d37b0b32073d2e5c461).,,,False,False
+Chimera Linux,https://chimera-linux.org,https://gts.chimera-linux.org/@chimera/statuses/01KK78VSB4G5S75STYEY3YTR2H,No,-,-,-,-,,,False,False
+ChiPass,https://chipass.org,https://codeberg.org/ChiPass/ChiPass/src/branch/main/CONTRIBUTING.md,No,-,-,-,-,,,False,False
+cilium,https://cilium.io/,https://github.com/cilium/community/blob/main/AI-POLICY.md,Yes,Yes,Yes,Yes,"DCO signoff required for all contributions, including AI-generated ones.",cilium,community,True,False
+Clojure,https://clojure.org,https://clojure.org/dev/contributor_agreement#_no_generated_code,No,-,-,-,,,,False,False
+CloudNativePG,https://cloudnative-pg.io/,https://github.com/cloudnative-pg/governance/blob/main/AI_POLICY.md,Yes,Yes,Yes,Yes,,cloudnative-pg,governance,True,False
+conda,https://github.com/conda/conda,https://docs.conda.io/projects/conda/en/latest/dev-guide/contributing.html#generative-ai,Yes,No,Yes,Yes,,conda,conda,True,False
+CPython,https://github.com/python/cpython,https://devguide.python.org/getting-started/generative-ai/,Yes,No,No,Yes,"""Disclosure of the use of AI tools in the PR description is appreciated, while not required.""",python,cpython,True,False
+CuPy,https://cupy.dev,https://docs.cupy.dev/en/stable/contribution.html#ai-policies,Yes,No,No,Yes,,,,False,False
+curl,https://curl.se/,https://curl.se/dev/contribute.html#on-ai-use-in-curl,Yes,Yes,Yes,Yes,"""The golden rule is that a contribution should be worth more to the project than the time it takes to review it, which is usually not the case if large parts of your PR were written by LLMs.""",curl,curl,True,True
+DataJourneyHQ,https://datajourneyhq.com/,https://github.com/DataJourneyHQ/DataJourney/wiki/Contribution-Guidelines-(AI%E2%80%90Aware,Yes,Yes,No,-,,DataJourneyHQ,DataJourney,True,False
+Decker,https://beyondloom.com/decker,https://github.com/JohnEarnest/Decker/blob/main/Readme.md#contributing,No,-,-,-,-,JohnEarnest,Decker,True,False
+Django,https://www.djangoproject.com/,https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/submitting-patches/#ai-assisted-contributions,Yes,Yes,No,Yes,[PR template](https://github.com/django/django/blob/main/.github/pull_request_template.md); No automated AI reviews,django,django,True,True
+dlt,https://dlthub.com/,https://blog.probabl.ai/how-you-can-embrace-ai-in-your-open-source-projects-contribution-cycle-insights-from-dlt,Yes,No,No,No,,,,False,False
+do,https://codeberg.org/cgranade/do,https://codeberg.org/cgranade/do#license-and-ai-policy,No,-,-,-,-,,,False,False
+Drupal,https://www.drupal.org,https://www.drupal.org/docs/develop/issues/issue-procedures-and-etiquette/policy-on-the-use-of-ai-when-contributing-to-drupal,Yes,Yes,Yes,Yes,,,,False,False
+Dune 3D,https://dune3d.org/,https://github.com/dune3d/dune3d/blob/main/CONTRIBUTING.md#use-of-large-language-models--generative-ai,No,-,-,-,-,dune3d,dune3d,True,False
+EasyBuild,https://easybuild.io/,https://docs.easybuild.io/policies/ai/,Yes,Yes,No,Yes,Requires declaration of specific AI models/tools used.,,,False,False
+Elastic,https://gitlab.gnome.org/World/elastic,https://gitlab.gnome.org/World/elastic#use-of-generative-ai,No,-,-,-,-,,,False,False
+Elementary OS,https://elementary.io/,https://docs.elementary.io/contributor-guide/development/generative-ai-policy,No,-,-,-,-,,,False,False
+EmulatorKit,https://codeberg.org/EtchedPixels/EmulatorKit,https://codeberg.org/EtchedPixels/EmulatorKit/src/branch/master/ContributionRules,No,-,-,-,Explicit ban on Copilot; [maintainer has confirmed](https://codeberg.org/EtchedPixels/EmulatorKit/src/branch/master/ContributionRules) this applies to other LLM contributions,,,False,False
+Endless Sky,https://endless-sky.github.io,https://github.com/endless-sky/endless-sky/blob/master/docs/CONTRIBUTING.md#on-ai-generatedassisted-content,No,-,Yes,-,-,endless-sky,endless-sky,True,False
+Evi,https://codeberg.org/evi-editor/evi,https://codeberg.org/evi-editor/evi/src/branch/master/CONTRIBUTING.md#using-ai,No,-,-,-,-,,,False,False
+FastAPI,https://fastapi.tiangolo.com,https://tiangolo.com/open-source/contributing/#automated-code-and-ai,Yes,No,No,Yes,"""If the human effort put in a PR, e.g. writing LLM prompts, is less than the effort we would need to put to review it, please don't submit the PR.""",,,False,False
+Fedora,https://fedoraproject.org/,https://docs.fedoraproject.org/en-US/council/policy/ai-contribution-policy/,Yes,Yes,Yes,Yes,[Fedora Council Policy Proposal: Policy on AI-Assisted Contributions](https://communityblog.fedoraproject.org/council-policy-proposal-policy-on-ai-assisted-contributions/),,,False,False
+Fennel,https://fennel-lang.org,https://git.sr.ht/~technomancy/fennel/tree/main/item/CONTRIBUTING.md#contribution-transparency,No,-,-,-,-,,,False,False
+Firefox,https://github.com/mozilla-firefox/firefox,https://firefox-source-docs.mozilla.org/contributing/ai-coding.html,Yes,No,No,Yes,,mozilla-firefox,firefox,True,False
+Flutter,https://flutter.dev/,https://github.com/flutter/flutter/blob/master/docs/contributing/Tree-hygiene.md#ai-contribution-guidelines,Yes,No,No,Yes,,flutter,flutter,True,False
+Forgejo,https://forgejo.org/,https://codeberg.org/forgejo/governance/src/branch/main/AIAgreement.md,No,-,-,-,-,,,False,False
+Fractal,https://gitlab.gnome.org/World/fractal,https://gitlab.gnome.org/World/fractal/-/blob/main/CONTRIBUTING.md#llm-contributions,No,-,Yes,-,-,,,False,False
+gaypanel,https://codeberg.org/pastthepixels/gaypanel,https://codeberg.org/pastthepixels/gaypanel/src/branch/main/CONTRIBUTING.md#things-that-aren-t-allowed,No,-,-,-,-,,,False,False
+GDAL,https://gdal.org/,https://gdal.org/en/stable/community/ai_tool_policy.html,Yes,Yes,Yes,Yes,,OSGeo,gdal,True,True
+Gedit,https://gedit-text-editor.org/,https://gitlab.gnome.org/World/gedit/gedit/-/blob/master/docs/guidelines/no-llm-tools.md,No,-,-,-,-,,,False,False
+Gentoo Linux,https://www.gentoo.org/,https://wiki.gentoo.org/wiki/Project:Council/AI_policy,No,-,-,-,-,,,False,False
+Ghostty,https://ghostty.org/,https://github.com/ghostty-org/ghostty/blob/main/AI_POLICY.md,Yes,Yes,No,Yes,"""Our reason for the strict AI policy is not due to an anti-AI stance, but instead due to the number of highly unqualified people using AI.""",ghostty-org,ghostty,True,False
+GIMP,https://gitlab.gnome.org/GNOME/gimp,https://gitlab.gnome.org/GNOME/gimp/-/blob/master/.gitlab/merge_request_templates/default.md?plain=1#L11-12,No,-,-,-,-,,,False,False
+Gitea,https://gitea.com/,https://github.com/go-gitea/gitea/blob/main/CONTRIBUTING.md#ai-contribution-policy,Yes,Yes,No,Yes,,go-gitea,gitea,True,False
+Gitte,https://codeberg.org/ckruse/Gitte,https://codeberg.org/ckruse/Gitte/src/branch/main/README.md#contributing,No,-,-,-,-,,,False,False
+Glasgow Interface Explorer,https://glasgow-embedded.org,https://glasgow-embedded.org/latest/contribute.html#contributing-code-or-documentation,No,-,-,-,-,,,False,False
+GNOME Extensions,https://gjs.guide/extensions/development/creating.html,https://gjs.guide/extensions/review-guidelines/review-guidelines.html#extensions-must-not-be-ai-generated,Yes,-,-,Yes,"""While it is not prohibited to use AI as a learning aid or a development tool (i.e. code completions), extension developers should be able to justify and explain the code they submit, within reason.""",,,False,False
+GNOME Loupe,https://welcome.gnome.org/app/Loupe/,https://gitlab.gnome.org/GNOME/loupe/-/blob/main/CONTRIBUTING.md?ref_type=heads#use-of-generative-ai,No,-,-,-,,,,False,False
+GNU Binutils,https://sourceware.org/binutils/,https://sourceware.org/binutils/wiki/LLM_Generated_Content,No,-,-,-,-,,,False,False
+goose,https://github.com/aaif-goose/goose,https://github.com/block/goose/blob/main/HOWTOAI.md,Yes,No,No,Yes,[AGENTS.md file](https://github.com/aaif-goose/goose/blob/main/AGENTS.md),aaif-goose,goose,True,False
+GoToSocial,https://gotosocial.org/,https://codeberg.org/superseriousbusiness/gotosocial/src/branch/main/CODE_OF_CONDUCT.md,No,-,-,-,-,,,False,False
+Gram,https://gram-editor.com,https://codeberg.org/GramEditor/gram/src/branch/main/CODE_OF_CONDUCT.md#strict-no-llm-no-ai-policy,No,-,-,-,"Fork of the Zed editor, which has AI-generated code. However, this is explicitly a fork seeking to remove AI. The amount of AI-generated legacy code may decrease over time.",,,False,False
+Halloy,https://github.com/squidowl/halloy,https://halloy.chat/contributing#ai,No,-,-,-,Has the Claude banner due to [a single Claude commit](https://github.com/squidowl/halloy/commit/826dc9d5b8a513900f193bdb3ad57abc96f2adcc). There's currently at least [some effort going into removing it](https://github.com/squidowl/halloy/issues/1814),squidowl,halloy,True,False
+Highscore,https://gitlab.gnome.org/World/highscore,https://gitlab.gnome.org/World/highscore/-/blob/main/CONTRIBUTING.md?ref_type=heads#use-of-generative-ai,No,-,Yes,-,This includes its porting interface [libhighscore](https://gitlab.gnome.org/alicem/libhighscore#use-of-generative-ai),,,False,False
+hit-counter.net,https://www.hit-counter.net/index.php,https://www.hit-counter.net/aipolicy.php,No,-,-,-,-,,,False,False
+Homebrew,https://github.com/Homebrew/brew/tree/main,https://github.com/Homebrew/brew/blob/main/CONTRIBUTING.md#artificial-intelligencelarge-language-model-aillm-usage,Yes,Yes,No,Yes,Disclose model/tool and only one AI-assisted PR open at a time.,Homebrew,brew,True,False
+Icechunk,https://icechunk.io/en/latest/,https://icechunk.io/en/latest/ai-policy/,Yes,No,No,Yes,,,,False,False
+Iceshrimp,https://iceshrimp.dev/iceshrimp/iceshrimp.net,https://kb.iceshrimp.dev/s/63ae7f15-e1f1-45d6-ae26-d3a3b35d2e02/doc/ai-policy-paZIKo68tk,No,-,-,-,-,,,False,False
+Idris,https://www.idris-lang.org,https://github.com/idris-lang/Idris2/blob/main/CONTRIBUTING.md#things-we-will-not-accept,No,-,-,-,"Has the Claude banner due to [a single Claude commit](https://github.com/idris-lang/Idris2/commit/d83bc7d7964bd99ea16f8888b7cb9143a1343846) that occurred before this policy took effect. After that commit was made, [the project changed their contributing guidelines](https://github.com/idris-lang/Idris2/pull/3755) to block LLM code.",idris-lang,Idris2,True,False
+Inkscape,https://inkscape.org,https://social.treehouse.systems/@dysfun/116182391411729473,No,-,Yes,-,The full LLM policy is being actively developed but [appears to lean towards banning generative AI](https://gitlab.com/inkscape/inkscape-board/-/work_items/5#note_3140424828),,,False,False
+Inochi2D,https://inochi2d.com,https://github.com/Inochi2D/inochi2d/blob/main/CONTRIBUTING.md#on-generative-ai,No,-,-,-,-,Inochi2D,inochi2d,True,False
+Iocaine,https://iocaine.madhouse-project.org,https://git.madhouse-project.org/iocaine/iocaine/src/branch/main/CONTRIBUTING.md,No,-,-,-,-,,,False,False
+IREE (Intermediate Representation Execution Environment),https://iree.dev/,https://iree.dev/developers/general/contributing/#ai-tool-use,Yes,Yes,Yes,Yes,"Use ""Assisted-by:"" or ""Co-authored-by:""",iree-org,iree,True,True
+Jellyfin,https://jellyfin.org/,https://jellyfin.org/docs/general/contributing/llm-policies/,Yes,No,No,Yes,,,,False,False
+Joomla,https://www.joomla.org/,https://developer.joomla.org/generative-ai-policy.html,Yes,Yes,Yes,Yes,,joomla,joomla-cms,True,True
+Jqwik,https://jqwik.net,https://github.com/jqwik-team/jqwik/blob/main/CONTRIBUTING.md,No,-,Yes,-,-,jqwik-team,jqwik,True,False
+jsoup,https://jsoup.org,https://github.com/jhy/jsoup/blob/master/.github/CONTRIBUTING.md#use-of-ai,No,-,-,-,-,jhy,jsoup,True,False
+Kornia,https://github.com/kornia/kornia/tree/main,https://github.com/kornia/kornia/blob/main/AI_POLICY.md,Yes,Yes,No,Yes,"Use ""AI-generated/AI-assisted/No AI"" labels",kornia,kornia,True,False
+Krita,https://krita.org,https://invent.kde.org/graphics/krita#user-content-ai-moratorium,No,-,-,-,"[maintainer statement](https://krita-artists.org/t/policy-on-llm-code/178248/12), to be reviewed in October 2026",,,False,False
+Kubernetes,https://kubernetes.io/,https://www.kubernetes.dev/docs/guide/pull-requests/#ai-guidance,Yes,Yes,No,Yes,"""Assisted-by:"", ""Co-developed-by:"" not allowed",kubernetes,kubernetes,True,True
+Leiningen,https://codeberg.org/leiningen/leiningen,https://codeberg.org/leiningen/leiningen/src/branch/stable/CONTRIBUTING.md#contributing,No,-,Yes*,-,"""Please note that it is ethically unacceptable to submit patches (to this project or any other) which you did not author yourself without giving clear attribution to the original author. Note that this includes submitting changes generated by most so-called ""artificial intelligence"" language models as these systems often make it impossible to even identify (much less credit) the original author.""",,,False,False
+libadwaita,https://gnome.pages.gitlab.gnome.org/libadwaita,https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/CONTRIBUTING.md?ref_type=heads#use-of-generative-ai,No,-,Yes,-,-,,,False,False
+libmanette,https://gitlab.gnome.org/GNOME/libmanette,https://gitlab.gnome.org/GNOME/libmanette/-/blob/main/CONTRIBUTING.md?ref_type=heads#use-of-generative-ai,No,-,-,-,,,,False,False
+libxml2,https://gitlab.gnome.org/GNOME/libxml2,https://gitlab.gnome.org/GNOME/libxml2#strict-no-llm--no-ai-policy,No,-,-,-,-,,,False,False
+Lighthouse,https://www.writelighthouse.com,https://github.com/team-crystalline/Lighthouse/tree/master?tab=readme-ov-file#a-quick-constitution-for-lighthouse,No,-,-,-,-,team-crystalline,Lighthouse,True,False
+LinkML,https://linkml.io/,https://github.com/linkml/linkml/blob/main/AI_COVENANT.md,Yes,Yes*,No,Yes,No co-authorship with AI tools allowed; disclose usage when you don't understand the proposed changes fully,linkml,linkml,True,False
+Linux Kernel,https://kernel.org/,https://kernel.org/doc/html/next/process/coding-assistants.html,Yes,Yes,Yes,Yes,"""Assisted-by:"" required; DCO required.",torvalds,linux,True,True
+Linux man-pages,http://www.kernel.org/doc/man-pages/,https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git/tree/CONTRIBUTING.d/ai,No,-,-,-,,,,False,False
+LLVM,https://llvm.org,https://llvm.org/docs//AIToolPolicy.html,Yes,Yes,Yes,Yes,"""Using AI tools to fix issues labelled as “good first issues” is forbidden.""",llvm,llvm-project,True,True
+Lobsters,https://github.com/lobsters/lobsters,https://github.com/lobsters/lobsters/blob/main/CONTRIBUTING.md#getting-oriented,No,-,Yes,-,-,lobsters,lobsters,True,False
+LÖVE,https://love2d.org/,https://github.com/love2d/love#contributing,No,-,-,-,,love2d,love,True,False
+Makko,https://makko.starlightnet.work,https://forge.starlightnet.work/Team/Meta/src/branch/master/Contribution-Policy-Agreement.md,No,-,-,-,-,,,False,False
+Matplotlib,https://matplotlib.org,https://matplotlib.org/devdocs/devel/contribute.html#generative-ai,Yes,Yes,No,Yes,"""AI Disclosure"" secion in [PR template](https://github.com/matplotlib/matplotlib/blob/main/.github/PULL_REQUEST_TEMPLATE.md) must be filled",matplotlib,matplotlib,True,True
+MDAnalysis,https://www.mdanalysis.org/,https://github.com/MDAnalysis/mdanalysis/blob/develop/AI_POLICY.md,Yes*,Yes,No,Yes,"No ""substantial"" contributions generated by AI tools.",MDAnalysis,mdanalysis,True,False
+Mesa,https://mesa3d.org/,https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/docs/submittingpatches.rst?ref_type=heads#id2,Yes,Yes,Yes,Yes,"Use ""Assisted-by:"" or ""Generated-by:""; do not use ""Co-authored-by:"" with AI tools.",,,False,False
+mGBA,https://mgba.io,https://github.com/mgba-emu/mgba/blob/master/CONTRIBUTING.md#filing-pull-requests,No,-,-,-,-,mgba-emu,mgba,True,False
+MicroPython,https://micropython.org,https://github.com/micropython/micropython/wiki/ContributorGuidelines#generative-ai-policy,Yes,No,No,Yes,,micropython,micropython,True,False
+Migraine Log,https://migrainelog.zerodogg.org/en,https://gitlab.com/mglog/org.zerodogg.migraineLog/-/blob/main/CONTRIBUTING.md?ref_type=heads#use-of-generative-ai,No,-,Yes,-,-,,,False,False
+Mikan,https://codeberg.org/1lab/mikan,https://codeberg.org/1lab/mikan/src/branch/main/CONTRIBUTING.md,No,-,-,-,-,,,False,False
+MirBSD,https://mbsd.evolvis.org/subprj.htm,https://mbsd.evolvis.org/permalinks/wlog2021_e20240726.htm#e20240726_wlog2021,No,-,Yes,-,-,,,False,False
+Molecular Nodes,https://bradyajohnston.github.io/MolecularNodes/,https://github.com/BradyAJohnston/MolecularNodes/blob/main/AI_POLICY.md,Yes*,Yes,No,Yes,"No ""substantial"" contributions generated by AI tools.",BradyAJohnston,MolecularNodes,True,False
+Musl,https://musl.libc.org,https://www.openwall.com/lists/musl/2026/03/01/4,No,-,Yes,-,Threats reading an AI generated solution as being potentially tainted by proprietary code.,,,False,False
+napari,https://napari.org,https://napari.org/dev/developers/contributing/ai.html,Yes,Yes,No,Yes,,napari,napari,True,True
+NetBSD,https://www.netbsd.org/,https://www.netbsd.org/developers/commit-guidelines.html,Yes*,Yes,No,No,AI-assisted contributions require explicit core approval,,,False,False
+NumPy,https://numpy.org,https://numpy.org/devdocs/dev/ai_policy.html,Yes,Yes,Yes,Yes,[Mailing list discussion](https://mail.python.org/archives/list/numpy-discussion@python.org/thread/LAR7P3KQWHWAIKYSHTS2MY7X4HUBVA3L/),numpy,numpy,True,True
+nvim-tree,https://github.com/nvim-tree/nvim-tree.lua,https://github.com/nvim-tree/nvim-tree.lua?tab=contributing-ov-file#ai-usage-policy-highly-discouraged,Yes*,Yes,No,Yes,"""AI generated code is discouraged as this doesn't match (these) nvim-tree values.""""",nvim-tree,nvim-tree.lua,True,False
+OCaml,https://github.com/ocaml/ocaml,https://github.com/ocaml/ocaml/blob/trunk/AI.md,Yes,Yes,Yes,Yes,,ocaml,ocaml,True,False
+Open edX,https://openedx.org/,https://github.com/openedx/.github/blob/master/AI_POLICY.md,Yes*,Yes,No,Yes,"Only specific tools with a ""sufficient reputation for proper training"" are allowed.",openedx,.github,True,False
+OpenInfra,https://openinfra.org/,https://openinfra.org/legal/ai-policy,Yes,Yes,Yes,Yes,"Required use of ""Assisted-by:"" or ""Generated-by:"". Open Source AI models recommended.",,,False,False
+OpenJDK,https://openjdk.org/,https://openjdk.org/legal/ai,No,-,-,-,Interim policy.,,,False,False
+OpenTTD,https://www.openttd.org,https://github.com/OpenTTD/OpenTTD/blob/master/CONTRIBUTING.md#use-of-ai,No,-,?,-,"""Additionally, AI-generated code conflicts with this project's license (GPL v2), since you cannot truly release code for use if you didn't author it yourself.""",OpenTTD,OpenTTD,True,False
+Oxide,https://oxide.computer/,https://rfd.shared.oxide.computer/rfd/0576,Yes,-,No,Yes,"Comprehensive, extensive policy.",,,False,False
+Pallets,https://palletsprojects.com/,https://palletsprojects.com/contributing/llm-ai,No,-,-,-,"Applies to Flask, Jinja, Click, etc. ""This policy focuses on trust and quality, but there are numerous other issues with the social, ethical, resource, and environmental impacts of LLM development and use.""",,,False,False
+Pandas,https://pandas.pydata.org,https://pandas.pydata.org/docs/dev/development/contributing.html#automated-contributions-policy,Yes,Yes,No,Yes,,pandas-dev,pandas,True,True
+Pandemonium Engine,https://pandemoniumengine.org,https://github.com/Relintai/pandemonium_engine#contributions-use-of-ai-content-generators,No,-,Yes,-,-,Relintai,pandemonium_engine,True,False
+pgwatch,https://pgwat.ch/,https://github.com/cybertec-postgresql/pgwatch/blob/master/AI_POLICY.md,Yes,Yes,No,Yes,Must mention specific tools used.,cybertec-postgresql,pgwatch,True,False
+pip,https://github.com/pypa/pip,https://github.com/pypa/pip/blob/main/AI_POLICY.md,Yes,No,Yes,Yes,"No ""Co-authored-by:"" with AI tools.",pypa,pip,True,False
+pip-tools,https://pip-tools.readthedocs.io,https://pip-tools.readthedocs.io/en/latest/contributing/#project-contribution-guidelines,Yes,No,No,Yes,,,,False,False
+pkgconf,https://github.com/pkgconf/pkgconf/tree/master,https://github.com/pkgconf/pkgconf/blob/master/CONTRIBUTING.md#instructions-for-agentic-systems,No,-,-,-,Instructs agents to stop.,pkgconf,pkgconf,True,False
+Poezio,https://poez.io,https://codeberg.org/poezio/poezio#use-of-generative-ai,No,-,Yes,-,-,,,False,False
+Polars,https://pola.rs/,https://github.com/pola-rs/polars/blob/8425c750b9c5d28c79428998fda2320d076d4178/AI_POLICY.md,Yes,Yes,No,Yes,,pola-rs,polars,True,False
+Polyphony,https://codeberg.org/polyphony,https://codeberg.org/polyphony/.profile/src/branch/main/CODE_OF_CONDUCT.md,No,-,Yes*,-,"""The training data used for these models is largely obtained without the consent of artists, denying them their right of control over their work and any sort of financial compensation.""",,,False,False
+postmarketOS,https://postmarketos.org,https://docs.postmarketos.org/policies-and-processes/development/ai-policy.html,No,-,-,-,-,,,False,False
+Processing/p5.js,https://processing.org/,https://github.com/processing/processing4/blob/main/AI_USAGE_POLICY.md,Yes,Yes,No,Yes,Disclose specific tools used.,processing,processing4,True,False
+Pytest,https://docs.pytest.org/en/stable/,https://github.com/pytest-dev/pytest/blob/main/CONTRIBUTING.rst#aillm-assisted-contributions-policy,Yes,No,No,Yes,"Recommended use of ""Co-authored-by:"".",pytest-dev,pytest,True,False
+PyTorch,https://pytorch.org/,https://github.com/pytorch/pytorch/blob/main/CONTRIBUTING.md#ai-assisted-development,Yes,No,No,Yes,,pytorch,pytorch,True,False
+PyVista,https://pyvista.org,https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst#generative-ai,Yes,No,No,Yes,Follows CPython's policy.,pyvista,pyvista,True,False
+QEMU,https://www.qemu.org,https://www.qemu.org/docs/master/devel/code-provenance.html#use-of-ai-generated-content,No,-,-,-,-,,,False,False
+QGIS,https://qgis.org/,https://github.com/qgis/QGIS-Enhancement-Proposals/blob/master/qep-408-ai-tool-policy.md,Yes,Yes,Yes,Yes,"Use ""Assisted-by:"" or ""Generated-by:"" labels.",qgis,QGIS-Enhancement-Proposals,True,False
+qutip,https://qutip.org/,https://github.com/qutip/qutip/blob/master/CONTRIBUTING.md#ai-tools-usage-policy,Yes,Yes,Yes,Yes,"No AI contributions to ""good first issues"".",qutip,qutip,True,False
+Redox OS,https://www.redox-os.org/,https://gitlab.redox-os.org/redox-os/redox/-/blob/master/CONTRIBUTING.md#ai-policy,No,-,-,-,-,,,False,False
+Requests,https://requests.readthedocs.io/en/latest/,https://github.com/psf/requests/blob/main/.github/AI_POLICY.md,Yes,No,Yes,Yes,"No ""Co-authored-by:"" with AI tools.",psf,requests,True,False
+ruff,https://github.com/astral-sh/ruff,https://github.com/astral-sh/.github/blob/main/AI_POLICY.md,Yes,No,No,Yes,,astral-sh,ruff,True,False
+Rust,https://rust-lang.org/,https://forge.rust-lang.org/policies/llm-usage.html,Yes,Yes,No,Yes,[Announcement (blog post)](https://blog.rust-lang.org/inside-rust/2026/08/05/rust-langrust-is-adopting-an-llm-policy/),rust-lang,rust,True,True
+Schism Tracker,https://schismtracker.org,https://github.com/schismtracker/schismtracker/blob/master/AGENTS.md,No,-,Yes,-,"""Code generated by such LLMs may be based upon code under a license that is incompatible with the GPLv2.""",schismtracker,schismtracker,True,False
+SciActive,https://sciactive.com,https://sciactive.com/human-contribution-policy/,No,-,-,-,-,,,False,False
+scikit-image,https://scikit-image.org/,https://scikit-image.org/docs/dev/development/contribute.html#ai-policy,Yes,Yes,No,Yes,,scikit-image,scikit-image,True,True
+scikit-learn,https://scikit-learn.org,https://scikit-learn.org/dev/developers/contributing.html#automated-contributions-policy,Yes,Yes,No,Yes,,scikit-learn,scikit-learn,True,True
+SciPy,https://scipy.org,https://scipy.github.io/devdocs/dev/conduct/ai_policy.html,Yes,Yes,Yes,Yes,,scipy,scipy,True,True
+SDL,https://libsdl.org/,https://github.com/libsdl-org/SDL/blob/main/.github/PULL_REQUEST_TEMPLATE.md,No,-,-,-,[AGENTS.md file](https://github.com/libsdl-org/SDL/blob/main/AGENTS.md),libsdl-org,SDL,True,False
+SDL_net,https://github.com/libsdl-org/SDL_net,https://github.com/libsdl-org/SDL_net/blob/main/AGENTS.md,No,-,-,-,Same policy as SDL.,libsdl-org,SDL_net,True,False
+SearXNG,https://docs.searxng.org,https://github.com/searxng/searxng/blob/master/AI_POLICY.rst,Yes,Yes,No,Yes,,searxng,searxng,True,False
+Sentinel,https://codeberg.org/cr1901/sentinel,https://codeberg.org/cr1901/sentinel/src/branch/main/CONTRIBUTING.md#ai-guidelines,No,-,-,-,,,,False,False
+Servo,https://servo.org,https://book.servo.org/contributing/getting-started.html#ai-contributions,No,-,-,-,,,,False,False
+Skarnet,https://skarnet.org/software,,No,-,-,-,-,,,False,False
+Smederee,https://smeder.ee/~jan0sch/smederee,https://smeder.ee/~jan0sch/smederee/files/CONTRIBUTING.md,No,-,-,-,"Point in section ""Patch Requirements"": ""A patch SHALL NOT include any contributions which are believed to include or derive from AI generated content.""",,,False,False
+snac,https://codeberg.org/grunfink/snac2,https://codeberg.org/grunfink/snac2/src/branch/master/CONTRIBUTING.md,No,-,-,-,-,,,False,False
+Sphinx,https://www.sphinx-doc.org/en/master/,https://github.com/sphinx-doc/sphinx/blob/master/doc/internals/ai-policy.rst,Yes,Yes,Yes,Yes,-,sphinx-doc,sphinx,True,False
+STAC,https://stacspec.org/,https://github.com/stac-utils/stac-utils.github.io/blob/main/docs/ai-contribution-policy.md,Yes,Yes,No,Yes,"Use ""Assisted-by:"" and similar labels.",stac-utils,stac-utils.github.io,True,False
+stb,https://github.com/nothings/stb,https://github.com/nothings/stb/blob/master/CONTRIBUTING.md#ai-and-llm-are-forbidden,No,-,-,-,,nothings,stb,True,False
+SymPy,https://www.sympy.org,https://docs.sympy.org/dev/contributing/ai-generated-code-policy.html,Yes,Yes,Yes,Yes,,sympy,sympy,True,True
+Teamtype,https://teamtype.github.io/teamtype,https://github.com/teamtype/teamtype/blob/main/CONTRIBUTING.md#generative-aillm-policy,No,-,-,-,-,teamtype,teamtype,True,False
+Telegraf,https://influxdata.com/telegraf,https://www.influxdata.com/ai-generated-code-contributions-policy/,Yes,No*,Yes,Yes,Disclosure only required upon being asked.,,,False,False
+Tenacity,https://tenacityaudio.org,https://codeberg.org/tenacityteam/tenacity/src/branch/main/CONTRIBUTING.md#the-use-of-llms-and-ai-in-contributions,No,-,Yes,-,-,,,False,False
+TorchGeo,https://torchgeo.org/,https://github.com/torchgeo/governance/blob/main/AI-POLICY.md,Yes,Yes,Yes,Yes,-,torchgeo,governance,True,False
+Tusky,https://codeberg.org/tusky/Tusky,https://codeberg.org/tusky/Tusky/src/branch/develop/CONTRIBUTING.md#ai-policy,No,-,-,-,-,,,False,False
+Twisted,https://twisted.org/,https://docs.twisted.org/en/latest/development/ai-policy.html,No,-,-,-,-,,,False,False
+ty,https://github.com/astral-sh/ty,https://github.com/astral-sh/.github/blob/main/AI_POLICY.md,Yes,No,No,Yes,,astral-sh,ty,True,False
+typescript-eslint,https://typescript-eslint.io/,https://typescript-eslint.io/contributing/ai-policy/,Yes,No,No,Yes,,,,False,False
+Unbound,https://nlnetlabs.nl/projects/unbound/about/,https://nlnetlabs.nl/llm-policy/,No,-,-,-,"This policy covers all NLnet Labs projects such as ldns, NSD and Rotonda. LLM use permitted to generate vulnerability reports, to translate when communicating and for local assistance only.",,,False,False
+Unison,https://github.com/bcpierce00/unison,https://github.com/bcpierce00/unison/blob/master/CONTRIBUTING.md#llm-usage,No,-,-,-,-,bcpierce00,unison,True,False
+University of Alaska Anchorage,https://github.com/uaanchorage,https://github.com/uaanchorage/GSoC/blob/main/Acceptable-and-Ethical-AI-Use-Policy.md,Yes*,No,No,Yes,"""No vibe code""",uaanchorage,GSoC,True,False
+uv,https://github.com/astral-sh/uv,https://github.com/astral-sh/.github/blob/main/AI_POLICY.md,Yes,No,No,Yes,,astral-sh,uv,True,False
+Veloren,https://veloren.net,https://gitlab.com/veloren/veloren/-/blob/master/CONTRIBUTING.md?ref_type=heads#do-not-commit-tainted-content-to-the-repository,No,-,Yes,-,"""Content generated by large language models \[...\], is presumed to be tainted content, and must not be committed.""",,,False,False
+Vim Classic,https://vim-classic.org/,https://sr.ht/~sircmpwn/vim-classic/,No,-,-,-,-,,,False,False
+Wafrn,https://wafrn.net,https://codeberg.org/wafrn/wafrn/src/branch/main/CONTRIBUTING.md,No,-,-,-,-,,,False,False
+Wagtail,https://wagtail.org/,https://docs.wagtail.org/en/latest/contributing/general_guidelines.html#general-coding-guidelines,Yes,Yes,No,Yes,,wagtail,wagtail,True,True
+Wikipedia,https://wikipedia.org,https://en.wikipedia.org/wiki/Wikipedia:Artificial_intelligence,No*,-,-,-,"Allows a few, very specific uses such as translation assistance.",,,False,False
+WP1,https://wp1.openzim.org/,https://github.com/openzim/wp1/blob/main/CONTRIBUTING.md#usage-of-llmsai-coding-assistants,Yes,No,No,Yes,,openzim,wp1,True,False
+x86css,https://lyra.horse/x86css,https://lyra.horse/x86css/#ai,No,-,-,-,"""I do not use ai. I don't think you can build a project like this with an llm.""",,,False,False
+Xarray,https://github.com/pydata/xarray,https://github.com/pydata/xarray/blob/main/doc/contribute/ai-policy.md,Yes,No,No,Yes,[Xarray's CLAUDE.md file](https://github.com/pydata/xarray/blob/main/CLAUDE.md),pydata,xarray,True,False
+XScreenSaver,https://www.jwz.org/xscreensaver,https://www.jwz.org/xscreensaver/faq.html#writing-savers,No,-,-,-,-,,,False,False
+yt-dlp,https://github.com/yt-dlp/yt-dlp/tree/master,https://github.com/yt-dlp/yt-dlp/blob/master/CONTRIBUTING.md#automated-contributions-ai--llm-policy,No,-,Yes,-,"""AI-generated code conflicts with this project's license (Unlicense), since you cannot truly release code into the public domain if you didn't author it yourself.""",yt-dlp,yt-dlp,True,False
+Zig,https://ziglang.org,https://ziglang.org/code-of-conduct/#strict-no-llm-no-ai-policy,No,-,-,-,[Contributor Poker and Zig's AI Ban - rationale for ban](https://kristoff.it/blog/contributor-poker-and-ai/),,,False,False
+Ziglings,https://codeberg.org/ziglings/exercises,https://codeberg.org/ziglings/exercises/src/branch/main/CONTRIBUTING.md#ai-generated-content,No,-,-,-,AI tools are allowed to polish English only,,,False,False
+Zulip,https://zulip.com/,https://github.com/zulip/zulip/blob/main/CONTRIBUTING.md#ai-use-policy-and-guidelines,Yes,No,Yes,Yes,,zulip,zulip,True,False

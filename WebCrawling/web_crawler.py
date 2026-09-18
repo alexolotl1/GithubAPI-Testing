@@ -1,12 +1,8 @@
 """
 Scrapy-based Web Crawler for AI Disclosure Policies
 
-SCRAPY BASICS (for reference):
-  - Spiders: define how to crawl a site
-  - Requests: HTTP requests yielded by the spider
-  - Responses: parsed HTML handed back to callbacks
-  - CrawlerProcess: runs spiders; can only be started ONCE per Python process
-    → we work around this by spawning a subprocess for each org
+CrawlerProcess can only start once per Python process, so each org's crawl
+runs in its own subprocess (see _run_spider_subprocess).
 """
 
 import sys
@@ -18,6 +14,7 @@ import os
 import re
 import time
 import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Optional, Set, Tuple
 from urllib.parse import urljoin, urlparse
 
@@ -26,13 +23,10 @@ from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # Keyword / phrase config
-# ---------------------------------------------------------------------------
 
-# HIGH-PRECISION PHRASES — these almost only appear on real AI policy pages.
-# Each one found is worth a lot. Matched as exact substrings on normalised
-# (lowercased, whitespace-collapsed) text, so word order matters.
+# High-precision phrases that almost only appear on real AI policy pages,
+# matched as substrings on normalised (lowercased) text.
 HIGH_VALUE_PHRASES: List[Tuple[str, int]] = [
     ('responsible ai',              8),
     ('responsible artificial intelligence', 8),
@@ -63,21 +57,41 @@ HIGH_VALUE_PHRASES: List[Tuple[str, int]] = [
     ('ai use guidelines',           6),
     ('automated decision-making',   5),
     ('automated decision making',   5),
+
+    # Contribution/commit disclosure phrases — distinct from the corporate
+    # governance phrases above (Assisted-by:/Generated-by: trailers, etc.).
+    ('assisted-by',                 9),
+    ('generated-by',                6),
+    ('ai-generated content',        7),
+    ('ai generated content',        7),
+    ('ai-assisted contributions',   8),
+    ('ai-assisted contribution',    8),
+    ('generative ai tooling',       8),
+    ('generative ai tool',          7),
+    ('generative tooling',          6),
+    ('tooling-provenance',          8),
+    ('ai tools output',             6),
+    ("ai tool's output",            6),
+    ('policy for ai generated content', 9),
+    ('ai contribution policy',      8),
+    ('ai usage disclosure',         9),
+    ('disclosing ai use',           8),
+    ('disclose the use of ai',      8),
+    ('machine-generated work',      6),
+    ('computer generated work',     5),
 ]
 
-# GENERIC TERMS — only count if they co-occur near an AI-identifying term.
-# On their own these are far too common (every legal/governance page on the
-# internet says "policy", "governance", "compliance", "safety").
+# Only count if they co-occur near an AI-identifying term — too common alone.
 GENERIC_PROXIMITY_TERMS = [
     'disclosure', 'transparency', 'governance', 'accountability',
     'fairness', 'bias', 'explainability', 'interpretability',
     'principles', 'guidelines', 'compliance', 'risk management',
     'safety', 'oversight', 'audit', 'human review', 'human oversight',
+    'commit message', 'commit messages', 'source control', 'attribution',
+    'contribution guidelines', 'contributor', 'copyrightable',
 ]
 
-# Terms that identify the page is actually *about* AI, used for the
-# proximity check above. Deliberately narrow so we don't match "training"
-# (HR training) or "model" (fashion model, business model) etc.
+# Deliberately narrow so we don't match "training" (HR) or "model" (fashion).
 AI_IDENTIFIER_TERMS = [
     'artificial intelligence', ' ai ', ' ai.', ' ai,', ' ai)', 'ai-',
     'machine learning', 'generative ai', 'large language model', ' llm',
@@ -95,10 +109,11 @@ POLICY_URL_SIGNALS = [
     'ai-principles', 'ai-guidelines', 'ai-transparency',
     'ai-disclosure', 'ai-safety', 'ai-acceptable-use',
     'generative-ai-policy', 'algorithmic-transparency',
+    'generative-tooling', 'ai-generated', 'ai-assisted',
+    'assisted-by', 'generated-by', 'ai-contribution',
 ]
 
-# Paths to probe directly before crawling — expanded with more real-world
-# variants seen across enterprise/legal/trust-center site structures.
+# Paths to probe directly before crawling.
 KNOWN_POLICY_PATHS = [
     '/ai-policy', '/ai-ethics', '/responsible-ai', '/ai-governance',
     '/ai-principles', '/ai-guidelines', '/ai-transparency',
@@ -118,22 +133,52 @@ KNOWN_POLICY_PATHS = [
     '/safety', '/ai-safety-policy', '/security/ai',
     '/legal/acceptable-use', '/acceptable-use-policy',
     '/research/responsible-ai', '/company/ai-principles',
+
+    # Contribution/commit disclosure paths.
+    '/legal/generative-tooling.html', '/legal/generative-tooling',
+    '/aipolicy', '/ai-policy/', '/legal/ai-policy',
+    '/legal/ai-generated-content', '/legal/ai-contribution-policy',
+    '/contributing/ai', '/contributing/ai-policy',
+    '/docs/contributing/ai', '/community/ai-policy',
+    '/policy/ai-generated-content', '/ai-contribution-policy',
+
+    # More known-good paths on the org's MAIN domain (see
+    # testing/known_policy_pages.json; DOC_SUBDOMAIN_PREFIXES below covers
+    # the docs/handbook-subdomain cases).
+    '/legal/generative-ai', '/docs/AIToolPolicy.html',
+    '/docs/latest/contribute/ai-policy', '/contribute/ai-policy',
+    '/devdocs/dev/ai_policy.html', '/doc/stable/dev/ai_policy.html',
+    '/dev/ai_policy.html', '/our-policies/ai-policy/',
+    '/projects/guidelines/genai/',
 ]
 
-# ---------------------------------------------------------------------------
+# Several real policies live on a docs/handbook subdomain rather than the
+# main domain (e.g. docs.fedoraproject.org). Tried with a smaller path list
+# than KNOWN_POLICY_PATHS to keep request count down.
+DOC_SUBDOMAIN_PREFIXES = ['docs', 'devguide', 'handbook', 'dev', 'guides', 'make']
+
+SUBDOMAIN_PROBE_PATHS = [
+    '/en-US/council/policy/ai-contribution-policy/',
+    '/council/policy/ai-contribution-policy/',
+    '/guides/contribute/ai-contribution-policy/',
+    '/contribute/ai-contribution-policy/',
+    '/getting-started/ai-tools/',
+    '/ai-tools/',
+    '/ai/handbook/ai-guidelines/',
+    '/handbook/ai-guidelines/',
+    '/tools-and-tips/ai/',
+    '/ai-policy', '/ai-contribution-policy', '/ai-guidelines',
+    '/contribute/ai', '/contributing/ai',
+]
+
 # Text normalisation + scoring
-# ---------------------------------------------------------------------------
 
 _WHITESPACE_RE = re.compile(r'\s+')
 
 
 def _clean_soup_for_scoring(soup: BeautifulSoup) -> BeautifulSoup:
-    """
-    Strip nav/header/footer before scoring so site-wide boilerplate links
-    (e.g. a footer with 'Antitrust Policy', 'Governance Documents') don't
-    pollute the body-content score. This is the single biggest fix for the
-    false positives seen on sites like zephyrproject.org.
-    """
+    """Strip nav/header/footer before scoring so site-wide boilerplate links
+    don't pollute the body-content score."""
     for tag_name in ('nav', 'header', 'footer'):
         for tag in soup.find_all(tag_name):
             tag.decompose()
@@ -152,28 +197,17 @@ def _normalise(text: str) -> str:
 
 
 def _score_content(raw_text_lower: str, url: str) -> Tuple[int, List[str]]:
-    """
-    Score a page for AI policy relevance using weighted phrase matching
-    plus a proximity-gated generic-term check.
-
-    Returns (score, matched_phrases) where matched_phrases is for debugging
-    / transparency in the output JSON.
-
-    A page must score >= MIN_SCORE (8) to be kept — high enough that a
-    page needs either one strong phrase hit or several proximity-confirmed
-    generic terms, not just scattered boilerplate words.
-    """
+    """Score a page for AI policy relevance: weighted phrase matching plus a
+    proximity-gated generic-term check. Returns (score, matched_phrases)."""
     text = _normalise(raw_text_lower)
     score = 0
     matched: List[str] = []
 
-    # 1) High-value phrases — direct substring match, heavily weighted
     for phrase, weight in HIGH_VALUE_PHRASES:
         if phrase in text:
             score += weight
             matched.append(phrase)
 
-    # 2) Generic terms — only count if an AI identifier appears nearby
     for term in GENERIC_PROXIMITY_TERMS:
         idx = text.find(term)
         if idx == -1:
@@ -185,8 +219,7 @@ def _score_content(raw_text_lower: str, url: str) -> Tuple[int, List[str]]:
             score += 3
             matched.append(f'{term} (near AI term)')
 
-    # 3) URL signals — strong, deliberate signal (someone built this path on
-    #    purpose), worth more than body text matches
+    # URL path signals are deliberate, worth more than body text matches
     url_lower = url.lower()
     url_hits = [s for s in POLICY_URL_SIGNALS if s in url_lower]
     if url_hits:
@@ -228,102 +261,105 @@ def _extract_policy_links(soup: BeautifulSoup, base_url: str) -> List[str]:
     return links[:15]
 
 
-# ---------------------------------------------------------------------------
 # Direct path prober (no Scrapy needed — fast requests)
-# ---------------------------------------------------------------------------
+
+_PROBE_HEADERS = {
+    'User-Agent': (
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/124.0.0.0 Safari/537.36'
+    )
+}
+
+PROBE_MAX_WORKERS = 20  # concurrent path probes per org
+
+
+def _probe_one_path(origin: str, path: str, timeout: int) -> Optional[Dict]:
+    """GET one known policy path and score it. Returns None on failure or
+    sub-threshold score. Retries once on 429 (bursting many requests at one
+    host can trip rate limiting even when the org overall isn't blocking)."""
+    url = origin + path
+    try:
+        resp = requests.get(url, timeout=timeout, allow_redirects=True,
+                            headers=_PROBE_HEADERS)
+        if resp.status_code == 429:
+            time.sleep(1.5)
+            resp = requests.get(url, timeout=timeout, allow_redirects=True,
+                                headers=_PROBE_HEADERS)
+        if resp.status_code >= 400:
+            return None
+        content_type = resp.headers.get('Content-Type', '')
+        if content_type and 'html' not in content_type.lower():
+            return None
+
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        soup = _clean_soup_for_scoring(soup)
+        text = soup.get_text(separator=' ', strip=True)
+        text_lower = text.lower()
+
+        score, matched = _score_content(text_lower, resp.url)
+        if score < MIN_SCORE:
+            return None
+
+        title = soup.title.string.strip() if soup.title and soup.title.string else path
+        snippet = text[:1800].strip()
+
+        logger.info(f"Direct probe hit: {resp.url} (score={score})")
+        return {
+            'url': resp.url,
+            'title': title,
+            'policy_score': score,
+            'matched_signals': matched,
+            'text_snippet': snippet,
+            'key_sections': _extract_key_sections(soup),
+            'links_to_policies': _extract_policy_links(soup, resp.url),
+            'found_via': 'direct_probe',
+        }
+
+    except requests.exceptions.Timeout:
+        logger.debug(f"Timeout probing {url}")
+    except requests.exceptions.ConnectionError:
+        logger.debug(f"Connection error probing {url}")
+    except Exception as e:
+        logger.debug(f"Error probing {url}: {e}")
+    return None
+
 
 def probe_known_paths(base_url: str, timeout: int = 10) -> List[Dict]:
-    """
-    HEAD/GET each known policy path directly on the org's site.
-
-    Highest-yield, lowest-noise step: a deliberately-named path like
-    /responsible-ai is a strong signal on its own, so these get the URL
-    bonus on top of content scoring.
-    """
-    found = []
+    """GET each known policy path on the org's site, concurrently, plus a
+    smaller path list against common docs/handbook subdomains."""
     parsed = urlparse(base_url)
     origin = f"{parsed.scheme}://{parsed.netloc}"
+    root_domain = parsed.netloc[4:] if parsed.netloc.startswith('www.') else parsed.netloc
 
-    session = requests.Session()
-    session.headers.update({
-        'User-Agent': (
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-            'AppleWebKit/537.36 (KHTML, like Gecko) '
-            'Chrome/124.0.0.0 Safari/537.36'
-        )
-    })
+    jobs = [(origin, path) for path in KNOWN_POLICY_PATHS]
+    for prefix in DOC_SUBDOMAIN_PREFIXES:
+        sub_origin = f"{parsed.scheme}://{prefix}.{root_domain}"
+        if sub_origin == origin:
+            continue
+        jobs.extend((sub_origin, path) for path in SUBDOMAIN_PROBE_PATHS)
 
-    for path in KNOWN_POLICY_PATHS:
-        url = origin + path
-        try:
-            head = session.head(url, timeout=timeout, allow_redirects=True)
-            if head.status_code >= 400:
-                continue
-
-            resp = session.get(url, timeout=timeout, allow_redirects=True)
-            if resp.status_code >= 400:
-                continue
-
-            soup = BeautifulSoup(resp.text, 'html.parser')
-            soup = _clean_soup_for_scoring(soup)
-            text = soup.get_text(separator=' ', strip=True)
-            text_lower = text.lower()
-
-            score, matched = _score_content(text_lower, resp.url)
-            if score < MIN_SCORE:
-                continue
-
-            title = soup.title.string.strip() if soup.title and soup.title.string else path
-            snippet = text[:1800].strip()
-
-            page_data = {
-                'url': resp.url,
-                'title': title,
-                'policy_score': score,
-                'matched_signals': matched,
-                'text_snippet': snippet,
-                'key_sections': _extract_key_sections(soup),
-                'links_to_policies': _extract_policy_links(soup, resp.url),
-                'found_via': 'direct_probe',
-            }
-            found.append(page_data)
-            logger.info(f"Direct probe hit: {resp.url} (score={score})")
-
-        except requests.exceptions.Timeout:
-            logger.debug(f"Timeout probing {url}")
-        except requests.exceptions.ConnectionError:
-            logger.debug(f"Connection error probing {url}")
-        except Exception as e:
-            logger.debug(f"Error probing {url}: {e}")
-
-        time.sleep(0.25)
+    found = []
+    with ThreadPoolExecutor(max_workers=PROBE_MAX_WORKERS) as executor:
+        futures = [
+            executor.submit(_probe_one_path, o, path, timeout)
+            for o, path in jobs
+        ]
+        for future in as_completed(futures):
+            result = future.result()
+            if result is not None:
+                found.append(result)
 
     return found
 
 
-# ---------------------------------------------------------------------------
 # Scrapy spider (runs inside a subprocess — never imported directly)
-# ---------------------------------------------------------------------------
-# Depth/page/timeout limits raised in this version:
-#   max_depth   4  -> 5
-#   max_pages   60 -> 100
-#   timeout     12 -> 15s
-#   links/page  15 -> 20
-#   total subprocess timeout 120 -> 240s (longer scan budget per org)
 
 SPIDER_SCRIPT = '''
 import sys
 import json
 import re
-import asyncio
 import logging
-
-if sys.platform == 'win32':
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-
-if "twisted.internet.reactor" not in sys.modules:
-    from twisted.internet import asyncioreactor
-    asyncioreactor.install()
 
 import scrapy
 from scrapy.crawler import CrawlerProcess
@@ -412,6 +448,7 @@ visited = set()
 
 class PolicySpider(scrapy.Spider):
     name = "policy"
+    start_urls = [ORG_URL]
     custom_settings = {{
         "ROBOTSTXT_OBEY": False,
         "CONCURRENT_REQUESTS": 10,
@@ -435,11 +472,7 @@ class PolicySpider(scrapy.Spider):
         self.max_pages = 100
         self.max_depth = 5
 
-    def start_requests(self):
-        yield scrapy.Request(ORG_URL, callback=self.parse_page,
-                             meta={{"depth": 0}}, errback=self.err)
-
-    def parse_page(self, response):
+    def parse(self, response):
         url = response.url
         depth = response.meta.get("depth", 0)
         if url in visited or len(visited) >= self.max_pages:
@@ -473,8 +506,7 @@ class PolicySpider(scrapy.Spider):
                 allow_domains=[self.domain],
                 deny=[r"\\.(pdf|jpg|jpeg|png|gif|exe|zip|css|js|svg|ico|mp4|webm)$"],
             )
-            # Prioritise links whose anchor text/href look policy-relevant so
-            # the limited per-page link budget is spent productively
+            # Crawl policy-relevant links first — the per-page link budget is limited
             all_links = extractor.extract_links(response)
             def link_priority(link):
                 lt = normalise(getattr(link, "text", "") or "")
@@ -488,7 +520,7 @@ class PolicySpider(scrapy.Spider):
                 if link.url not in visited:
                     yield scrapy.Request(
                         link.url,
-                        callback=self.parse_page,
+                        callback=self.parse,
                         meta={{"depth": depth + 1}},
                         errback=self.err,
                     )
@@ -504,18 +536,13 @@ process.crawl(PolicySpider)
 process.start()
 
 with open(OUTPUT, "w") as f:
-    json.dump(results, f)
+    json.dump({{"results": results, "pages_visited": len(visited)}}, f)
 '''
 
 
 def _run_spider_subprocess(org_url: str, org_name: str,
-                            timeout: int = 240) -> List[Dict]:
-    """
-    Launch the Scrapy spider in a fresh subprocess.
-
-    Timeout raised from 120s -> 240s to allow the deeper/wider crawl
-    (max_depth 5, max_pages 100) to actually complete on larger sites.
-    """
+                            timeout: int = 240) -> Dict:
+    """Launch the Scrapy spider in a fresh subprocess."""
     with tempfile.NamedTemporaryFile(suffix='.json', delete=False,
                                      mode='w') as tmp:
         output_path = tmp.name
@@ -548,18 +575,23 @@ def _run_spider_subprocess(org_url: str, org_name: str,
             logger.warning(f"Spider subprocess stderr: {proc.stderr[:500]}")
 
         with open(output_path, 'r') as f:
-            results = json.load(f)
-        return results
+            payload = json.load(f)
+        if isinstance(payload, list):
+            return {'results': payload, 'pages_visited': 0}
+        return {
+            'results': payload.get('results', []),
+            'pages_visited': payload.get('pages_visited', 0),
+        }
 
     except subprocess.TimeoutExpired:
         logger.warning(f"Spider timed out for {org_url} after {timeout}s")
-        return []
+        return {'results': [], 'pages_visited': 0}
     except json.JSONDecodeError:
         logger.warning(f"Spider produced no valid JSON for {org_url}")
-        return []
+        return {'results': [], 'pages_visited': 0}
     except Exception as e:
         logger.error(f"Spider subprocess error for {org_url}: {e}")
-        return []
+        return {'results': [], 'pages_visited': 0}
     finally:
         for path in (script_path, output_path):
             try:
@@ -568,31 +600,13 @@ def _run_spider_subprocess(org_url: str, org_name: str,
                 pass
 
 
-# ---------------------------------------------------------------------------
 # Public interface
-# ---------------------------------------------------------------------------
 
 def crawl_organization_sync(org_url: str, org_name: str = None) -> Dict:
-    """
-    Find AI disclosure policies on an organisation's website.
+    """Find AI disclosure policies on an org's website: direct path probe,
+    then a Scrapy crawl in a subprocess, both scored the same way.
 
-    Strategy:
-      1. Probe known policy paths directly with requests (fast, precise)
-      2. Run a deeper/wider Scrapy crawl in a subprocess for coverage
-
-    Both stages use the same weighted-phrase + proximity scoring, with a
-    raised minimum score (8) so generic governance/legal pages that merely
-    mention "policy" or "safety" without AI context are excluded.
-
-    Returns:
-        {
-            'org_url': str, 'org_name': str,
-            'policies': List[Dict],   # url, title, policy_score,
-                                      # matched_signals, text_snippet, …
-            'error': str | None,
-            'pages_crawled': int,
-        }
-    """
+    Returns {'org_url', 'org_name', 'policies': [...], 'error', 'pages_crawled'}."""
     if not org_url:
         return _empty_result(org_url, org_name, 'No URL provided')
 
@@ -618,7 +632,8 @@ def crawl_organization_sync(org_url: str, org_name: str = None) -> Dict:
     logger.info(f"  → Direct probe found {len(direct_hits)} candidate pages")
 
     logger.info(f"  → Starting Scrapy crawl (subprocess, depth=5, max 100 pages)...")
-    spider_results = _run_spider_subprocess(org_url, org_name)
+    spider_payload = _run_spider_subprocess(org_url, org_name)
+    spider_results = spider_payload.get('results', [])
     for hit in spider_results:
         if hit['url'] not in seen_urls:
             seen_urls.add(hit['url'])
@@ -632,7 +647,7 @@ def crawl_organization_sync(org_url: str, org_name: str = None) -> Dict:
         'org_name': org_name,
         'policies': all_policies,
         'error': None,
-        'pages_crawled': len(seen_urls),
+        'pages_crawled': spider_payload.get('pages_visited', 0),
     }
 
 
@@ -646,9 +661,7 @@ def _empty_result(org_url, org_name, error):
     }
 
 
-# ---------------------------------------------------------------------------
 # Standalone test
-# ---------------------------------------------------------------------------
 
 if __name__ == '__main__':
     import sys

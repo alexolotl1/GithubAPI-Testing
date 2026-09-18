@@ -1,49 +1,40 @@
 """
 AI Disclosure Scanner — Main Orchestrator
 
-CHANGES IN THIS VERSION (v3) — fixes the "everything gets flagged" bug:
-
-  Root cause found in your last run:
-    web_crawler found 4 "candidate" pages on zephyrproject.org (a conference
-    page, a hardware product page, a docs index...). It sent them to Groq,
-    and Groq CORRECTLY said is_policy_page: false for every single one.
-    But compute_transparency_score() was doing a flat substring search like
-    'is_policy_page": true' in analysis_text on Groq's raw markdown reply —
-    that string never matches (Groq wraps each verdict in a separate ```json
-    fence with different spacing), so the false verdict was silently
-    ignored and all 4 junk pages stayed in policies_found.
-
-  What changed here:
-    1. _parse_policy_verdicts() — actually parses every ```json ... ```
-       block out of Groq's evaluate_policy_pages() reply into structured
-       per-URL verdicts (is_policy_page, transparency_score, policy_type,
-       etc.), instead of treating the whole reply as one opaque string.
-    2. scan_repository() now FILTERS policies_found down to only pages
-       Groq confirmed as is_policy_page == true. Candidates Groq rejected
-       are kept separately as 'rejected_candidates' for transparency /
-       debugging, but no longer count toward disclosure or score.
-    3. compute_transparency_score() rewritten to use the parsed verdicts
-       directly (their own 0-100 transparency_score from Groq) instead of
-       string-matching, weighted against org classification and risk.
-    4. Website finder unchanged from v2 (already fixed: checks GitHub API
-       blog/website/homepage fields + domain patterns, works for users too).
-    5. Everything else (incremental saves, dedup-by-owner, CLI) unchanged.
+Pipeline per repo: classify the org with Groq -> find its real website ->
+crawl for policy pages (web_crawler.py) -> verify each candidate with Groq
+-> compute a 0-100 transparency score. Orgs are scanned concurrently
+(MAX_ORG_WORKERS at a time); repos sharing an owner reuse that owner's
+crawl+verification instead of repeating it.
 """
 
 import json
 import logging
 import os
-import re
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Optional, Set
 from datetime import datetime
 import requests
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    def load_dotenv(*_args, **_kwargs):
+        return False
 
-load_dotenv()
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_DIR = os.path.dirname(BASE_DIR)
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-from groq_classifier import GroqAIClassifier
+try:
+    from groq_classifier import GroqAIClassifier
+except ImportError as e:
+    GroqAIClassifier = None
+    GROQ_IMPORT_ERROR = e
+else:
+    GROQ_IMPORT_ERROR = None
 from web_crawler import crawl_organization_sync
 
 logging.basicConfig(
@@ -52,18 +43,26 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Orgs scanned concurrently. Kept modest since each org's crawl already
+# fans out its own concurrency internally (probe_known_paths uses 20 workers).
+MAX_ORG_WORKERS = 5
 
-# ---------------------------------------------------------------------------
+
 # GitHub website finder
-# ---------------------------------------------------------------------------
+
+def _sanitize_github_token(token: Optional[str]) -> Optional[str]:
+    """Treat placeholder/malformed tokens as absent — a bad token 401s
+    every call, worse than sending none at all."""
+    if not token or len(token.strip()) < 20:
+        return None
+    return token.strip()
+
 
 def _find_org_website(owner: str, github_token: Optional[str] = None) -> Optional[str]:
-    """
-    Find an organisation's real website using the GitHub API.
-
-    Checks org + user endpoints (blog, website, homepage fields), then
-    falls back to common domain patterns. Works for orgs AND individuals.
-    """
+    """Find an org's real website via the GitHub API (blog/website/homepage
+    fields), falling back to common domain-guess patterns. Works for both
+    orgs and individual users."""
+    github_token = _sanitize_github_token(github_token)
     headers = {}
     if github_token:
         headers['Authorization'] = f'token {github_token}'
@@ -74,17 +73,16 @@ def _find_org_website(owner: str, github_token: Optional[str] = None) -> Optiona
     ):
         try:
             resp = requests.get(endpoint, headers=headers, timeout=6)
+            if resp.status_code == 401 and headers:
+                # Bad/expired token — retry unauthenticated rather than
+                # losing this endpoint for the rest of the scan.
+                logger.warning(f"GitHub token rejected (401) for {owner}; retrying unauthenticated")
+                resp = requests.get(endpoint, timeout=6)
             if resp.status_code != 200:
                 continue
             data = resp.json()
 
-            candidates = [
-                data.get('blog', ''),
-                data.get('website', ''),
-                data.get('homepage', ''),
-            ]
-
-            for url in candidates:
+            for url in (data.get('blog', ''), data.get('website', ''), data.get('homepage', '')):
                 if not url:
                     continue
                 url = url.strip()
@@ -101,13 +99,9 @@ def _find_org_website(owner: str, github_token: Optional[str] = None) -> Optiona
 
     clean = owner.lower().replace('-', '').replace('_', '')
     patterns = [
-        f'https://{owner}.com',
-        f'https://www.{owner}.com',
-        f'https://{owner}.io',
-        f'https://{owner}.org',
-        f'https://{owner}.dev',
-        f'https://{clean}.com',
-        f'https://www.{clean}.com',
+        f'https://{owner}.com', f'https://www.{owner}.com',
+        f'https://{owner}.io', f'https://{owner}.org', f'https://{owner}.dev',
+        f'https://{clean}.com', f'https://www.{clean}.com',
     ]
     for url in patterns:
         if _url_reachable(url):
@@ -117,31 +111,37 @@ def _find_org_website(owner: str, github_token: Optional[str] = None) -> Optiona
 
 
 def _url_reachable(url: str, timeout: int = 5) -> bool:
+    # A bare 'Mozilla/5.0' UA gets a flat 403 from some WAFs (e.g.
+    # microsoft.com) — use a realistic full UA string instead.
+    headers = {
+        'User-Agent': (
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+            'AppleWebKit/537.36 (KHTML, like Gecko) '
+            'Chrome/124.0.0.0 Safari/537.36'
+        )
+    }
     try:
-        r = requests.head(url, timeout=timeout, allow_redirects=True,
-                          headers={'User-Agent': 'Mozilla/5.0'})
+        r = requests.head(url, timeout=timeout, allow_redirects=True, headers=headers)
+        if r.status_code < 400:
+            return True
+        if r.status_code not in (403, 405):
+            return False
+    except Exception:
+        pass
+
+    try:
+        r = requests.get(url, timeout=timeout, allow_redirects=True, headers=headers, stream=True)
         return r.status_code < 400
     except Exception:
         return False
 
 
-# ---------------------------------------------------------------------------
 # Groq verdict handling
-# ---------------------------------------------------------------------------
-#
-# NOTE: groq_classifier.evaluate_policy_pages() now does its own JSON-array
-# parsing internally and returns a ready-to-use 'verdicts' list (see that
-# file's _parse_verdict_array). This wrapper just extracts it defensively —
-# kept as a separate function so callers have one place to add fallback
-# logic if groq_classifier's parse ever comes back empty.
-
 
 def _get_policy_verdicts(policy_analysis: Optional[Dict]) -> List[Dict]:
-    """
-    Extract the parsed verdict list from a groq_classifier.evaluate_policy_pages()
-    result. Returns [] if analysis wasn't run or parsing failed — callers
-    must treat that as "unknown/unverified", never as "all rejected".
-    """
+    """Extract the parsed verdict list from evaluate_policy_pages()'s result.
+    Empty means "unknown/unverified" (e.g. Groq call failed) — never treat
+    it as "all rejected"."""
     if not policy_analysis or not isinstance(policy_analysis, dict):
         return []
 
@@ -156,18 +156,8 @@ def _filter_policies_by_verdict(
     candidate_pages: List[Dict],
     verdicts: List[Dict],
 ) -> tuple:
-    """
-    Cross-reference crawled candidate pages with Groq's per-URL verdicts.
-
-    Returns (confirmed, rejected, unverified):
-      confirmed  — Groq said is_policy_page: true, merged with Groq's data
-      rejected   — Groq said is_policy_page: false
-      unverified — no matching verdict found (e.g. Groq call failed,
-                   or this page was beyond the top-5 sent for analysis)
-
-    Matching is done by URL since that's the only stable join key Groq
-    is asked to echo back.
-    """
+    """Join crawled candidates to Groq's per-URL verdicts. 'unverified' means
+    no matching verdict came back — must not be counted as confirmed or rejected."""
     verdict_by_url = {v.get('url', '').rstrip('/'): v for v in verdicts if v.get('url')}
 
     confirmed, rejected, unverified = [], [], []
@@ -177,8 +167,7 @@ def _filter_policies_by_verdict(
         verdict = verdict_by_url.get(url_key)
 
         if verdict is None:
-            # Try a loose match (Groq sometimes normalises trailing slashes
-            # or query strings differently)
+            # Loose match — Groq sometimes normalises trailing slashes/query strings differently.
             for vurl, v in verdict_by_url.items():
                 if vurl and (vurl in url_key or url_key in vurl):
                     verdict = v
@@ -199,33 +188,28 @@ def _filter_policies_by_verdict(
     return confirmed, rejected, unverified
 
 
-# ---------------------------------------------------------------------------
+def _is_invalid_api_key_error(result: Optional[Dict]) -> bool:
+    if not isinstance(result, dict):
+        return False
+    error = str(result.get('error', '')).lower()
+    return 'invalid api key' in error or 'invalid_api_key' in error
+
+
 # Transparency scoring
-# ---------------------------------------------------------------------------
 
 def compute_transparency_score(result: Dict) -> int:
-    """
-    Compute a 0-100 transparency score from multiple signals.
-
-    Now driven by PARSED Groq verdicts (result['confirmed_policies'], each
-    carrying its own groq_verdict.transparency_score) rather than a broken
-    substring search on raw text. A page only counts here if Groq itself
-    confirmed it's a real policy page.
-    """
+    """0-100 score from Groq-confirmed policies (using Groq's own per-page
+    score), org classification, and risk signals."""
     score = 0
     confirmed = result.get('confirmed_policies', [])
     rejected = result.get('rejected_candidates', [])
     org_class = result.get('org_classification') or {}
     ai_analysis = result.get('ai_usage_analysis') or {}
 
-    # Base: website found
     if result.get('org_website'):
         score += 10
 
-    # Confirmed policy pages — this is the main signal now
     if confirmed:
-        # Use Groq's own transparency_score per page (0-100), averaged,
-        # scaled into a 0-50 contribution
         groq_scores = [
             p.get('groq_verdict', {}).get('transparency_score', 0)
             for p in confirmed
@@ -235,49 +219,50 @@ def compute_transparency_score(result: Dict) -> int:
             avg_groq_score = sum(groq_scores) / len(groq_scores)
             score += int(avg_groq_score * 0.5)  # 0-50 pts
 
-        # Bonus per confirmed page found (rewards having multiple), capped
-        score += min(len(confirmed) * 5, 15)
+        score += min(len(confirmed) * 5, 15)  # bonus for multiple confirmed pages, capped
 
-    # Org classification suggests they SHOULD have a policy (0-10 pts)
     likelihood = org_class.get('likelihood_has_ai_policy', 0)
-    score += int(likelihood / 10)
+    score += int(likelihood / 10)  # 0-10 pts
 
-    # Penalty: candidates were found and crawled but ALL rejected by Groq —
-    # this means the org has policy-adjacent pages but nothing AI-specific
+    # Candidates were found and crawled but ALL rejected — policy-adjacent
+    # pages exist but nothing AI-specific.
     if rejected and not confirmed:
         score -= 5
 
-    # Penalty: high-risk AI usage with zero confirmed policies
     if ai_analysis.get('risk_level') == 'high' and not confirmed:
         score -= 10
 
     return max(0, min(score, 100))
 
 
-# ---------------------------------------------------------------------------
 # Main scanner class
-# ---------------------------------------------------------------------------
 
 class AIDisclosureScanner:
     """Coordinates the full AI disclosure scanning workflow."""
 
     def __init__(
         self,
-        sample_file: str = '../sample_100.json',
-        output_file: str = 'ai_disclosure_results.json',
+        sample_file: str = None,
+        output_file: str = None,
         groq_api_key: Optional[str] = None,
         github_token: Optional[str] = None,
-        max_workers: int = 1,   # kept for API compatibility; crawls are sequential
+        max_workers: int = MAX_ORG_WORKERS,
     ):
-        self.sample_file = sample_file
-        self.output_file = output_file
-        self.github_token = github_token or os.getenv('GITHUB_TOKEN')
+        self.sample_file = sample_file or os.path.join(REPO_DIR, 'HeuristicScanner', 'sample.json')
+        self.output_file = output_file or os.path.join(BASE_DIR, 'ai_disclosure_results.json')
+        raw_token = github_token or os.getenv('GITHUB_TOKEN')
+        self.github_token = _sanitize_github_token(raw_token)
+        self.max_workers = max(1, max_workers)
 
-        try:
-            self.classifier = GroqAIClassifier(api_key=groq_api_key)
-        except ValueError as e:
-            logger.error(f"Groq init error: {e}")
+        if GroqAIClassifier is None:
+            logger.warning(f"Groq classifier unavailable: {GROQ_IMPORT_ERROR}")
             self.classifier = None
+        else:
+            try:
+                self.classifier = GroqAIClassifier(api_key=groq_api_key)
+            except ValueError as e:
+                logger.warning(f"Groq disabled: {e}")
+                self.classifier = None
 
         self.results = {
             'scan_timestamp': datetime.now().isoformat(),
@@ -289,12 +274,11 @@ class AIDisclosureScanner:
         }
         self.processed_orgs: Dict[str, Dict] = {}
         self.repository_data: List[Dict] = []
+        self._lock = threading.Lock()  # guards results/processed_orgs/incremental save
 
         logger.info(f"AIDisclosureScanner ready. Output → {output_file}")
 
-    # ------------------------------------------------------------------
     # Load
-    # ------------------------------------------------------------------
 
     def load_repositories(self) -> bool:
         try:
@@ -311,23 +295,20 @@ class AIDisclosureScanner:
             logger.error(f"Invalid JSON: {self.sample_file}")
             return False
 
-    # ------------------------------------------------------------------
     # Website lookup
-    # ------------------------------------------------------------------
 
     def get_org_website(self, repo: Dict) -> Optional[str]:
         owner = repo.get('owner', '')
         if not owner:
             return None
-        if owner in self.processed_orgs:
-            return self.processed_orgs[owner].get('org_website')
+        with self._lock:
+            if owner in self.processed_orgs:
+                return self.processed_orgs[owner].get('org_website')
         website = _find_org_website(owner, self.github_token)
         logger.debug(f"Website for {owner}: {website}")
         return website
 
-    # ------------------------------------------------------------------
     # Scan one repository
-    # ------------------------------------------------------------------
 
     def scan_repository(self, repo: Dict) -> Dict:
         owner = repo.get('owner', 'Unknown')
@@ -359,17 +340,19 @@ class AIDisclosureScanner:
         }
 
         try:
-            # ── Dedup: reuse crawl + Groq policy analysis for repeat orgs ────
-            if owner in self.processed_orgs:
-                prev = self.processed_orgs[owner]
+            with self._lock:
+                cached = self.processed_orgs.get(owner)
+            if cached:
+                # Repeat owner within this run — reuse crawl + Groq policy
+                # analysis instead of re-crawling.
                 result.update({
-                    'org_website':         prev.get('org_website'),
-                    'org_classification':  prev.get('org_classification'),
-                    'crawl_results':       prev.get('crawl_results'),
-                    'candidate_pages':     prev.get('candidate_pages', []),
-                    'confirmed_policies':  prev.get('confirmed_policies', []),
-                    'rejected_candidates': prev.get('rejected_candidates', []),
-                    'policy_analysis':     prev.get('policy_analysis'),
+                    'org_website':         cached.get('org_website'),
+                    'org_classification':  cached.get('org_classification'),
+                    'crawl_results':       cached.get('crawl_results'),
+                    'candidate_pages':     cached.get('candidate_pages', []),
+                    'confirmed_policies':  cached.get('confirmed_policies', []),
+                    'rejected_candidates': cached.get('rejected_candidates', []),
+                    'policy_analysis':     cached.get('policy_analysis'),
                 })
                 result['policies_found'] = result['confirmed_policies']
 
@@ -386,19 +369,23 @@ class AIDisclosureScanner:
                 result['scan_status'] = 'completed_from_cache'
                 return result
 
-            # ── Step 1: Classify organisation ────────────────────────────────
+            # Step 1: Classify organisation
             if self.classifier:
                 logger.info(f"  → Classifying organisation…")
                 result['org_classification'] = self.classifier.classify_organization_type(
                     owner,
                     repo.get('description', repo.get('name', '')),
                 )
+                if _is_invalid_api_key_error(result['org_classification']):
+                    logger.warning("Groq API key is invalid; disabling Groq for the rest of this run")
+                    self.classifier = None
+                    result['org_classification'] = None
 
-            # ── Step 2: Find website ─────────────────────────────────────────
+            # Step 2: Find website
             logger.info(f"  → Finding website…")
             result['org_website'] = self.get_org_website(repo)
 
-            # ── Step 3: Crawl (direct probe + Scrapy) ───────────────────────
+            # Step 3: Crawl (direct probe + Scrapy)
             if result['org_website']:
                 logger.info(f"  → Crawling {result['org_website']}…")
                 crawl = crawl_organization_sync(result['org_website'], owner)
@@ -416,7 +403,7 @@ class AIDisclosureScanner:
                     f"— sending to Groq for verification"
                 )
 
-                # ── Step 4: Groq verifies candidates, THEN we filter ─────────
+                # Step 4: Groq verifies candidates, THEN we filter
                 if self.classifier and candidates:
                     result['policy_analysis'] = self.classifier.evaluate_policy_pages(candidates)
                     verdicts = _get_policy_verdicts(result['policy_analysis'])
@@ -427,15 +414,11 @@ class AIDisclosureScanner:
                         )
                         result['confirmed_policies'] = confirmed
                         result['rejected_candidates'] = rejected
-                        # Unverified (e.g. beyond top-5 sent to Groq) are kept
-                        # as low-confidence candidates, not counted as found
                         logger.info(
                             f"  → Groq verdict: {len(confirmed)} confirmed, "
                             f"{len(rejected)} rejected, {len(unverified)} unverified"
                         )
                     else:
-                        # Groq call failed or returned unparseable text —
-                        # don't silently treat candidates as confirmed
                         logger.warning(
                             f"  → Could not parse Groq verdicts for {owner}; "
                             f"treating {len(candidates)} candidate(s) as unverified"
@@ -451,7 +434,7 @@ class AIDisclosureScanner:
                     'pages_crawled': 0, 'error': 'No website found',
                 }
 
-            # ── Step 5: Repo AI usage analysis ──────────────────────────────
+            # Step 5: Repo AI usage analysis
             if self.classifier:
                 logger.info(f"  → Analysing repo AI usage…")
                 result['ai_usage_analysis'] = self.classifier.analyze_repository_ai_usage(
@@ -463,7 +446,7 @@ class AIDisclosureScanner:
                 if result['ai_usage_analysis'].get('requires_disclosure'):
                     result['disclosure_required'] = True
 
-            # ── Step 6: Generate Groq summary ───────────────────────────────
+            # Step 6: Generate Groq summary
             if self.classifier and (result['confirmed_policies'] or result['ai_usage_analysis']):
                 result['summary'] = self.classifier.summarize_disclosure_findings({
                     'owner': owner,
@@ -473,11 +456,12 @@ class AIDisclosureScanner:
                     'org_type': (result.get('org_classification') or {}).get('org_type'),
                 })
 
-            # ── Step 7: Compute transparency score from parsed verdicts ──────
+            # Step 7: Compute transparency score from parsed verdicts
             result['transparency_score'] = compute_transparency_score(result)
             result['scan_status'] = 'completed'
 
-            self.processed_orgs[owner] = result
+            with self._lock:
+                self.processed_orgs[owner] = result
 
         except Exception as e:
             logger.error(f"Error scanning {repo_name}: {e}", exc_info=True)
@@ -487,9 +471,14 @@ class AIDisclosureScanner:
 
         return result
 
-    # ------------------------------------------------------------------
     # Scan all
-    # ------------------------------------------------------------------
+
+    def _scan_owner_group(self, repos_for_owner: List[Dict]) -> List[Dict]:
+        """Scan every repo for one owner, sequentially within the group, so
+        the dedup cache in scan_repository() never races with itself for
+        this owner. Different owners' groups run concurrently against each
+        other (see scan_all_repositories)."""
+        return [self.scan_repository(repo) for repo in repos_for_owner]
 
     def scan_all_repositories(self, limit: Optional[int] = None) -> None:
         if not self.repository_data:
@@ -497,34 +486,49 @@ class AIDisclosureScanner:
             return
 
         repos = self.repository_data[:limit] if limit else self.repository_data
-        logger.info(f"Starting scan of {len(repos)} repositories…")
+        total = len(repos)
 
-        for i, repo in enumerate(repos, 1):
-            try:
-                result = self.scan_repository(repo)
-                self.results['scan_results'].append(result)
+        by_owner: Dict[str, List[Dict]] = {}
+        for repo in repos:
+            by_owner.setdefault(repo.get('owner', ''), []).append(repo)
 
-                policy_count = len(result.get('confirmed_policies', []))
-                if policy_count:
-                    self.results['policies_found'] += policy_count
+        logger.info(
+            f"Starting scan of {total} repositories across {len(by_owner)} "
+            f"organizations ({self.max_workers} concurrent)…"
+        )
 
-                logger.info(
-                    f"Progress {i}/{len(repos)} — {result['repository']} "
-                    f"[confirmed={policy_count}, "
-                    f"rejected={len(result.get('rejected_candidates', []))}, "
-                    f"score={result['transparency_score']}]"
-                )
+        completed = 0
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            futures = {
+                executor.submit(self._scan_owner_group, group): owner
+                for owner, group in by_owner.items()
+            }
+            for future in as_completed(futures):
+                owner = futures[future]
+                try:
+                    owner_results = future.result()
+                except Exception as e:
+                    logger.error(f"Unexpected error scanning owner {owner}: {e}", exc_info=True)
+                    continue
 
-                self._save_incremental()
-
-            except Exception as e:
-                logger.error(f"Unexpected error on repo {i}: {e}", exc_info=True)
+                with self._lock:
+                    for result in owner_results:
+                        completed += 1
+                        self.results['scan_results'].append(result)
+                        policy_count = len(result.get('confirmed_policies', []))
+                        if policy_count:
+                            self.results['policies_found'] += policy_count
+                        logger.info(
+                            f"Progress {completed}/{total} — {result['repository']} "
+                            f"[confirmed={policy_count}, "
+                            f"rejected={len(result.get('rejected_candidates', []))}, "
+                            f"score={result['transparency_score']}]"
+                        )
+                    self._save_incremental()
 
         self.results['organizations_scanned'] = len(self.processed_orgs)
 
-    # ------------------------------------------------------------------
     # Save
-    # ------------------------------------------------------------------
 
     def _save_incremental(self) -> None:
         try:
@@ -588,9 +592,7 @@ class AIDisclosureScanner:
         return self.save_results()
 
 
-# ---------------------------------------------------------------------------
 # CLI entry point
-# ---------------------------------------------------------------------------
 
 def main():
     import argparse
@@ -598,22 +600,25 @@ def main():
     parser = argparse.ArgumentParser(
         description='AI Disclosure Scanner — find AI policies in GitHub organisations'
     )
-    parser.add_argument('--input',  default='../sample_100.json')
-    parser.add_argument('--output', default='ai_disclosure_results.json')
+    parser.add_argument('--input',  default=None)
+    parser.add_argument('--output', default=None)
     parser.add_argument('--limit',  type=int, default=None)
     parser.add_argument('--groq-api-key', default=None)
-    parser.add_argument('--workers', type=int, default=1,
-                        help='Kept for compatibility; crawls are sequential')
+    parser.add_argument('--workers', type=int, default=MAX_ORG_WORKERS,
+                        help=f'Organizations to scan concurrently (default {MAX_ORG_WORKERS})')
     args = parser.parse_args()
 
     if not os.getenv('GROQ_API_KEY') and not args.groq_api_key:
-        logger.error("GROQ_API_KEY not set. Export it or pass --groq-api-key.")
-        return False
+        logger.warning(
+            "GROQ_API_KEY not set; running crawler-only scan. "
+            "Candidates will not be AI-verified until a key is provided."
+        )
 
     scanner = AIDisclosureScanner(
         sample_file=args.input,
         output_file=args.output,
         groq_api_key=args.groq_api_key,
+        max_workers=args.workers,
     )
     return scanner.run(limit=args.limit)
 

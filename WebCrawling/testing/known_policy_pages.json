@@ -1,0 +1,100 @@
+{
+  "description": "Known-good AI disclosure policy pages, used as a regression fixture for web_crawler.py. If crawl_organization_sync() / probe_known_paths() stops finding these, a scoring/keyword/path change broke recall. All entries in 'orgs' were verified live (fetched + scored with the actual scoring code, not just eyeballed) during the 2026-07-31 refinement pass; the original 3 (apache, trustedfirmware, openinfra) are from the prior session.",
+  "orgs": [
+    {
+      "org_name": "apache",
+      "org_website": "https://www.apache.org",
+      "expected_url": "https://www.apache.org/legal/generative-tooling.html",
+      "notes": "ASF Generative Tooling Guidance - AI-generated content disclosure in contributions"
+    },
+    {
+      "org_name": "trustedfirmware",
+      "org_website": "https://www.trustedfirmware.org",
+      "expected_url": "https://www.trustedfirmware.org/aipolicy/",
+      "notes": "Trusted Firmware AI Policy - Assisted-by: commit token guidance"
+    },
+    {
+      "org_name": "openinfra",
+      "org_website": "https://openinfra.org",
+      "expected_url": "https://openinfra.org/legal/ai-policy",
+      "notes": "OpenInfra Foundation Policy for AI Generated Content"
+    },
+    {
+      "org_name": "linuxfoundation",
+      "org_website": "https://www.linuxfoundation.org",
+      "expected_url": "https://www.linuxfoundation.org/legal/generative-ai",
+      "notes": "Linux Foundation Generative AI Policy - license compliance, third-party copyright, employer-policy compliance for AI-assisted contributions. Found via KNOWN_POLICY_PATHS entry '/legal/generative-ai', score 35."
+    },
+    {
+      "org_name": "eclipse",
+      "org_website": "https://www.eclipse.org",
+      "expected_url": "https://www.eclipse.org/projects/handbook/#genai",
+      "notes": "Eclipse 'Generative AI Usage Guidelines for Committers' - note the probed path '/projects/guidelines/genai/' redirects into a single giant Project Handbook page (~460KB of text) at this URL; the genai section is deep in the page, not at the top, so the crawler's text_snippet (first 1800 chars) captures handbook front matter rather than the genai guidance itself. Score 39, matched via 'ai disclosure', 'assisted-by', 'disclose the use of ai'. Worth revisiting snippet extraction (extract text near the matched phrase instead of always the page start) if Groq verification rejects this one for looking generic."
+    },
+    {
+      "org_name": "llvm",
+      "org_website": "https://llvm.org",
+      "expected_url": "https://llvm.org/docs/AIToolPolicy.html",
+      "notes": "LLVM AI Tool Use Policy - human-in-the-loop requirement, hosted on their Sphinx docs site (not GitHub). Found via KNOWN_POLICY_PATHS entry '/docs/AIToolPolicy.html', score 35."
+    },
+    {
+      "org_name": "rockylinux",
+      "org_website": "https://rockylinux.org",
+      "expected_url": "https://docs.rockylinux.org/guides/contribute/ai-contribution-policy/",
+      "notes": "Rocky Linux AI-Assisted Contribution Policy, explicitly based on Fedora's. Lives on the docs.rockylinux.org SUBDOMAIN, not rockylinux.org itself - found via the new DOC_SUBDOMAIN_PREFIXES + SUBDOMAIN_PROBE_PATHS probing added this session. Score 52, highest of the new batch."
+    },
+    {
+      "org_name": "python",
+      "org_website": "https://www.python.org",
+      "expected_url": "https://devguide.python.org/getting-started/ai-tools/",
+      "notes": "CPython devguide 'Guidelines for using AI tools'. Lives on devguide.python.org SUBDOMAIN. Score 16 - lowest of the new batch but still 2x MIN_SCORE."
+    },
+    {
+      "org_name": "eslint",
+      "org_website": "https://eslint.org",
+      "expected_url": "https://eslint.org/docs/latest/contribute/ai-policy",
+      "notes": "ESLint AI Usage Policy - dedicated policy page on eslint.org itself. Found via KNOWN_POLICY_PATHS entry '/docs/latest/contribute/ai-policy', score 37."
+    },
+    {
+      "org_name": "numpy",
+      "org_website": "https://numpy.org",
+      "expected_url": "https://numpy.org/devdocs/dev/ai_policy.html",
+      "notes": "NumPy AI Policy - dedicated page on numpy.org. Also reachable at /doc/stable/dev/ai_policy.html (both in KNOWN_POLICY_PATHS now). Score 18."
+    },
+    {
+      "org_name": "wordpress",
+      "org_website": "https://wordpress.org",
+      "expected_url": "https://make.wordpress.org/ai/handbook/ai-guidelines/",
+      "notes": "WordPress AI Guidelines handbook page. Lives on make.wordpress.org SUBDOMAIN. IMPORTANT: make.wordpress.org 429-rate-limits bursts of concurrent requests (observed live while testing this entry - most of a 20-worker burst against it came back 429), which is why _probe_one_path now retries once after a 1.5s backoff on 429. Score 27."
+    },
+    {
+      "org_name": "taylorandfrancis",
+      "org_website": "https://taylorandfrancis.com",
+      "expected_url": "https://taylorandfrancis.com/our-policies/ai-policy/",
+      "notes": "Taylor & Francis AI Policy (academic publisher, not a software org - included as a structural template: requires authors to name the specific AI tool, version, and reason for use). Found via KNOWN_POLICY_PATHS entry '/our-policies/ai-policy/', score 45. Note: several other KNOWN_POLICY_PATHS entries on this site (e.g. '/legal/ai-policy', '/policy/ai') redirect to the same canonical URL, so probe_known_paths() returns duplicate hits for it when called directly (crawl_organization_sync() dedupes these by final URL; probe_known_paths() alone does not - cosmetic only, not a scoring bug)."
+    }
+  ],
+  "known_limitations": {
+    "description": "Real AI disclosure pages found during research that the crawler currently CANNOT reliably find, and why - documented here instead of the 'orgs' regression list so the test suite doesn't assert something the crawler structurally can't do yet. Revisit if the underlying blocker gets addressed.",
+    "entries": [
+      {
+        "org_name": "fedora",
+        "org_website": "https://fedoraproject.org",
+        "known_url": "https://docs.fedoraproject.org/en-US/council/policy/ai-contribution-policy/",
+        "reason": "docs.fedoraproject.org serves an Anubis anti-bot JS challenge ('Making sure you're not a bot!') to plain requests.get() - confirmed live, the page body is the challenge page, not the policy text. Would need a JS-executing headless browser (e.g. Playwright) to get past Anubis's proof-of-work check; out of scope for the requests-based direct prober. Rocky Linux's docs site (same underlying policy, same doc-platform style) is NOT behind Anubis and IS found successfully - see the 'rockylinux' entry above."
+      },
+      {
+        "org_name": "gitlab",
+        "org_website": "https://about.gitlab.com",
+        "known_url": "https://handbook.gitlab.com/handbook/tools-and-tips/ai/",
+        "reason": "Page is real and live but is a thin stub ('GitLab team members should be familiar with the General Purpose AI Tool Usage Requirements here') whose 'here' link points to https://internal.gitlab.com/... - an internal-only URL, not publicly readable. Scores 0: there's no actual policy content on the public page to match against. GitLab's public Acceptable Use Policy (https://handbook.gitlab.com/handbook/legal/acceptable-use-policy/) does contain one relevant clause ('to falsely represent that output generated by our AI-powered services was solely human-generated') but scores only 3 - it's a general acceptable-use policy where AI is one clause among many unrelated ones (spam, illegal content, etc.), not a dedicated AI disclosure page. Forcing either to pass threshold would require loosening scoring in a way that risks false positives elsewhere; not attempted."
+      },
+      {
+        "org_name": "redhat",
+        "org_website": "https://www.redhat.com",
+        "known_url": "https://www.redhat.com/en/blog/ai-assisted-development-and-open-source-navigating-legal-issues",
+        "reason": "Real content, scores 54 when fetched directly (well above threshold) - but it's a corporate blog post at an unpredictable slug, not a conventional policy path, so KNOWN_POLICY_PATHS direct probing can't find it without knowing the URL in advance. Would only be discoverable via the Scrapy deep-crawl stage finding a link to it from redhat.com's blog index within depth 5 / 100 pages - not verified either way this session (Scrapy stage not exercised for this org)."
+      }
+    ]
+  }
+}

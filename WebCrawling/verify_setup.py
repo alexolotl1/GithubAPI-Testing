@@ -11,13 +11,21 @@ Usage:
 import sys
 import json
 import os
-from typing import Tuple, List
-from dotenv import load_dotenv
+from pathlib import Path
 
-# Load environment variables from .env file
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    def load_dotenv(*_args, **_kwargs):
+        return False
 
-# Color codes for output
+BASE_DIR = Path(__file__).resolve().parent
+REPO_DIR = BASE_DIR.parent
+load_dotenv(BASE_DIR / '.env')
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 GREEN = '\033[92m'
 RED = '\033[91m'
 YELLOW = '\033[93m'
@@ -25,25 +33,20 @@ BLUE = '\033[94m'
 RESET = '\033[0m'
 
 def print_header(text: str):
-    """Print section header."""
     print(f"\n{BLUE}{'='*60}")
     print(f"{text}")
     print(f"{'='*60}{RESET}")
 
 def print_ok(text: str):
-    """Print success message."""
     print(f"{GREEN}✓{RESET} {text}")
 
 def print_error(text: str):
-    """Print error message."""
     print(f"{RED}✗{RESET} {text}")
 
 def print_warning(text: str):
-    """Print warning message."""
     print(f"{YELLOW}⚠{RESET} {text}")
 
 def verify_python_version() -> bool:
-    """Check Python version (3.8+)."""
     print_header("1. Python Version Check")
     
     version = sys.version_info
@@ -59,7 +62,6 @@ def verify_python_version() -> bool:
         return False
 
 def verify_dependencies() -> bool:
-    """Check if all required packages are installed."""
     print_header("2. Python Dependencies Check")
     
     required_packages = [
@@ -83,29 +85,24 @@ def verify_dependencies() -> bool:
     
     if not all_ok:
         print_warning("\nInstall missing packages with:")
-        print("  pip install -r requirements.txt")
+        print("  pip install -r ../requirements.txt")
     
     return all_ok
 
 def verify_groq_api_key() -> bool:
-    """Check Groq API key configuration."""
     print_header("3. Groq API Configuration")
     
     api_key = os.getenv('GROQ_API_KEY')
     
     if api_key:
-        # Mask key for security
         masked = api_key[:10] + '...' + api_key[-5:]
         print_ok(f"GROQ_API_KEY found: {masked}")
-        
-        # Test connection
+
         try:
             from groq import Groq
             client = Groq(api_key=api_key)
-            
-            # Try a simple API call
-            response = client.messages.create(
-                model="mixtral-8x7b-32768",
+            response = client.chat.completions.create(
+                model="openai/gpt-oss-120b",
                 messages=[{"role": "user", "content": "test"}],
                 max_tokens=10,
                 temperature=0.1
@@ -119,12 +116,12 @@ def verify_groq_api_key() -> bool:
             return False
     else:
         print_error("GROQ_API_KEY not found")
-        print_warning("Set with: export GROQ_API_KEY='your-key-here'")
-        print_warning("Or create .env file with: GROQ_API_KEY=your-key-here")
-        return False
+        print_warning("Crawler-only mode can still run, but Groq verification will be skipped")
+        print_warning("PowerShell: $env:GROQ_API_KEY='your-key-here'")
+        print_warning("Or create WebCrawling\\.env with: GROQ_API_KEY=your-key-here")
+        return None
 
 def verify_github_api_key() -> bool:
-    """Check GitHub API token (optional)."""
     print_header("4. GitHub API Configuration (Optional)")
     
     token = os.getenv('GITHUB_TOKEN')
@@ -132,8 +129,7 @@ def verify_github_api_key() -> bool:
     if token:
         masked = token[:10] + '...' + token[-5:]
         print_ok(f"GITHUB_TOKEN found: {masked}")
-        
-        # Test connection
+
         try:
             import requests
             headers = {'Authorization': f'token {token}'}
@@ -147,52 +143,52 @@ def verify_github_api_key() -> bool:
                 print_ok("GitHub API connection successful")
                 return True
             else:
-                print_warning(f"GitHub API returned status {response.status_code}")
-                return False
-        
+                print_warning(f"GitHub API returned status {response.status_code} "
+                              f"(token may be invalid/expired) — optional, scanner still works")
+                return None  # optional check: broken token shouldn't block a "ready to run" verdict
+
         except Exception as e:
-            print_warning(f"GitHub API connection failed: {e}")
-            return False
+            print_warning(f"GitHub API connection failed: {e} — optional, scanner still works")
+            return None
     else:
         print_warning("GITHUB_TOKEN not set (optional - API calls will be slower)")
         return None  # Optional
 
 def verify_input_files() -> bool:
-    """Check if input files exist."""
     print_header("5. Input Files Check")
     
     required_files = {
-        '../sample_100.json': 'Repository list',
-        '../requirements.txt': 'Dependencies list',
+        REPO_DIR / 'HeuristicScanner' / 'sample.json': 'Repository list',
+        REPO_DIR / 'requirements.txt': 'Dependencies list',
     }
-    
+
     all_ok = True
-    for filename, description in required_files.items():
-        if os.path.exists(filename):
-            size = os.path.getsize(filename)
-            print_ok(f"{filename:<20} ({size:,} bytes) - {description}")
+    for path, description in required_files.items():
+        display = os.path.relpath(path, BASE_DIR)
+        if path.exists():
+            size = path.stat().st_size
+            print_ok(f"{display:<20} ({size:,} bytes) - {description}")
         else:
-            print_error(f"{filename:<20} - NOT FOUND")
+            print_error(f"{display:<20} - NOT FOUND")
             all_ok = False
-    
-    if os.path.exists('../sample_100.json'):
+
+    sample_file = REPO_DIR / 'HeuristicScanner' / 'sample.json'
+    if sample_file.exists():
         try:
-            with open('../sample_100.json', 'r') as f:
+            with open(sample_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             repo_count = len(data.get('repositories', []))
             print_ok(f"Contains {repo_count} repositories")
         except json.JSONDecodeError:
-            print_error("../sample_100.json is invalid JSON")
+            print_error("../HeuristicScanner/sample.json is invalid JSON")
             all_ok = False
     
     return all_ok
 
 def verify_output_directory() -> bool:
-    """Check if output directory is writable."""
     print_header("6. Output Directory Check")
     
     try:
-        # Try to write a test file
         test_file = '.write_test_temp.txt'
         with open(test_file, 'w') as f:
             f.write('test')
@@ -207,7 +203,6 @@ def verify_output_directory() -> bool:
         return False
 
 def verify_module_imports() -> bool:
-    """Verify custom modules can be imported."""
     print_header("7. Custom Modules Check")
     
     modules = [
@@ -228,7 +223,6 @@ def verify_module_imports() -> bool:
     return all_ok
 
 def print_summary(results: dict) -> None:
-    """Print verification summary."""
     print_header("Verification Summary")
     
     total = len(results)
@@ -251,18 +245,17 @@ def print_summary(results: dict) -> None:
     else:
         print_error("\n❌ Some required checks failed")
         print("Please fix the issues above before running the scanner.")
-        
-        # Provide fix suggestions
+
         if not results.get('dependencies'):
             print("\nFix: Install dependencies with:")
-            print("  pip install -r requirements.txt")
+            print("  pip install -r ../requirements.txt")
         
         if not results.get('groq_api'):
-            print("\nFix: Set Groq API key:")
-            print("  export GROQ_API_KEY='your-key-here'")
+            print("\nOptional: Set Groq API key for verification:")
+            print("  $env:GROQ_API_KEY='your-key-here'")
         
         if not results.get('input_files'):
-            print("\nFix: Ensure ../sample_100.json and ../requirements.txt exist")
+            print("\nFix: Ensure HeuristicScanner/sample.json and requirements.txt exist")
 
 def main():
     """Run all verification checks."""
@@ -280,8 +273,7 @@ def main():
     }
     
     print_summary(results)
-    
-    # Return exit code
+
     if all(v is True for k, v in results.items()):
         return 0
     elif any(v is False for k, v in results.items()):

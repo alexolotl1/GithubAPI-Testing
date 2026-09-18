@@ -1,8 +1,8 @@
 {
-  "scan_timestamp": "2026-06-19T16:28:58.696364",
+  "scan_timestamp": "2026-07-31T16:40:58.768250",
   "total_repositories": 100,
-  "organizations_scanned": 5,
-  "policies_found": 0,
+  "organizations_scanned": 10,
+  "policies_found": 2,
   "scan_results": [
     {
       "repository": "iOfficeAI/AionUi",
@@ -20,16 +20,31 @@
           "Software",
           "Artificial Intelligence"
         ],
-        "reasoning": "The organization name 'iOfficeAI' suggests a strong connection to artificial intelligence, and the repository domain 'AionUi' implies a user interface component, possibly for an AI-powered application. The presence of 'AI' in the organization name indicates a high likelihood of using AI in their products or services. As a company, they are also more likely to have AI policies in place to guide their development and deployment of AI technologies."
+        "reasoning": "The organization name 'iOfficeAI' suggests a strong focus on artificial intelligence, and the repository name 'AionUi' implies a user interface component, likely for an AI-powered product or service. The presence of 'AI' in the organization name indicates a high likelihood of using AI in their products or services. As a company, they are also more likely to have AI policies in place to guide their development and deployment of AI technologies."
       },
       "org_website": "https://www.aionui.com",
       "crawl_results": {
         "org_url": "https://www.aionui.com",
         "org_name": "iOfficeAI",
-        "pages_crawled": 0,
+        "pages_crawled": 1,
         "error": null
       },
-      "policy_analysis": null,
+      "policy_analysis": {
+        "analysis": "[\n  {\n    \"url\": \"https://www.aionui.com/responsible-ai-principles\",\n    \"is_policy_page\": true,\n    \"policy_type\": \"responsible AI\",\n    \"transparency_score\": 80,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"The page appears to be a genuine policy page addressing responsible AI principles, but the content excerpt is incomplete, so the key commitments and disclosure requirements are unknown. The URL and title suggest a focus on responsible AI.\"\n  }\n]",
+        "verdicts": [
+          {
+            "url": "https://www.aionui.com/responsible-ai-principles",
+            "is_policy_page": true,
+            "policy_type": "responsible AI",
+            "transparency_score": 80,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "The page appears to be a genuine policy page addressing responsible AI principles, but the content excerpt is incomplete, so the key commitments and disclosure requirements are unknown. The URL and title suggest a focus on responsible AI."
+          }
+        ],
+        "pages_analyzed": 1,
+        "parse_error": null
+      },
       "ai_usage_analysis": {
         "uses_ai": true,
         "ai_type": [
@@ -44,16 +59,76 @@
           "data privacy"
         ],
         "risk_level": "medium",
-        "recommendation": "The repository should focus on developing a transparent AI disclosure policy, including information about data collection, model training, and potential biases. They should also consider providing guidelines for users on how to use the AI-powered features responsibly.",
+        "recommendation": "The repository should focus on disclosing the sources of their training data, any limitations of their models, and the results of bias testing. Additionally, they should consider disclosing their data privacy policies to ensure transparency and trust with their users.",
         "confidence": 80
       },
-      "candidate_pages": [],
-      "confirmed_policies": [],
+      "candidate_pages": [
+        {
+          "url": "https://www.aionui.com/responsible-ai-principles",
+          "title": "AionUi",
+          "policy_score": 10,
+          "matched_signals": [
+            "url:responsible-ai",
+            "url:ai-principles"
+          ],
+          "text_snippet": "AionUi",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "direct_probe"
+        }
+      ],
+      "confirmed_policies": [
+        {
+          "url": "https://www.aionui.com/responsible-ai-principles",
+          "title": "AionUi",
+          "policy_score": 10,
+          "matched_signals": [
+            "url:responsible-ai",
+            "url:ai-principles"
+          ],
+          "text_snippet": "AionUi",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "direct_probe",
+          "groq_verdict": {
+            "url": "https://www.aionui.com/responsible-ai-principles",
+            "is_policy_page": true,
+            "policy_type": "responsible AI",
+            "transparency_score": 80,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "The page appears to be a genuine policy page addressing responsible AI principles, but the content excerpt is incomplete, so the key commitments and disclosure requirements are unknown. The URL and title suggest a focus on responsible AI."
+          }
+        }
+      ],
       "rejected_candidates": [],
-      "policies_found": [],
+      "policies_found": [
+        {
+          "url": "https://www.aionui.com/responsible-ai-principles",
+          "title": "AionUi",
+          "policy_score": 10,
+          "matched_signals": [
+            "url:responsible-ai",
+            "url:ai-principles"
+          ],
+          "text_snippet": "AionUi",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "direct_probe",
+          "groq_verdict": {
+            "url": "https://www.aionui.com/responsible-ai-principles",
+            "is_policy_page": true,
+            "policy_type": "responsible AI",
+            "transparency_score": 80,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "The page appears to be a genuine policy page addressing responsible AI principles, but the content excerpt is incomplete, so the key commitments and disclosure requirements are unknown. The URL and title suggest a focus on responsible AI."
+          }
+        }
+      ],
       "disclosure_required": true,
-      "transparency_score": 18,
-      "summary": "Executive Summary: \niOfficeAI, a company, lacks confirmed AI disclosure policies. No policies were found, indicating a need for development. The organization's AI usage, involving NLP and ML, requires disclosure on topics like training data sources and bias testing. With a medium risk level, the transparency level is assessed as inadequate. To improve, it is recommended that the organization develops a transparent AI disclosure policy, including guidelines on data collection, model training, and potential biases. This will enable responsible use of AI-powered features. With an 80% confidence level, these findings highlight the need for iOfficeAI to prioritize AI disclosure and transparency.",
+      "transparency_score": 63,
+      "summary": "Executive Summary:\n\niOfficeAI, a company, has confirmed AI disclosure policies in place. The policies found include disclosure of training data sources, model limitations, bias testing, and data privacy. With a medium risk level and 80% confidence, the assessment indicates a moderate level of transparency. To improve, it is recommended that the organization focus on disclosing training data sources, model limitations, and bias testing results. Additionally, they should consider disclosing data privacy policies to ensure transparency and trust with users. Overall, while some policies are in place, further disclosure is necessary to achieve a higher level of transparency and trust.",
       "scan_status": "completed"
     },
     {
@@ -67,19 +142,19 @@
       "org_classification": {
         "org_type": "open-source",
         "likelihood_has_ai_policy": 20,
-        "likely_uses_ai": true,
+        "likely_uses_ai": false,
         "industries": [
-          "Technology",
-          "Embedded Systems",
-          "IoT"
+          "embedded systems",
+          "iot",
+          "operating systems"
         ],
-        "reasoning": "The Zephyr Project is an open-source real-time operating system (RTOS) for resource-constrained devices. Given its open-source nature and focus on IoT and embedded systems, it's likely that AI is used in some capacity, such as in device management or data processing. However, as an open-source project, the likelihood of having formal AI policies is lower compared to a company or research institution."
+        "reasoning": "The Zephyr Project is an open-source real-time operating system (RTOS) for resource-constrained devices. The organization type is open-source due to its collaborative and community-driven nature. The likelihood of having AI policies is low (20) because the project's primary focus is on developing an RTOS, not on AI applications. While AI might be used in some IoT devices that utilize Zephyr, it's unlikely that the project itself uses AI in its products or services. The key industries are embedded systems, IoT, and operating systems, given the project's purpose and scope."
       },
       "org_website": "https://www.zephyrproject.org",
       "crawl_results": {
         "org_url": "https://www.zephyrproject.org",
         "org_name": "zephyrproject-rtos",
-        "pages_crawled": 0,
+        "pages_crawled": 17,
         "error": null
       },
       "policy_analysis": null,
@@ -90,7 +165,7 @@
         "disclosure_topics": [],
         "risk_level": "low",
         "recommendation": "No specific AI-related policy focus areas are recommended, as the repository does not appear to involve AI/ML development or usage.",
-        "confidence": 80
+        "confidence": 90
       },
       "candidate_pages": [],
       "confirmed_policies": [],
@@ -98,7 +173,7 @@
       "policies_found": [],
       "disclosure_required": false,
       "transparency_score": 12,
-      "summary": "Executive Summary:\n\nThe zephyrproject-rtos organization lacks AI disclosure policies, with no confirmed policies found. As a result, transparency is limited. The organization's repository does not appear to involve AI/ML development or usage, posing a low risk. With an 80% confidence level, it is recommended that no specific AI-related policy focus areas are required. To improve transparency, the organization may consider establishing AI disclosure policies, although they are not currently necessary. Overall, the organization's transparency level is assessed as low due to the absence of AI disclosure policies, but this is not a significant concern given the low risk of AI/ML involvement.",
+      "summary": "Executive Summary:\n\nThe zephyrproject-rtos organization lacks AI disclosure policies, with no confirmed policies found. As a result, there are no specific policies to report. The organization's transparency level is deemed low-risk, with a 90% confidence level. The assessment recommends no specific AI-related policy focus areas, as the repository does not involve AI/ML development or usage. To improve, the organization should consider establishing AI disclosure policies to ensure transparency and accountability. However, given the current low-risk level, no immediate action is required. Overall, the organization's open-source nature and lack of AI involvement contribute to its low-risk profile.",
       "scan_status": "completed"
     },
     {
@@ -118,13 +193,13 @@
           "Social Media",
           "Advertising"
         ],
-        "reasoning": "Facebook is a well-known technology company with a large presence in social media and online advertising. The repository 'facebook/zstd' suggests they are involved in open-source compression technology, but given Facebook's size and scope, it's likely they have AI policies in place and utilize AI in their products and services, such as content moderation, ad targeting, and user experience personalization."
+        "reasoning": "Facebook is a well-known technology company with a large presence in social media and online advertising. Given its size and influence, it is likely to have AI policies in place. The repository facebook/zstd suggests involvement in open-source compression technology, but Facebook's primary business involves AI-driven services such as content moderation, ad targeting, and user experience personalization."
       },
       "org_website": "https://opensource.fb.com",
       "crawl_results": {
         "org_url": "https://opensource.fb.com",
         "org_name": "facebook",
-        "pages_crawled": 0,
+        "pages_crawled": 17,
         "error": null
       },
       "policy_analysis": null,
@@ -134,8 +209,8 @@
         "requires_disclosure": false,
         "disclosure_topics": [],
         "risk_level": "low",
-        "recommendation": "No AI-related policy focus areas are suggested, as the repository does not appear to involve AI or ML development.",
-        "confidence": 90
+        "recommendation": "No AI-related policy focus areas needed",
+        "confidence": 100
       },
       "candidate_pages": [],
       "confirmed_policies": [],
@@ -143,7 +218,7 @@
       "policies_found": [],
       "disclosure_required": false,
       "transparency_score": 19,
-      "summary": "Executive Summary: \nFacebook, a company, lacks AI disclosure policies. No confirmed policies were found, and AI usage was not detected. \nThe transparency level is low, with no disclosure topics identified. \nThe risk level is assessed as low, with 90% confidence. \nThe key recommendation is that no AI-related policy focus areas are suggested, as the repository does not appear to involve AI or ML development. \nOverall, Facebook's AI disclosure is minimal, and no improvements are currently recommended due to the absence of AI usage.",
+      "summary": "Executive Summary: \nFacebook, a company, lacks AI disclosure policies. No confirmed policies were found, and AI usage was not detected. As a result, the transparency level is low, with no disclosure topics identified. The risk level is assessed as low, with 100% confidence. The recommendation is that no AI-related policy focus areas are needed at this time. To improve, Facebook should consider establishing AI disclosure policies to enhance transparency and trust. Currently, the organization does not require AI disclosure, but developing policies can prepare for future AI adoption and ensure compliance with potential regulations.",
       "scan_status": "completed"
     },
     {
@@ -162,13 +237,13 @@
           "software",
           "technology"
         ],
-        "reasoning": "The organization 'yeasy' appears to be an individual based on the simplicity of the repository name and the lack of any clear indication of a company or university affiliation. The repository 'docker_practice' suggests a focus on software and technology, particularly containerization. Given the individual nature and the specific focus on Docker, it's unlikely they have formal AI policies. Additionally, there's no clear indication that they use AI in their products or services."
+        "reasoning": "The organization 'yeasy' appears to be an individual based on the simplicity of the repository name and the lack of any clear indication of a company or university affiliation. The repository 'docker_practice' suggests a focus on software and technology, particularly containerization. Given the individual nature and the focus on a specific technology, the likelihood of having AI policies is low. There is no clear indication that they use AI in their products or services, but they do operate in the software and technology industries."
       },
       "org_website": "https://yeasy.github.io",
       "crawl_results": {
         "org_url": "https://yeasy.github.io",
         "org_name": "yeasy",
-        "pages_crawled": 0,
+        "pages_crawled": 6,
         "error": null
       },
       "policy_analysis": null,
@@ -178,7 +253,7 @@
         "requires_disclosure": false,
         "disclosure_topics": [],
         "risk_level": "low",
-        "recommendation": "No AI-related policy focus areas suggested",
+        "recommendation": "No AI-related policy focus areas needed",
         "confidence": 100
       },
       "candidate_pages": [],
@@ -187,7 +262,7 @@
       "policies_found": [],
       "disclosure_required": false,
       "transparency_score": 11,
-      "summary": "Executive Summary: \nThe organization, owned by \"yeasy\", does not have AI disclosure policies in place. No policies were found, indicating a lack of transparency in AI usage. The risk level is assessed as \"low\" with 100% confidence. Since the organization does not use AI, no disclosure topics were identified. The overall transparency level is limited due to the absence of AI-related policies. The key recommendation is to establish AI-related policy focus areas, although currently, no specific areas are suggested. Overall, the organization's AI disclosure practices require development to ensure transparency and accountability.",
+      "summary": "Executive Summary: \nThe organization, owned by \"yeasy\", does not have AI disclosure policies in place. No policies were found, and AI usage was not detected. As a result, the transparency level is deemed low risk, with 100% confidence. The assessment recommends no AI-related policy focus areas, indicating that the organization does not require disclosure. Overall, the organization's transparency level is adequate given its non-use of AI. However, implementing AI disclosure policies may be beneficial for future growth and compliance. No key recommendations for improvement are suggested at this time, but ongoing monitoring is advised to ensure continued compliance with evolving AI regulations.",
       "scan_status": "completed"
     },
     {
@@ -206,13 +281,13 @@
           "Software",
           "Data Visualization"
         ],
-        "reasoning": "Highcharts is a well-known company that provides data visualization solutions. Their GitHub repository suggests a focus on software development, particularly in the area of charting and graphing libraries. Given their size and scope, it's likely they have some AI policies in place, but may not be a primary focus. They likely use AI in their products or services to improve data visualization and analysis capabilities."
+        "reasoning": "Highcharts is a well-known company that provides data visualization solutions. Their GitHub repository suggests a strong focus on software development, particularly in the area of charting and data visualization libraries. Given their size and scope, it's likely they have some form of AI policy in place, but it may not be comprehensive. They likely use AI in their products or services to enhance data analysis and visualization capabilities."
       },
       "org_website": "https://www.highcharts.com",
       "crawl_results": {
         "org_url": "https://www.highcharts.com",
         "org_name": "highcharts",
-        "pages_crawled": 0,
+        "pages_crawled": 98,
         "error": null
       },
       "policy_analysis": null,
@@ -222,7 +297,7 @@
         "requires_disclosure": false,
         "disclosure_topics": [],
         "risk_level": "low",
-        "recommendation": "No AI-related policy focus areas are suggested, as the repository does not appear to use or develop AI/ML technologies.",
+        "recommendation": "No AI-related policy focus areas are suggested, as the repository does not appear to use or develop AI/ML.",
         "confidence": 90
       },
       "candidate_pages": [],
@@ -231,19 +306,809 @@
       "policies_found": [],
       "disclosure_required": false,
       "transparency_score": 16,
-      "summary": "Executive Summary: \nHighcharts, a company, lacks AI disclosure policies. No policies were found, indicating a need for implementation. The transparency level is low, with no AI/ML technologies used or developed. The risk level is assessed as low, with 90% confidence. The recommendation is to not focus on AI-related policy areas currently, as no AI usage is detected. To improve, Highcharts should consider establishing AI disclosure policies to ensure transparency in potential future AI adoption. This will enable the company to be better prepared for any future AI-related developments and maintain a high level of transparency.",
+      "summary": "Executive Summary:\n\nThe Highcharts organization does not have AI disclosure policies in place. No policies were found, and the repository does not appear to use or develop AI/ML. As a result, the transparency level is low, with a risk level assessed as \"low\". With a 90% confidence level, it is recommended that no AI-related policy focus areas are suggested. To improve, Highcharts should consider establishing AI disclosure policies to ensure transparency and accountability. Currently, there are no disclosure topics or AI types to report, indicating a lack of AI usage. Overall, the organization's AI disclosure practices require development to meet emerging standards and regulations.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "JetBrains/Exposed",
+      "owner": "JetBrains",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/JetBrains/Exposed",
+      "github_url": "https://github.com/JetBrains",
+      "language": "Kotlin",
+      "stars": 9228,
+      "org_classification": {
+        "org_type": "company",
+        "likelihood_has_ai_policy": 80,
+        "likely_uses_ai": true,
+        "industries": [
+          "Software Development",
+          "Technology"
+        ],
+        "reasoning": "JetBrains is a well-known company that develops integrated development environments (IDEs) and other software development tools. Given their size and influence in the tech industry, it's likely they have AI policies in place. Their products, such as IntelliJ IDEA and PyCharm, likely utilize AI and machine learning to provide features like code completion, code analysis, and debugging. The Exposed repository suggests a focus on database interaction, which may also involve AI-driven optimizations."
+      },
+      "org_website": "https://jetbrains.com/opensource",
+      "crawl_results": {
+        "org_url": "https://jetbrains.com/opensource",
+        "org_name": "JetBrains",
+        "pages_crawled": 1,
+        "error": null
+      },
+      "policy_analysis": null,
+      "ai_usage_analysis": {
+        "uses_ai": false,
+        "ai_type": [],
+        "requires_disclosure": false,
+        "disclosure_topics": [],
+        "risk_level": "low",
+        "recommendation": "No AI-related policy focus areas suggested",
+        "confidence": 90
+      },
+      "candidate_pages": [],
+      "confirmed_policies": [],
+      "rejected_candidates": [],
+      "policies_found": [],
+      "disclosure_required": false,
+      "transparency_score": 18,
+      "summary": "Executive Summary: \nJetBrains, a company, does not have AI disclosure policies in place. No policies were found, indicating a lack of transparency in AI usage. The risk level is assessed as low, with 90% confidence. Since no AI usage was detected, no disclosure topics were identified. The recommendation is that no AI-related policy focus areas are suggested at this time. Overall, the transparency level is limited due to the absence of AI disclosure policies. To improve, JetBrains should consider establishing AI disclosure policies to enhance transparency and accountability in its operations.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "PostHog/posthog",
+      "owner": "PostHog",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/PostHog/posthog",
+      "github_url": "https://github.com/PostHog",
+      "language": "Python",
+      "stars": 34222,
+      "org_classification": {
+        "org_type": "company",
+        "likelihood_has_ai_policy": 60,
+        "likely_uses_ai": true,
+        "industries": [
+          "Software",
+          "Analytics"
+        ],
+        "reasoning": "PostHog is an open-source product analytics platform, indicating it's a company. The likelihood of having AI policies is moderate due to the company's size and open-source nature. They likely use AI in their products for analytics and insights. The primary industries are software and analytics."
+      },
+      "org_website": "https://posthog.com",
+      "crawl_results": {
+        "org_url": "https://posthog.com",
+        "org_name": "PostHog",
+        "pages_crawled": 100,
+        "error": null
+      },
+      "policy_analysis": null,
+      "ai_usage_analysis": {
+        "uses_ai": true,
+        "ai_type": [
+          "ML",
+          "NLP"
+        ],
+        "requires_disclosure": true,
+        "disclosure_topics": [
+          "training data sources",
+          "model limitations",
+          "bias testing",
+          "data privacy"
+        ],
+        "risk_level": "medium",
+        "recommendation": "Develop a policy focusing on transparency in data collection and usage, particularly for user behavior analysis and potential predictive modeling. Ensure compliance with relevant data protection regulations.",
+        "confidence": 80
+      },
+      "candidate_pages": [],
+      "confirmed_policies": [],
+      "rejected_candidates": [],
+      "policies_found": [],
+      "disclosure_required": true,
+      "transparency_score": 16,
+      "summary": "Executive Summary:\n\nPostHog, a company, lacks AI disclosure policies. No confirmed policies were found, and the organization relies on Machine Learning (ML) and Natural Language Processing (NLP) technologies. With a medium risk level, transparency in data collection and usage is a concern. The organization requires disclosure on topics such as training data sources, model limitations, bias testing, and data privacy. We recommend developing a policy focusing on transparency in data collection and usage, ensuring compliance with relevant data protection regulations. With 80% confidence, our assessment highlights the need for improved transparency and disclosure practices to mitigate potential risks associated with AI usage.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "PowerShell/PowerShell",
+      "owner": "PowerShell",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/PowerShell/PowerShell",
+      "github_url": "https://github.com/PowerShell",
+      "language": "C#",
+      "stars": 53245,
+      "org_classification": {
+        "org_type": "open-source",
+        "likelihood_has_ai_policy": 80,
+        "likely_uses_ai": true,
+        "industries": [
+          "Software",
+          "Technology",
+          "Cloud Computing"
+        ],
+        "reasoning": "PowerShell is an open-source organization under the Microsoft umbrella, focused on developing the PowerShell task automation and configuration management framework. Given its connection to Microsoft, a leader in AI research and integration, it's likely that PowerShell has AI policies in place. Additionally, PowerShell's automation capabilities and Microsoft's AI-driven initiatives suggest the use of AI in their products and services. The primary industries they operate in are software, technology, and cloud computing, given their role in managing and automating IT systems."
+      },
+      "org_website": "https://microsoft.com/powershell",
+      "crawl_results": {
+        "org_url": "https://microsoft.com/powershell",
+        "org_name": "PowerShell",
+        "pages_crawled": 100,
+        "error": null
+      },
+      "policy_analysis": {
+        "analysis": "[\n  {\n    \"url\": \"https://www.microsoft.com/en-us/privacy/privacystatement\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 20,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page is a general privacy statement and does not specifically address AI disclosure or usage policy. It discusses cookie usage and data privacy frameworks.\"\n  },\n  {\n    \"url\": \"https://www.microsoft.com/en-us/ai/responsible-ai\",\n    \"is_policy_page\": true,\n    \"policy_type\": \"responsible AI\",\n    \"transparency_score\": 80,\n    \"key_commitments\": [\"ethical policies and practices\", \"safe and secure AI business practices\"],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page discusses Microsoft's responsible AI policies and practices, indicating a genuine focus on AI ethics and governance. The content suggests a commitment to ethical AI development and usage.\"\n  },\n  {\n    \"url\": \"https://www.microsoft.com/en-US/privacy/data-privacy-notice\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 10,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page is a data privacy notice for employees, external staff, candidates, and guests, and does not specifically address AI disclosure or usage policy. It discusses personal data handling and privacy principles.\"\n  },\n  {\n    \"url\": \"https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 0,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page is a product announcement for an AI-assisted tool and does not discuss AI disclosure or usage policy. It focuses on the features and capabilities of the tool.\"\n  },\n  {\n    \"url\": \"https://www.microsoft.com/en-us/privacy/updates\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 5,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page is a change history for Microsoft's privacy statement and does not specifically address AI disclosure or usage policy. It lists updates to the privacy statement.\"\n  }\n]",
+        "verdicts": [
+          {
+            "url": "https://www.microsoft.com/en-us/privacy/privacystatement",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 20,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is a general privacy statement and does not specifically address AI disclosure or usage policy. It discusses cookie usage and data privacy frameworks."
+          },
+          {
+            "url": "https://www.microsoft.com/en-us/ai/responsible-ai",
+            "is_policy_page": true,
+            "policy_type": "responsible AI",
+            "transparency_score": 80,
+            "key_commitments": [
+              "ethical policies and practices",
+              "safe and secure AI business practices"
+            ],
+            "disclosure_requirement": false,
+            "summary": "This page discusses Microsoft's responsible AI policies and practices, indicating a genuine focus on AI ethics and governance. The content suggests a commitment to ethical AI development and usage."
+          },
+          {
+            "url": "https://www.microsoft.com/en-US/privacy/data-privacy-notice",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 10,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is a data privacy notice for employees, external staff, candidates, and guests, and does not specifically address AI disclosure or usage policy. It discusses personal data handling and privacy principles."
+          },
+          {
+            "url": "https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 0,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is a product announcement for an AI-assisted tool and does not discuss AI disclosure or usage policy. It focuses on the features and capabilities of the tool."
+          },
+          {
+            "url": "https://www.microsoft.com/en-us/privacy/updates",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 5,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is a change history for Microsoft's privacy statement and does not specifically address AI disclosure or usage policy. It lists updates to the privacy statement."
+          }
+        ],
+        "pages_analyzed": 5,
+        "parse_error": null
+      },
+      "ai_usage_analysis": {
+        "uses_ai": false,
+        "ai_type": [],
+        "requires_disclosure": false,
+        "disclosure_topics": [],
+        "risk_level": "low",
+        "recommendation": "No AI-specific policy focus areas are recommended at this time.",
+        "confidence": 90
+      },
+      "candidate_pages": [
+        {
+          "url": "https://www.microsoft.com/en-us/privacy/privacystatement",
+          "title": "Microsoft Privacy Statement – Microsoft privacy",
+          "policy_score": 23,
+          "matched_signals": [
+            "responsible ai",
+            "ai principles",
+            "responsible ai principles"
+          ],
+          "text_snippet": "Microsoft Privacy Statement – Microsoft privacy This is the Trace Id: 3bae9bc8aed1c22379836f26f27c69d0 Skip to main content Privacy Microsoft Privacy Statement Last Updated: July 2026 What's New? Print Expand All Collapse All Cookies Most Microsoft sites use cookies, small text files placed on your device which web servers utilize in the domain that placed the cookie can retrieve later. We use cookies to store your preferences and settings, help with sign-in, provide personalized ads, and analyze site operations. For more information, see the Cookies and similar technologies section of this privacy statement. EU-U.S., UK Extension, and Swiss-U.S. Data Privacy Frameworks Microsoft complies with the EU-U.S., UK Extension to the EU-U.S., and Swiss-U.S. Data Privacy Frameworks. To learn more, see the Storage and processing of personal data section, and visit the U.S. Department of Commerce’s Data Privacy Framework website . Contact us If you have a privacy concern, complaint, or question for the Microsoft privacy team or Data Protection Officer, please visit our privacy support and requests page and click on “Contact the Microsoft privacy team or the Microsoft Data Protection Officer” menu. For more information about contacting Microsoft, including Microsoft Ireland Operations Limited, see the How to contact us section of this privacy statement. Your privacy is important to Microsoft. This privacy statement explains the personal data we process, how we process it, and for what purposes. Microsoft offers a wide range of products, including server products used to help operate enterprises worldwide, devices customers use in their homes, software that students use at school, and services developers use to create and host new products. References to Microsoft products in this s",
+          "key_sections": [
+            "Artificial Intelligence and Copilot capabilities"
+          ],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/ai/responsible-ai",
+          "title": "Responsible AI: Ethical policies and practices | Microsoft AI",
+          "policy_score": 13,
+          "matched_signals": [
+            "responsible ai",
+            "url:responsible-ai"
+          ],
+          "text_snippet": "Responsible AI: Ethical policies and practices | Microsoft AI This is the Trace Id: a618a9c924411317e5ac03fe270722f4 Skip to main content Microsoft AI Discover how safe and secure AI business practices can enhance performance and drive impact Get the e-book Follow Microsoft",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl"
+        },
+        {
+          "url": "https://www.microsoft.com/en-US/privacy/data-privacy-notice",
+          "title": "Data Privacy Notice – Microsoft privacy",
+          "policy_score": 13,
+          "matched_signals": [
+            "responsible ai",
+            "automated decision-making"
+          ],
+          "text_snippet": "Data Privacy Notice – Microsoft privacy This is the Trace Id: 83a94185db0116518eb5f49341599fcf Skip to main content Privacy Microsoft Global Data Privacy Notice for Employees, External Staff, Candidates and Guests Last updated: June 2026 What's New? Print Expand All Collapse All Overview Your privacy is important to Microsoft (“we”, “us”, “our” or “Microsoft”). We respect the privacy rights of all individuals and we are committed to handling personal data responsibly and in accordance with applicable laws and Employee Privacy Principles . This privacy notice, together with the Addenda and other notices we may provide to you at the time of data collection, explain what personal data Microsoft processes about you, how we use this personal data, and your rights to this personal data. Please note that this privacy notice applies to the handling of your personal data as an employee, former employee, candidate, guest, or as external staff. (“External staff” are workers who are not employed by Microsoft and who have access to Microsoft’s facilities and/or Microsoft’s corporate network. This could include agency temporary workers, outsourced staff, contractors, and business guests.) Microsoft has additional governance and privacy requirements concerning the collection and uses of personal data. This notice does not cover your use of Microsoft consumer products as a consumer, or outside of your employment or assignment with Microsoft. Microsoft consumer products may include services, websites, apps, software, servers, and devices. To learn more about Microsoft’s data collection practices that cover your use of Microsoft products as a consumer, please read our Microsoft Privacy Statement . This notice is not intended and shall not be read to create any express or implied promise",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl"
+        },
+        {
+          "url": "https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/",
+          "title": "Introducing WPA MCP: Early Preview of AI-assisted trace analysis in Windows Performance Analyzer - Performance and Diagnostics",
+          "policy_score": 13,
+          "matched_signals": [
+            "responsible ai",
+            "url:ai-assisted"
+          ],
+          "text_snippet": "Introducing WPA MCP: Early Preview of AI-assisted trace analysis in Windows Performance Analyzer - Performance and Diagnostics Skip to main content Dev Blogs Claton Hendricks Product Manager Windows Performance Analyzer (WPA) is one of the most powerful tools available for understanding system performance on Windows. It helps engineers investigate Event Tracing for Windows (ETW) traces across CPU, memory, disk, networking, scheduling, input, and many other areas of the operating system. That power also comes with complexity. A single trace can contain a huge amount of data, and finding the right signal often requires knowing which WPA tables to open, which columns matter, how to filter the right time range, and how to connect multiple pieces of evidence into a root cause. We are working on WPA MCP as an Early Preview feature to make that workflow easier and more approachable. What is WPA MCP? WPA MCP brings GitHub Copilot CLI into the WPA trace-analysis workflow. Instead of starting every investigation by manually navigating graphs and tables, you can ask questions about the trace in natural language. WPA MCP helps GiHub Copilot translate that intent into trace-data exploration, summarize relevant findings, and guide follow-up analysis. GitHub Copilot can inspect available trace data based on the prompt & identify relevant tables and signals and provide an analysis that helps you decide where to look next. Why we are building it Performance analysis is often bottlenecked by expert knowledge. Experienced WPA users can move quickly, but new or occasional users may not know where to begin. Even experts can spend significant time correlating activity across views before they reach a useful conclusion. WPA MCP is intended to reduce that friction. It : Start investigations wi",
+          "key_sections": [],
+          "links_to_policies": [
+            "https://www.facebook.com/sharer/sharer.php?u=https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/",
+            "https://twitter.com/intent/tweet?url=https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/&text=Introducing WPA MCP: Early Preview of AI-assisted trace analysis in Windows Performance Analyzer",
+            "https://www.linkedin.com/shareArticle?mini=true&url=https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/",
+            "https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/#respond",
+            "https://devblogs.microsoft.com/performance-diagnostics/wp-login.php?redirect_to=https%3A%2F%2Fdevblogs.microsoft.com%2Fperformance-diagnostics%2Fintroducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer%2F%23comments",
+            "https://devblogs.microsoft.com/performance-diagnostics/etw-mcp-intro/",
+            "https://devblogs.microsoft.com/performance-diagnostics/wp-login.php?redirect_to=https%3A%2F%2Fdevblogs.microsoft.com%2Fperformance-diagnostics%2Fintroducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer%2F"
+          ],
+          "found_via": "scrapy_crawl"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/privacy/updates",
+          "title": "Change history for Microsoft Privacy Statement – Microsoft privacy",
+          "policy_score": 8,
+          "matched_signals": [
+            "automated decision-making",
+            "disclosure (near AI term)"
+          ],
+          "text_snippet": "Change history for Microsoft Privacy Statement – Microsoft privacy This is the Trace Id: 45fdf7ba595ce47aa34c7aa133e60836 Skip to main content Privacy Change History for Microsoft Privacy Statement Back to the privacy statement July 2026 We provided further information in the How we use personal data section about how we use age group information to provide age appropriate experiences. We updated our Microsoft 365, Office, and other productivity apps section to include more information about Sticky Notes device capabilities. June 2026 We’re making it easier to understand how Microsoft uses and protects your data. Microsoft is committed to making our Privacy Statement clear and user-friendly. In this update, we simplified, reduced, and reorganized sections so information about how we use data is easier to read and to find. We also clarified how we collect and use data. Overall, these changes are designed to help you better understand how your data is used and your choices. We reorganized and edited several of our sections . For example, we: Simplified the wording and used fewer examples throughout to make the privacy statement shorter and easier to read. Moved information about our Security of personal data and Retention of personal data subsections from the Other important privacy information section to the How we use personal data section. Renamed the Where we store and process personal data section to Storage and processing of personal data , and moved it from the Other important privacy information section to the top portion of the privacy statement. Moved the Products provided by your organization – notice to end users section to the renamed Enterprise and developer products, and products provided by your organization section. Moved information about Microsoft Trans",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl"
+        }
+      ],
+      "confirmed_policies": [
+        {
+          "url": "https://www.microsoft.com/en-us/ai/responsible-ai",
+          "title": "Responsible AI: Ethical policies and practices | Microsoft AI",
+          "policy_score": 13,
+          "matched_signals": [
+            "responsible ai",
+            "url:responsible-ai"
+          ],
+          "text_snippet": "Responsible AI: Ethical policies and practices | Microsoft AI This is the Trace Id: a618a9c924411317e5ac03fe270722f4 Skip to main content Microsoft AI Discover how safe and secure AI business practices can enhance performance and drive impact Get the e-book Follow Microsoft",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://www.microsoft.com/en-us/ai/responsible-ai",
+            "is_policy_page": true,
+            "policy_type": "responsible AI",
+            "transparency_score": 80,
+            "key_commitments": [
+              "ethical policies and practices",
+              "safe and secure AI business practices"
+            ],
+            "disclosure_requirement": false,
+            "summary": "This page discusses Microsoft's responsible AI policies and practices, indicating a genuine focus on AI ethics and governance. The content suggests a commitment to ethical AI development and usage."
+          }
+        }
+      ],
+      "rejected_candidates": [
+        {
+          "url": "https://www.microsoft.com/en-us/privacy/privacystatement",
+          "title": "Microsoft Privacy Statement – Microsoft privacy",
+          "policy_score": 23,
+          "matched_signals": [
+            "responsible ai",
+            "ai principles",
+            "responsible ai principles"
+          ],
+          "text_snippet": "Microsoft Privacy Statement – Microsoft privacy This is the Trace Id: 3bae9bc8aed1c22379836f26f27c69d0 Skip to main content Privacy Microsoft Privacy Statement Last Updated: July 2026 What's New? Print Expand All Collapse All Cookies Most Microsoft sites use cookies, small text files placed on your device which web servers utilize in the domain that placed the cookie can retrieve later. We use cookies to store your preferences and settings, help with sign-in, provide personalized ads, and analyze site operations. For more information, see the Cookies and similar technologies section of this privacy statement. EU-U.S., UK Extension, and Swiss-U.S. Data Privacy Frameworks Microsoft complies with the EU-U.S., UK Extension to the EU-U.S., and Swiss-U.S. Data Privacy Frameworks. To learn more, see the Storage and processing of personal data section, and visit the U.S. Department of Commerce’s Data Privacy Framework website . Contact us If you have a privacy concern, complaint, or question for the Microsoft privacy team or Data Protection Officer, please visit our privacy support and requests page and click on “Contact the Microsoft privacy team or the Microsoft Data Protection Officer” menu. For more information about contacting Microsoft, including Microsoft Ireland Operations Limited, see the How to contact us section of this privacy statement. Your privacy is important to Microsoft. This privacy statement explains the personal data we process, how we process it, and for what purposes. Microsoft offers a wide range of products, including server products used to help operate enterprises worldwide, devices customers use in their homes, software that students use at school, and services developers use to create and host new products. References to Microsoft products in this s",
+          "key_sections": [
+            "Artificial Intelligence and Copilot capabilities"
+          ],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://www.microsoft.com/en-us/privacy/privacystatement",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 20,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is a general privacy statement and does not specifically address AI disclosure or usage policy. It discusses cookie usage and data privacy frameworks."
+          }
+        },
+        {
+          "url": "https://www.microsoft.com/en-US/privacy/data-privacy-notice",
+          "title": "Data Privacy Notice – Microsoft privacy",
+          "policy_score": 13,
+          "matched_signals": [
+            "responsible ai",
+            "automated decision-making"
+          ],
+          "text_snippet": "Data Privacy Notice – Microsoft privacy This is the Trace Id: 83a94185db0116518eb5f49341599fcf Skip to main content Privacy Microsoft Global Data Privacy Notice for Employees, External Staff, Candidates and Guests Last updated: June 2026 What's New? Print Expand All Collapse All Overview Your privacy is important to Microsoft (“we”, “us”, “our” or “Microsoft”). We respect the privacy rights of all individuals and we are committed to handling personal data responsibly and in accordance with applicable laws and Employee Privacy Principles . This privacy notice, together with the Addenda and other notices we may provide to you at the time of data collection, explain what personal data Microsoft processes about you, how we use this personal data, and your rights to this personal data. Please note that this privacy notice applies to the handling of your personal data as an employee, former employee, candidate, guest, or as external staff. (“External staff” are workers who are not employed by Microsoft and who have access to Microsoft’s facilities and/or Microsoft’s corporate network. This could include agency temporary workers, outsourced staff, contractors, and business guests.) Microsoft has additional governance and privacy requirements concerning the collection and uses of personal data. This notice does not cover your use of Microsoft consumer products as a consumer, or outside of your employment or assignment with Microsoft. Microsoft consumer products may include services, websites, apps, software, servers, and devices. To learn more about Microsoft’s data collection practices that cover your use of Microsoft products as a consumer, please read our Microsoft Privacy Statement . This notice is not intended and shall not be read to create any express or implied promise",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://www.microsoft.com/en-US/privacy/data-privacy-notice",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 10,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is a data privacy notice for employees, external staff, candidates, and guests, and does not specifically address AI disclosure or usage policy. It discusses personal data handling and privacy principles."
+          }
+        },
+        {
+          "url": "https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/",
+          "title": "Introducing WPA MCP: Early Preview of AI-assisted trace analysis in Windows Performance Analyzer - Performance and Diagnostics",
+          "policy_score": 13,
+          "matched_signals": [
+            "responsible ai",
+            "url:ai-assisted"
+          ],
+          "text_snippet": "Introducing WPA MCP: Early Preview of AI-assisted trace analysis in Windows Performance Analyzer - Performance and Diagnostics Skip to main content Dev Blogs Claton Hendricks Product Manager Windows Performance Analyzer (WPA) is one of the most powerful tools available for understanding system performance on Windows. It helps engineers investigate Event Tracing for Windows (ETW) traces across CPU, memory, disk, networking, scheduling, input, and many other areas of the operating system. That power also comes with complexity. A single trace can contain a huge amount of data, and finding the right signal often requires knowing which WPA tables to open, which columns matter, how to filter the right time range, and how to connect multiple pieces of evidence into a root cause. We are working on WPA MCP as an Early Preview feature to make that workflow easier and more approachable. What is WPA MCP? WPA MCP brings GitHub Copilot CLI into the WPA trace-analysis workflow. Instead of starting every investigation by manually navigating graphs and tables, you can ask questions about the trace in natural language. WPA MCP helps GiHub Copilot translate that intent into trace-data exploration, summarize relevant findings, and guide follow-up analysis. GitHub Copilot can inspect available trace data based on the prompt & identify relevant tables and signals and provide an analysis that helps you decide where to look next. Why we are building it Performance analysis is often bottlenecked by expert knowledge. Experienced WPA users can move quickly, but new or occasional users may not know where to begin. Even experts can spend significant time correlating activity across views before they reach a useful conclusion. WPA MCP is intended to reduce that friction. It : Start investigations wi",
+          "key_sections": [],
+          "links_to_policies": [
+            "https://www.facebook.com/sharer/sharer.php?u=https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/",
+            "https://twitter.com/intent/tweet?url=https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/&text=Introducing WPA MCP: Early Preview of AI-assisted trace analysis in Windows Performance Analyzer",
+            "https://www.linkedin.com/shareArticle?mini=true&url=https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/",
+            "https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/#respond",
+            "https://devblogs.microsoft.com/performance-diagnostics/wp-login.php?redirect_to=https%3A%2F%2Fdevblogs.microsoft.com%2Fperformance-diagnostics%2Fintroducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer%2F%23comments",
+            "https://devblogs.microsoft.com/performance-diagnostics/etw-mcp-intro/",
+            "https://devblogs.microsoft.com/performance-diagnostics/wp-login.php?redirect_to=https%3A%2F%2Fdevblogs.microsoft.com%2Fperformance-diagnostics%2Fintroducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer%2F"
+          ],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://devblogs.microsoft.com/performance-diagnostics/introducing-wpa-mcp-early-preview-of-ai-assisted-trace-analysis-in-windows-performance-analyzer/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 0,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is a product announcement for an AI-assisted tool and does not discuss AI disclosure or usage policy. It focuses on the features and capabilities of the tool."
+          }
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/privacy/updates",
+          "title": "Change history for Microsoft Privacy Statement – Microsoft privacy",
+          "policy_score": 8,
+          "matched_signals": [
+            "automated decision-making",
+            "disclosure (near AI term)"
+          ],
+          "text_snippet": "Change history for Microsoft Privacy Statement – Microsoft privacy This is the Trace Id: 45fdf7ba595ce47aa34c7aa133e60836 Skip to main content Privacy Change History for Microsoft Privacy Statement Back to the privacy statement July 2026 We provided further information in the How we use personal data section about how we use age group information to provide age appropriate experiences. We updated our Microsoft 365, Office, and other productivity apps section to include more information about Sticky Notes device capabilities. June 2026 We’re making it easier to understand how Microsoft uses and protects your data. Microsoft is committed to making our Privacy Statement clear and user-friendly. In this update, we simplified, reduced, and reorganized sections so information about how we use data is easier to read and to find. We also clarified how we collect and use data. Overall, these changes are designed to help you better understand how your data is used and your choices. We reorganized and edited several of our sections . For example, we: Simplified the wording and used fewer examples throughout to make the privacy statement shorter and easier to read. Moved information about our Security of personal data and Retention of personal data subsections from the Other important privacy information section to the How we use personal data section. Renamed the Where we store and process personal data section to Storage and processing of personal data , and moved it from the Other important privacy information section to the top portion of the privacy statement. Moved the Products provided by your organization – notice to end users section to the renamed Enterprise and developer products, and products provided by your organization section. Moved information about Microsoft Trans",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://www.microsoft.com/en-us/privacy/updates",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 5,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is a change history for Microsoft's privacy statement and does not specifically address AI disclosure or usage policy. It lists updates to the privacy statement."
+          }
+        }
+      ],
+      "policies_found": [
+        {
+          "url": "https://www.microsoft.com/en-us/ai/responsible-ai",
+          "title": "Responsible AI: Ethical policies and practices | Microsoft AI",
+          "policy_score": 13,
+          "matched_signals": [
+            "responsible ai",
+            "url:responsible-ai"
+          ],
+          "text_snippet": "Responsible AI: Ethical policies and practices | Microsoft AI This is the Trace Id: a618a9c924411317e5ac03fe270722f4 Skip to main content Microsoft AI Discover how safe and secure AI business practices can enhance performance and drive impact Get the e-book Follow Microsoft",
+          "key_sections": [],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://www.microsoft.com/en-us/ai/responsible-ai",
+            "is_policy_page": true,
+            "policy_type": "responsible AI",
+            "transparency_score": 80,
+            "key_commitments": [
+              "ethical policies and practices",
+              "safe and secure AI business practices"
+            ],
+            "disclosure_requirement": false,
+            "summary": "This page discusses Microsoft's responsible AI policies and practices, indicating a genuine focus on AI ethics and governance. The content suggests a commitment to ethical AI development and usage."
+          }
+        }
+      ],
+      "disclosure_required": false,
+      "transparency_score": 63,
+      "summary": "Executive Summary: \nThe open-source organization, PowerShell, lacks AI disclosure policies. Only one confirmed policy was found, but it is not related to AI. The organization's AI usage was assessed as low-risk, with no evidence of AI implementation. Transparency level is adequate, with a 90% confidence rating. The recommendation is that no AI-specific policy focus areas are required at this time. To improve, PowerShell should consider establishing AI disclosure policies to ensure transparency and accountability in potential future AI adoption. Currently, the organization's low AI usage and open-source nature contribute to its low-risk profile.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "n8n-io/n8n",
+      "owner": "n8n-io",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/n8n-io/n8n",
+      "github_url": "https://github.com/n8n-io",
+      "language": "TypeScript",
+      "stars": 186319,
+      "org_classification": {
+        "org_type": "company",
+        "likelihood_has_ai_policy": 60,
+        "likely_uses_ai": true,
+        "industries": [
+          "Software",
+          "Automation"
+        ],
+        "reasoning": "n8n-io appears to be a company based on its GitHub presence and the nature of its repository, n8n, which is a workflow automation tool. The likelihood of having AI policies is moderate (60) due to the company's involvement in automation, which may utilize AI. It is likely that n8n-io uses AI in its products or services, given the automation focus. The primary industries they operate in are software and automation."
+      },
+      "org_website": "https://n8n.io",
+      "crawl_results": {
+        "org_url": "https://n8n.io",
+        "org_name": "n8n-io",
+        "pages_crawled": 100,
+        "error": null
+      },
+      "policy_analysis": {
+        "analysis": "[\n  {\n    \"url\": \"https://n8n.io/ai/\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 20,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page appears to be a product page for n8n's AI workflow automation software, and does not address AI disclosure or usage policy.\"\n  },\n  {\n    \"url\": \"https://n8n.io\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 10,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page is the main website for n8n, and does not contain any information about AI disclosure or usage policy.\"\n  },\n  {\n    \"url\": \"https://n8n.io/\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 10,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page is identical to the previous one, and does not contain any information about AI disclosure or usage policy.\"\n  },\n  {\n    \"url\": \"https://n8n.io/workflows/11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm/\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 30,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"This page appears to be a workflow template for testing AI safety, but does not address AI disclosure or usage policy, and is more focused on a specific product feature.\"\n  }\n]",
+        "verdicts": [
+          {
+            "url": "https://n8n.io/ai/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 20,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page appears to be a product page for n8n's AI workflow automation software, and does not address AI disclosure or usage policy."
+          },
+          {
+            "url": "https://n8n.io",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 10,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is the main website for n8n, and does not contain any information about AI disclosure or usage policy."
+          },
+          {
+            "url": "https://n8n.io/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 10,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is identical to the previous one, and does not contain any information about AI disclosure or usage policy."
+          },
+          {
+            "url": "https://n8n.io/workflows/11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 30,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page appears to be a workflow template for testing AI safety, but does not address AI disclosure or usage policy, and is more focused on a specific product feature."
+          }
+        ],
+        "pages_analyzed": 4,
+        "parse_error": null
+      },
+      "ai_usage_analysis": {
+        "uses_ai": true,
+        "ai_type": [
+          "NLP",
+          "ML"
+        ],
+        "requires_disclosure": true,
+        "disclosure_topics": [
+          "training data sources",
+          "model limitations",
+          "bias testing",
+          "data processing"
+        ],
+        "risk_level": "medium",
+        "recommendation": "The repository should focus on disclosing how user data is processed, stored, and used for automation and workflow management. Additionally, they should provide information on the limitations and potential biases of their NLP and ML models.",
+        "confidence": 80
+      },
+      "candidate_pages": [
+        {
+          "url": "https://n8n.io/ai/",
+          "title": "Advanced AI Workflow Automation Software & Tools - n8n",
+          "policy_score": 15,
+          "matched_signals": [
+            "compliance (near AI term)",
+            "safety (near AI term)",
+            "oversight (near AI term)",
+            "audit (near AI term)",
+            "human oversight (near AI term)"
+          ],
+          "text_snippet": "Advanced AI Workflow Automation Software & Tools - n8n See llms.txt for all machine-readable content. n8n is about help, not hype. Build modular AI systems that are easy to debug, explainable by design, and maintainable as requirements change. Start building for free* Talk to sales * 14 days free trial. No credit card required. Over 185k Github stars Self host-able SOC2 compliant Click on image to go to the template The world's most popular workflow automation platform for technical teams including Ensure human brains hold the reins Autopilot is for planes, not production AI. Place human-in-the-loop checks at any point in a workflow or in front of any AI Agent tool.  Get fine-grained control over when to enforce human approval and when AI can guide requests for user input. Get the playbook for adding human oversight to production AI workflows. Guard your AI against going rogue Boundaries matter. Combine AI with rule-based automation to constrain inputs, then validate and route outputs using explicit logic. Filter out malicious input, sanitize sensitive data, and handle errors early to keep AI behavior on the rails. Get the playbook for combining deterministic steps and AI steps. Monitor every decision your AI makes Ignorance of your AI is anything but bliss. With n8n, you can inspect every execution to see the prompt sent, model response, and what happened next. Stream logs to your favorite observability tools. Track changes and versions. And trace behavior for debugging, audits, and compliance. Reliable AI outputs,  every time Hope is a horrible deployment strategy. Control your workflows with evaluations that test AI reliability against defined metrics. Use the results to refine prompts and select models. Then monitor your workflows to detect drift and trigger follow-",
+          "key_sections": [],
+          "links_to_policies": [
+            "https://n8n.io/workflows/11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm/"
+          ],
+          "found_via": "scrapy_crawl"
+        },
+        {
+          "url": "https://n8n.io",
+          "title": "AI Workflow Automation Platform - n8n",
+          "policy_score": 11,
+          "matched_signals": [
+            "ai governance",
+            "governance (near AI term)"
+          ],
+          "text_snippet": "AI Workflow Automation Platform - n8n See llms.txt for all machine-readable content. The world's most popular workflow automation platform for technical teams including Top 50 Github. Our 198.8k stars place us among the most popular projects. 4.7/5 stars on G2. To quote \"I can move fast and never feel boxed in.\" 200k+ community members. This wouldn't be possible without you. Browse all integrations Update Detected Running Custom Unit Testing Update Rolled Back Automatically IT Team Notified of New Ticket Custom Unit Testing Failed Update Installed Deploy with Docker Access the entire source code on Github Hosted version also available Who held meetings with SpaceX last week? On Wednesday, Joe updated the status to \"won\" in Salesforce after a Zoom call. On Thursday, Sue provided on-site setup and closed the ServiceNow ticket. Create a task in Asana... Code when you need it, UI when you don't Other tools limit you to either a visual building experience, or code. With n8n, you get the best of both worlds. Write JavaScript or Python anywhere in your workflow. Imagine it, then build it. See the inputs and outputs right next to the settings of every step. No unnecessary clicks. Test AI workflows with real data to improve accuracy and catch errors before your customers do. Move fast. Break nothing. Build with the short feedback loops that keep you in the flow. Re-run single steps , not your entire workflow Replay or mock data to not wait for external systems Avoid endless debugging clicks with the logs view Evaluate AI natively to optimize performance See full product overview How Huel built an AI first company culture and saved 1,000 hours of manual work \"n8n was the big unlock. Tools like ChatGPT and Claude are great, but n8n is the thing that allows you to integrate AI into",
+          "key_sections": [
+            "AI governance"
+          ],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl"
+        },
+        {
+          "url": "https://n8n.io/",
+          "title": "AI Workflow Automation Platform - n8n",
+          "policy_score": 11,
+          "matched_signals": [
+            "ai governance",
+            "governance (near AI term)"
+          ],
+          "text_snippet": "AI Workflow Automation Platform - n8n See llms.txt for all machine-readable content. The world's most popular workflow automation platform for technical teams including Top 50 Github. Our 198.8k stars place us among the most popular projects. 4.7/5 stars on G2. To quote \"I can move fast and never feel boxed in.\" 200k+ community members. This wouldn't be possible without you. Browse all integrations Update Detected Running Custom Unit Testing Update Rolled Back Automatically IT Team Notified of New Ticket Custom Unit Testing Failed Update Installed Deploy with Docker Access the entire source code on Github Hosted version also available Who held meetings with SpaceX last week? On Wednesday, Joe updated the status to \"won\" in Salesforce after a Zoom call. On Thursday, Sue provided on-site setup and closed the ServiceNow ticket. Create a task in Asana... Code when you need it, UI when you don't Other tools limit you to either a visual building experience, or code. With n8n, you get the best of both worlds. Write JavaScript or Python anywhere in your workflow. Imagine it, then build it. See the inputs and outputs right next to the settings of every step. No unnecessary clicks. Test AI workflows with real data to improve accuracy and catch errors before your customers do. Move fast. Break nothing. Build with the short feedback loops that keep you in the flow. Re-run single steps , not your entire workflow Replay or mock data to not wait for external systems Avoid endless debugging clicks with the logs view Evaluate AI natively to optimize performance See full product overview How Huel built an AI first company culture and saved 1,000 hours of manual work \"n8n was the big unlock. Tools like ChatGPT and Claude are great, but n8n is the thing that allows you to integrate AI into",
+          "key_sections": [
+            "AI governance"
+          ],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl"
+        },
+        {
+          "url": "https://n8n.io/workflows/11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm/",
+          "title": "Complete AI safety suite: test 9 guardrail layers with Groq LLM | n8n workflow template",
+          "policy_score": 11,
+          "matched_signals": [
+            "compliance (near AI term)",
+            "safety (near AI term)",
+            "url:ai-safety"
+          ],
+          "text_snippet": "Complete AI safety suite: test 9 guardrail layers with Groq LLM | n8n workflow template See llms.txt for all machine-readable content. Back to Templates Edit Fields (Set) Sticky Note Manual Trigger +3 Complete AI safety suite: test 9 guardrail layers with Groq LLM Use for free Created by Muhammad Shaheer Awan Last update Last update 5 months ago Categories Engineering AI Summarization Share Who's It For AI developers, automation engineers, and teams building chatbots, AI agents, or workflows that process user input. Perfect for those concerned about security, compliance, and content safety. What It Does This workflow demonstrates all 9 guardrail types available in n8n's Guardrails node through real-world test cases. It provides a comprehensive safety testing suite that validates: Keyword blocking for profanity and banned terms Jailbreak detection to prevent prompt injection attacks NSFW content filtering for inappropriate material PII detection and sanitization for emails, phone numbers, and credit cards Secret key detection to catch leaked API keys and tokens Topical alignment to keep conversations on-topic URL whitelisting to block malicious domains Credential URL blocking to prevent URLs with embedded passwords Custom regex patterns for organization-specific rules (employee IDs, order numbers) Each test case flows through its corresponding guardrail node, with results formatted into clear pass/fail reports showing violations and sanitized text. How to Set Up Add your Groq API credentials (free tier works fine) Import the workflow Click \"Test workflow\" to run all 9 cases Review the formatted results to understand each guardrail's behavior Requirements n8n version 1.119.1 or later (for Guardrails node) Groq API account (free tier sufficient) Self-hosted instance (some",
+          "key_sections": [],
+          "links_to_policies": [
+            "https://x.com/intent/post?url=https%3A%2F%2Fn8n.io%2Fworkflows%2F11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm%2F",
+            "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fn8n.io%2Fworkflows%2F11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm%2F"
+          ],
+          "found_via": "scrapy_crawl"
+        }
+      ],
+      "confirmed_policies": [],
+      "rejected_candidates": [
+        {
+          "url": "https://n8n.io/ai/",
+          "title": "Advanced AI Workflow Automation Software & Tools - n8n",
+          "policy_score": 15,
+          "matched_signals": [
+            "compliance (near AI term)",
+            "safety (near AI term)",
+            "oversight (near AI term)",
+            "audit (near AI term)",
+            "human oversight (near AI term)"
+          ],
+          "text_snippet": "Advanced AI Workflow Automation Software & Tools - n8n See llms.txt for all machine-readable content. n8n is about help, not hype. Build modular AI systems that are easy to debug, explainable by design, and maintainable as requirements change. Start building for free* Talk to sales * 14 days free trial. No credit card required. Over 185k Github stars Self host-able SOC2 compliant Click on image to go to the template The world's most popular workflow automation platform for technical teams including Ensure human brains hold the reins Autopilot is for planes, not production AI. Place human-in-the-loop checks at any point in a workflow or in front of any AI Agent tool.  Get fine-grained control over when to enforce human approval and when AI can guide requests for user input. Get the playbook for adding human oversight to production AI workflows. Guard your AI against going rogue Boundaries matter. Combine AI with rule-based automation to constrain inputs, then validate and route outputs using explicit logic. Filter out malicious input, sanitize sensitive data, and handle errors early to keep AI behavior on the rails. Get the playbook for combining deterministic steps and AI steps. Monitor every decision your AI makes Ignorance of your AI is anything but bliss. With n8n, you can inspect every execution to see the prompt sent, model response, and what happened next. Stream logs to your favorite observability tools. Track changes and versions. And trace behavior for debugging, audits, and compliance. Reliable AI outputs,  every time Hope is a horrible deployment strategy. Control your workflows with evaluations that test AI reliability against defined metrics. Use the results to refine prompts and select models. Then monitor your workflows to detect drift and trigger follow-",
+          "key_sections": [],
+          "links_to_policies": [
+            "https://n8n.io/workflows/11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm/"
+          ],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://n8n.io/ai/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 20,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page appears to be a product page for n8n's AI workflow automation software, and does not address AI disclosure or usage policy."
+          }
+        },
+        {
+          "url": "https://n8n.io",
+          "title": "AI Workflow Automation Platform - n8n",
+          "policy_score": 11,
+          "matched_signals": [
+            "ai governance",
+            "governance (near AI term)"
+          ],
+          "text_snippet": "AI Workflow Automation Platform - n8n See llms.txt for all machine-readable content. The world's most popular workflow automation platform for technical teams including Top 50 Github. Our 198.8k stars place us among the most popular projects. 4.7/5 stars on G2. To quote \"I can move fast and never feel boxed in.\" 200k+ community members. This wouldn't be possible without you. Browse all integrations Update Detected Running Custom Unit Testing Update Rolled Back Automatically IT Team Notified of New Ticket Custom Unit Testing Failed Update Installed Deploy with Docker Access the entire source code on Github Hosted version also available Who held meetings with SpaceX last week? On Wednesday, Joe updated the status to \"won\" in Salesforce after a Zoom call. On Thursday, Sue provided on-site setup and closed the ServiceNow ticket. Create a task in Asana... Code when you need it, UI when you don't Other tools limit you to either a visual building experience, or code. With n8n, you get the best of both worlds. Write JavaScript or Python anywhere in your workflow. Imagine it, then build it. See the inputs and outputs right next to the settings of every step. No unnecessary clicks. Test AI workflows with real data to improve accuracy and catch errors before your customers do. Move fast. Break nothing. Build with the short feedback loops that keep you in the flow. Re-run single steps , not your entire workflow Replay or mock data to not wait for external systems Avoid endless debugging clicks with the logs view Evaluate AI natively to optimize performance See full product overview How Huel built an AI first company culture and saved 1,000 hours of manual work \"n8n was the big unlock. Tools like ChatGPT and Claude are great, but n8n is the thing that allows you to integrate AI into",
+          "key_sections": [
+            "AI governance"
+          ],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://n8n.io/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 10,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is identical to the previous one, and does not contain any information about AI disclosure or usage policy."
+          }
+        },
+        {
+          "url": "https://n8n.io/",
+          "title": "AI Workflow Automation Platform - n8n",
+          "policy_score": 11,
+          "matched_signals": [
+            "ai governance",
+            "governance (near AI term)"
+          ],
+          "text_snippet": "AI Workflow Automation Platform - n8n See llms.txt for all machine-readable content. The world's most popular workflow automation platform for technical teams including Top 50 Github. Our 198.8k stars place us among the most popular projects. 4.7/5 stars on G2. To quote \"I can move fast and never feel boxed in.\" 200k+ community members. This wouldn't be possible without you. Browse all integrations Update Detected Running Custom Unit Testing Update Rolled Back Automatically IT Team Notified of New Ticket Custom Unit Testing Failed Update Installed Deploy with Docker Access the entire source code on Github Hosted version also available Who held meetings with SpaceX last week? On Wednesday, Joe updated the status to \"won\" in Salesforce after a Zoom call. On Thursday, Sue provided on-site setup and closed the ServiceNow ticket. Create a task in Asana... Code when you need it, UI when you don't Other tools limit you to either a visual building experience, or code. With n8n, you get the best of both worlds. Write JavaScript or Python anywhere in your workflow. Imagine it, then build it. See the inputs and outputs right next to the settings of every step. No unnecessary clicks. Test AI workflows with real data to improve accuracy and catch errors before your customers do. Move fast. Break nothing. Build with the short feedback loops that keep you in the flow. Re-run single steps , not your entire workflow Replay or mock data to not wait for external systems Avoid endless debugging clicks with the logs view Evaluate AI natively to optimize performance See full product overview How Huel built an AI first company culture and saved 1,000 hours of manual work \"n8n was the big unlock. Tools like ChatGPT and Claude are great, but n8n is the thing that allows you to integrate AI into",
+          "key_sections": [
+            "AI governance"
+          ],
+          "links_to_policies": [],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://n8n.io/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 10,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page is identical to the previous one, and does not contain any information about AI disclosure or usage policy."
+          }
+        },
+        {
+          "url": "https://n8n.io/workflows/11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm/",
+          "title": "Complete AI safety suite: test 9 guardrail layers with Groq LLM | n8n workflow template",
+          "policy_score": 11,
+          "matched_signals": [
+            "compliance (near AI term)",
+            "safety (near AI term)",
+            "url:ai-safety"
+          ],
+          "text_snippet": "Complete AI safety suite: test 9 guardrail layers with Groq LLM | n8n workflow template See llms.txt for all machine-readable content. Back to Templates Edit Fields (Set) Sticky Note Manual Trigger +3 Complete AI safety suite: test 9 guardrail layers with Groq LLM Use for free Created by Muhammad Shaheer Awan Last update Last update 5 months ago Categories Engineering AI Summarization Share Who's It For AI developers, automation engineers, and teams building chatbots, AI agents, or workflows that process user input. Perfect for those concerned about security, compliance, and content safety. What It Does This workflow demonstrates all 9 guardrail types available in n8n's Guardrails node through real-world test cases. It provides a comprehensive safety testing suite that validates: Keyword blocking for profanity and banned terms Jailbreak detection to prevent prompt injection attacks NSFW content filtering for inappropriate material PII detection and sanitization for emails, phone numbers, and credit cards Secret key detection to catch leaked API keys and tokens Topical alignment to keep conversations on-topic URL whitelisting to block malicious domains Credential URL blocking to prevent URLs with embedded passwords Custom regex patterns for organization-specific rules (employee IDs, order numbers) Each test case flows through its corresponding guardrail node, with results formatted into clear pass/fail reports showing violations and sanitized text. How to Set Up Add your Groq API credentials (free tier works fine) Import the workflow Click \"Test workflow\" to run all 9 cases Review the formatted results to understand each guardrail's behavior Requirements n8n version 1.119.1 or later (for Guardrails node) Groq API account (free tier sufficient) Self-hosted instance (some",
+          "key_sections": [],
+          "links_to_policies": [
+            "https://x.com/intent/post?url=https%3A%2F%2Fn8n.io%2Fworkflows%2F11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm%2F",
+            "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fn8n.io%2Fworkflows%2F11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm%2F"
+          ],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://n8n.io/workflows/11141-complete-ai-safety-suite-test-9-guardrail-layers-with-groq-llm/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 30,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "This page appears to be a workflow template for testing AI safety, but does not address AI disclosure or usage policy, and is more focused on a specific product feature."
+          }
+        }
+      ],
+      "policies_found": [],
+      "disclosure_required": true,
+      "transparency_score": 11,
+      "summary": "Executive Summary:\n\nThe organization \"n8n-io\" lacks AI disclosure policies, with no confirmed policies found. The company utilizes NLP and ML, requiring transparency on topics such as training data sources, model limitations, and bias testing. The risk level is assessed as medium. The transparency level is deemed inadequate, with a confidence level of 80%. Key recommendations for improvement include disclosing user data processing, storage, and usage for automation and workflow management, as well as providing information on model limitations and potential biases. By addressing these gaps, the organization can enhance transparency and accountability in its AI usage.",
+      "scan_status": "completed"
+    },
+    {
+      "repository": "uutils/coreutils",
+      "owner": "uutils",
+      "owner_type": "Organization",
+      "repo_url": "https://github.com/uutils/coreutils",
+      "github_url": "https://github.com/uutils",
+      "language": "Rust",
+      "stars": 23188,
+      "org_classification": {
+        "org_type": "open-source",
+        "likelihood_has_ai_policy": 20,
+        "likely_uses_ai": false,
+        "industries": [
+          "software",
+          "technology"
+        ],
+        "reasoning": "The organization 'uutils' appears to be an open-source organization based on the provided repository domain 'uutils/coreutils', which suggests a focus on utility software. The name and repository structure indicate a community-driven or individual effort, rather than a commercial company or academic institution. Given the nature of the project, which seems to involve core utilities, it's less likely they have formal AI policies or use AI in their products/services. The industries they operate in are likely limited to software and technology, given the focus on core utilities."
+      },
+      "org_website": "https://uutils.org",
+      "crawl_results": {
+        "org_url": "https://uutils.org",
+        "org_name": "uutils",
+        "pages_crawled": 21,
+        "error": null
+      },
+      "policy_analysis": {
+        "analysis": "[\n  {\n    \"url\": \"https://uutils.org/reviews/\",\n    \"is_policy_page\": false,\n    \"policy_type\": \"none\",\n    \"transparency_score\": 0,\n    \"key_commitments\": [],\n    \"disclosure_requirement\": false,\n    \"summary\": \"The page does not address AI disclosure or usage policy, it appears to be a review guideline for contributors without any specific mention of AI usage or disclosure requirements.\"\n  }\n]",
+        "verdicts": [
+          {
+            "url": "https://uutils.org/reviews/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 0,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "The page does not address AI disclosure or usage policy, it appears to be a review guideline for contributors without any specific mention of AI usage or disclosure requirements."
+          }
+        ],
+        "pages_analyzed": 1,
+        "parse_error": null
+      },
+      "ai_usage_analysis": {
+        "uses_ai": false,
+        "ai_type": [],
+        "requires_disclosure": false,
+        "disclosure_topics": [],
+        "risk_level": "low",
+        "recommendation": "No AI-related policy focus areas are suggested as the repository does not appear to involve AI/ML development or usage.",
+        "confidence": 90
+      },
+      "candidate_pages": [
+        {
+          "url": "https://uutils.org/reviews/",
+          "title": "Review Guidelines | uutils",
+          "policy_score": 22,
+          "matched_signals": [
+            "ai-assisted contributions",
+            "ai-assisted contribution",
+            "commit message (near AI term)",
+            "commit messages (near AI term)"
+          ],
+          "text_snippet": "Review Guidelines | uutils Review Guidelines This page describes what we expect from pull requests across the uutils\nprojects ( coreutils , findutils and the others) and how reviews\nare carried out. It is meant for both contributors who want to know what a\nreviewer looks for, and reviewers who want a shared checklist. Each\nproject's CONTRIBUTING.md links here; the rules below apply to all of them. The one rule that cannot be bent uutils is original code. We cannot accept any change based on the GNU\nsource code, and you must not even link to the GNU source in an issue or\nPR. A reviewer will reject a contribution that appears to be derived from GNU\n(or any other strongly-licensed implementation such as GPL/LGPL code). It is fine to look at permissively-licensed implementations\n( Apple's file_cmds , OpenBSD ) and to read the GNU manuals and man pages - just never the GNU source . What a reviewer expects before merging A pull request is ready to be merged when it meets all of the following. If you\ncheck these before requesting a review, your PR will move much faster. It passes CI. The test suite is green (allowing for intermittently\nfailing tests), rustfmt is satisfied, and there are no clippy warnings. It compiles without warnings on every CI platform. Use #[cfg(...)] for\nplatform-specific code rather than breaking other targets. It is small and self-contained. A series of small PRs gets merged far\nfaster than one large one. Unrelated changes belong in separate PRs. It has a descriptive title. Describe the problem solved, e.g. ls: fix version sort order , not Fix #1234 . Prefix with the utility name\nwhen relevant. New behavior comes with tests. Our test suite is fast; regressions should\nbe caught by a test. Code coverage should not regress. If possible, it was discussed fi",
+          "key_sections": [],
+          "links_to_policies": [
+            "https://github.com/astral-sh/.github/blob/main/AI_POLICY.md"
+          ],
+          "found_via": "scrapy_crawl"
+        }
+      ],
+      "confirmed_policies": [],
+      "rejected_candidates": [
+        {
+          "url": "https://uutils.org/reviews/",
+          "title": "Review Guidelines | uutils",
+          "policy_score": 22,
+          "matched_signals": [
+            "ai-assisted contributions",
+            "ai-assisted contribution",
+            "commit message (near AI term)",
+            "commit messages (near AI term)"
+          ],
+          "text_snippet": "Review Guidelines | uutils Review Guidelines This page describes what we expect from pull requests across the uutils\nprojects ( coreutils , findutils and the others) and how reviews\nare carried out. It is meant for both contributors who want to know what a\nreviewer looks for, and reviewers who want a shared checklist. Each\nproject's CONTRIBUTING.md links here; the rules below apply to all of them. The one rule that cannot be bent uutils is original code. We cannot accept any change based on the GNU\nsource code, and you must not even link to the GNU source in an issue or\nPR. A reviewer will reject a contribution that appears to be derived from GNU\n(or any other strongly-licensed implementation such as GPL/LGPL code). It is fine to look at permissively-licensed implementations\n( Apple's file_cmds , OpenBSD ) and to read the GNU manuals and man pages - just never the GNU source . What a reviewer expects before merging A pull request is ready to be merged when it meets all of the following. If you\ncheck these before requesting a review, your PR will move much faster. It passes CI. The test suite is green (allowing for intermittently\nfailing tests), rustfmt is satisfied, and there are no clippy warnings. It compiles without warnings on every CI platform. Use #[cfg(...)] for\nplatform-specific code rather than breaking other targets. It is small and self-contained. A series of small PRs gets merged far\nfaster than one large one. Unrelated changes belong in separate PRs. It has a descriptive title. Describe the problem solved, e.g. ls: fix version sort order , not Fix #1234 . Prefix with the utility name\nwhen relevant. New behavior comes with tests. Our test suite is fast; regressions should\nbe caught by a test. Code coverage should not regress. If possible, it was discussed fi",
+          "key_sections": [],
+          "links_to_policies": [
+            "https://github.com/astral-sh/.github/blob/main/AI_POLICY.md"
+          ],
+          "found_via": "scrapy_crawl",
+          "groq_verdict": {
+            "url": "https://uutils.org/reviews/",
+            "is_policy_page": false,
+            "policy_type": "none",
+            "transparency_score": 0,
+            "key_commitments": [],
+            "disclosure_requirement": false,
+            "summary": "The page does not address AI disclosure or usage policy, it appears to be a review guideline for contributors without any specific mention of AI usage or disclosure requirements."
+          }
+        }
+      ],
+      "policies_found": [],
+      "disclosure_required": false,
+      "transparency_score": 7,
+      "summary": "Executive Summary: \nThe organization \"uutils\" lacks AI disclosure policies, with no confirmed policies found. The assessment reveals a low risk level, indicating no AI/ML development or usage. Transparency is limited, with no disclosure topics identified. The confidence level in this assessment is 90%. The recommendation is that no AI-related policy focus areas are required. To improve, the organization should consider establishing AI disclosure policies, even if AI is not currently used, to ensure transparency and preparedness for potential future AI adoption. Overall, the organization's open-source nature and lack of AI involvement contribute to its low risk profile.",
       "scan_status": "completed"
     }
   ],
   "summary": {
-    "total_scanned": 5,
-    "with_confirmed_policies": 0,
-    "with_rejected_candidates_only": 0,
-    "requiring_disclosure": 1,
-    "avg_transparency_score": 15.2,
-    "organizations_found": 5,
-    "total_confirmed_policies": 0,
+    "total_scanned": 10,
+    "with_confirmed_policies": 2,
+    "with_rejected_candidates_only": 2,
+    "requiring_disclosure": 3,
+    "avg_transparency_score": 23.6,
+    "organizations_found": 10,
+    "total_confirmed_policies": 2,
     "scan_completion_status": "completed",
-    "timestamp": "2026-06-19T16:35:25.049505"
+    "timestamp": "2026-07-31T16:43:24.121540"
   }
 }

@@ -1,0 +1,843 @@
+{
+  "scan_metadata": {
+    "source": "melissawm/open-source-ai-contribution-policies",
+    "filter": "ai_llms_allowed == Yes AND disclosure_required == Yes",
+    "commits_per_repo_limit": 300,
+    "repos_attempted": 39,
+    "repos_completed": 39,
+    "total_api_requests": 111,
+    "rate_limited": false,
+    "token_invalid": false
+  },
+  "aggregate": {
+    "repos_with_any_disclosed_commit": 25,
+    "repos_with_any_disclosed_commit_pct": 64.1,
+    "total_commits_scanned": 10876,
+    "total_commits_with_trailer": 715,
+    "overall_trailer_rate_pct": 6.57
+  },
+  "repos": [
+    {
+      "project": "Pandas",
+      "github": "pandas-dev/pandas",
+      "policy_url": "https://pandas.pydata.org/docs/dev/development/contributing.html#automated-contributions-policy",
+      "commits_scanned": 300,
+      "commits_with_trailer": 208,
+      "trailer_rate_pct": 69.33,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "203716be",
+          "trailer": "Co-authored-by: Claude Opus 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "07028885",
+          "trailer": "Co-authored-by: Claude Opus 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "8b1f9ab7",
+          "trailer": "Co-authored-by: Claude Opus 5 <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Kornia",
+      "github": "kornia/kornia",
+      "policy_url": "https://github.com/kornia/kornia/blob/main/AI_POLICY.md",
+      "commits_scanned": 300,
+      "commits_with_trailer": 85,
+      "trailer_rate_pct": 28.33,
+      "trailer_tools_seen": [
+        "claude",
+        "copilot",
+        "openai"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "48044c6b",
+          "trailer": "Assisted-by: OpenAI Codex"
+        },
+        {
+          "sha": "1cacf58b",
+          "trailer": "Assisted-by: Claude Opus 5 (Claude Code)"
+        },
+        {
+          "sha": "5967bc41",
+          "trailer": "Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "IREE (Intermediate Representation Execution Environment)",
+      "github": "iree-org/iree",
+      "policy_url": "https://iree.dev/developers/general/contributing/#ai-tool-use",
+      "commits_scanned": 300,
+      "commits_with_trailer": 84,
+      "trailer_rate_pct": 28.0,
+      "trailer_tools_seen": [
+        "chatgpt",
+        "claude",
+        "codex",
+        "copilot",
+        "cursor",
+        "openai"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "37c131ab",
+          "trailer": "Assisted-by: claude code"
+        },
+        {
+          "sha": "b929b14a",
+          "trailer": "`Assisted-by: Claude Code`"
+        },
+        {
+          "sha": "a5ca3e2b",
+          "trailer": "`Assisted-by: Claude Opus 5`"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "CCExtractor",
+      "github": "CCExtractor/ccextractor",
+      "policy_url": "https://ccextractor.org/public/gsoc/ai_policy/",
+      "commits_scanned": 300,
+      "commits_with_trailer": 56,
+      "trailer_rate_pct": 18.67,
+      "trailer_tools_seen": [
+        "claude",
+        "cursor"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "982586e8",
+          "trailer": "Co-authored-by: Cursor <cursoragent@cursor.com>"
+        },
+        {
+          "sha": "283bfd98",
+          "trailer": "Co-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "sha": "1b4123b3",
+          "trailer": "Co-authored-by: Claude Sonnet 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Polars",
+      "github": "pola-rs/polars",
+      "policy_url": "https://github.com/pola-rs/polars/blob/8425c750b9c5d28c79428998fda2320d076d4178/AI_POLICY.md",
+      "commits_scanned": 300,
+      "commits_with_trailer": 39,
+      "trailer_rate_pct": 13.0,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "01eae715",
+          "trailer": "Co-authored-by: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "sha": "2ddc4d58",
+          "trailer": "Co-authored-by: Claude Opus 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "658c4429",
+          "trailer": "Co-authored-by: Claude Opus 5 <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "LLVM",
+      "github": "llvm/llvm-project",
+      "policy_url": "https://llvm.org/docs//AIToolPolicy.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 37,
+      "trailer_rate_pct": 12.33,
+      "trailer_tools_seen": [
+        "claude",
+        "codex",
+        "copilot",
+        "cursor",
+        "gemini",
+        "openai"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "3c30abb2",
+          "trailer": "Assisted-by: Gemini"
+        },
+        {
+          "sha": "04659071",
+          "trailer": "Co-authored-by: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "sha": "f909f845",
+          "trailer": "Co-authored-by: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "SymPy",
+      "github": "sympy/sympy",
+      "policy_url": "https://docs.sympy.org/dev/contributing/ai-generated-code-policy.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 36,
+      "trailer_rate_pct": 12.0,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "54e80e61",
+          "trailer": "Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "f41d67fc",
+          "trailer": "Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "6856a095",
+          "trailer": "Co-authored-by: Claude Sonnet 5 <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "CloudNativePG",
+      "github": "cloudnative-pg/governance",
+      "policy_url": "https://github.com/cloudnative-pg/governance/blob/main/AI_POLICY.md",
+      "commits_scanned": 35,
+      "commits_with_trailer": 3,
+      "trailer_rate_pct": 8.57,
+      "trailer_tools_seen": [
+        "claude",
+        "gemini"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "68c9a132",
+          "trailer": "Assisted-by: Claude"
+        },
+        {
+          "sha": "8532cea1",
+          "trailer": "Assisted-by: Claude"
+        },
+        {
+          "sha": "34378cd2",
+          "trailer": "Assisted-by: Google Gemini"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Apache Kvrocks",
+      "github": "apache/kvrocks",
+      "policy_url": "https://kvrocks.apache.org/community/contributing/#guidelines-for-ai-assisted-contributions",
+      "commits_scanned": 300,
+      "commits_with_trailer": 25,
+      "trailer_rate_pct": 8.33,
+      "trailer_tools_seen": [
+        "claude",
+        "codex",
+        "copilot",
+        "cursor agent"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "d2b90da2",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.github.com>"
+        },
+        {
+          "sha": "8f117097",
+          "trailer": "assisted-by: codex/gpt6"
+        },
+        {
+          "sha": "5e79e708",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.github.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Linux Kernel",
+      "github": "torvalds/linux",
+      "policy_url": "https://kernel.org/doc/html/next/process/coding-assistants.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 22,
+      "trailer_rate_pct": 7.33,
+      "trailer_tools_seen": [
+        "claude",
+        "codex",
+        "copilot",
+        "cursor",
+        "gemini",
+        "openai"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "c17ae8c2",
+          "trailer": "Assisted-by: Claude:claude-opus-5"
+        },
+        {
+          "sha": "555cd2bd",
+          "trailer": "Assisted-by: Claude:claude-opus-5"
+        },
+        {
+          "sha": "8879e3e0",
+          "trailer": "Assisted-by: Claude:claude-opus-5"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Gitea",
+      "github": "go-gitea/gitea",
+      "policy_url": "https://github.com/go-gitea/gitea/blob/main/CONTRIBUTING.md#ai-contribution-policy",
+      "commits_scanned": 300,
+      "commits_with_trailer": 21,
+      "trailer_rate_pct": 7.0,
+      "trailer_tools_seen": [
+        "claude",
+        "codex",
+        "copilot"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "c0c573f7",
+          "trailer": "Assisted-by: Claude, via Claude Code"
+        },
+        {
+          "sha": "e77d3bff",
+          "trailer": "Assisted-by: Claude Code:claude-opus-5"
+        },
+        {
+          "sha": "c04802b6",
+          "trailer": "Co-authored-by: Claude (Opus 5) <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "qutip",
+      "github": "qutip/qutip",
+      "policy_url": "https://github.com/qutip/qutip/blob/master/CONTRIBUTING.md#ai-tools-usage-policy",
+      "commits_scanned": 300,
+      "commits_with_trailer": 18,
+      "trailer_rate_pct": 6.0,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "fd0114d0",
+          "trailer": "Assisted-by: Claude Code (Opus 5)"
+        },
+        {
+          "sha": "3078466e",
+          "trailer": "Assisted-by: Claude Code (Opus 5)"
+        },
+        {
+          "sha": "4300fc9e",
+          "trailer": "Assisted-by: Claude Code (Opus 5)"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Apache Airflow",
+      "github": "apache/airflow",
+      "policy_url": "https://github.com/apache/airflow/blob/main/contributing-docs/05_pull_requests.rst#gen-ai-assisted-contributions",
+      "commits_scanned": 300,
+      "commits_with_trailer": 16,
+      "trailer_rate_pct": 5.33,
+      "trailer_tools_seen": [
+        "claude",
+        "copilot"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "c614c570",
+          "trailer": "Generated-by: Claude Opus 5"
+        },
+        {
+          "sha": "386132ef",
+          "trailer": "Generated-by: Claude Code (Fable 5.1)"
+        },
+        {
+          "sha": "53862c82",
+          "trailer": "Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Arrow",
+      "github": "apache/arrow",
+      "policy_url": "https://arrow.apache.org/docs/dev/developers/overview.html#ai-generated-code",
+      "commits_scanned": 300,
+      "commits_with_trailer": 12,
+      "trailer_rate_pct": 4.0,
+      "trailer_tools_seen": [
+        "claude",
+        "copilot"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "43751939",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.github.com>"
+        },
+        {
+          "sha": "817e3f68",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.github.com>"
+        },
+        {
+          "sha": "20373450",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.github.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "napari",
+      "github": "napari/napari",
+      "policy_url": "https://napari.org/dev/developers/contributing/ai.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 11,
+      "trailer_rate_pct": 3.67,
+      "trailer_tools_seen": [
+        "claude",
+        "codex",
+        "copilot",
+        "cursor"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "7aeceb7d",
+          "trailer": "Co-authored-by: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "sha": "401635c3",
+          "trailer": "Co-authored-by: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "sha": "44332da5",
+          "trailer": "Assisted-by: Claude Opus"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Ghostty",
+      "github": "ghostty-org/ghostty",
+      "policy_url": "https://github.com/ghostty-org/ghostty/blob/main/AI_POLICY.md",
+      "commits_scanned": 300,
+      "commits_with_trailer": 8,
+      "trailer_rate_pct": 2.67,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "ef7edc4a",
+          "trailer": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "607d59b0",
+          "trailer": "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "ff5b87e4",
+          "trailer": "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "NumPy",
+      "github": "numpy/numpy",
+      "policy_url": "https://numpy.org/devdocs/dev/ai_policy.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 7,
+      "trailer_rate_pct": 2.33,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "27c6fb33",
+          "trailer": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "sha": "d6373749",
+          "trailer": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "sha": "b2916959",
+          "trailer": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Wagtail",
+      "github": "wagtail/wagtail",
+      "policy_url": "https://docs.wagtail.org/en/latest/contributing/general_guidelines.html#general-coding-guidelines",
+      "commits_scanned": 300,
+      "commits_with_trailer": 7,
+      "trailer_rate_pct": 2.33,
+      "trailer_tools_seen": [
+        "claude",
+        "copilot",
+        "cursor"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "5aab7952",
+          "trailer": "Assisted-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>"
+        },
+        {
+          "sha": "0e55ffce",
+          "trailer": "Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "c340a854",
+          "trailer": "Assisted-by: Cursor"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "OCaml",
+      "github": "ocaml/ocaml",
+      "policy_url": "https://github.com/ocaml/ocaml/blob/trunk/AI.md",
+      "commits_scanned": 300,
+      "commits_with_trailer": 5,
+      "trailer_rate_pct": 1.67,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "a93cc687",
+          "trailer": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "6de9dc68",
+          "trailer": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "d0c6254d",
+          "trailer": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "DataJourneyHQ",
+      "github": "DataJourneyHQ/DataJourney",
+      "policy_url": "https://github.com/DataJourneyHQ/DataJourney/wiki/Contribution-Guidelines-(AI%E2%80%90Aware",
+      "commits_scanned": 300,
+      "commits_with_trailer": 4,
+      "trailer_rate_pct": 1.33,
+      "trailer_tools_seen": [
+        "copilot"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "0096aadf",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>"
+        },
+        {
+          "sha": "45c3ed04",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>"
+        },
+        {
+          "sha": "d09ce35e",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "pgwatch",
+      "github": "cybertec-postgresql/pgwatch",
+      "policy_url": "https://github.com/cybertec-postgresql/pgwatch/blob/master/AI_POLICY.md",
+      "commits_scanned": 300,
+      "commits_with_trailer": 3,
+      "trailer_rate_pct": 1.0,
+      "trailer_tools_seen": [
+        "claude",
+        "copilot"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "259f132b",
+          "trailer": "Assisted-by: Claude Code"
+        },
+        {
+          "sha": "faad0aa2",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>"
+        },
+        {
+          "sha": "b38f22ed",
+          "trailer": "Co-authored-by: Claude <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Homebrew",
+      "github": "Homebrew/brew",
+      "policy_url": "https://github.com/Homebrew/brew/blob/main/CONTRIBUTING.md#artificial-intelligencelarge-language-model-aillm-usage",
+      "commits_scanned": 300,
+      "commits_with_trailer": 2,
+      "trailer_rate_pct": 0.67,
+      "trailer_tools_seen": [
+        "claude",
+        "copilot"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "beb9bf27",
+          "trailer": "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+        },
+        {
+          "sha": "590816c8",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.github.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "scikit-image",
+      "github": "scikit-image/scikit-image",
+      "policy_url": "https://scikit-image.org/docs/dev/development/contribute.html#ai-policy",
+      "commits_scanned": 300,
+      "commits_with_trailer": 2,
+      "trailer_rate_pct": 0.67,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "96a61b6a",
+          "trailer": "Assisted-by: Claude Opus 5 (Claude Code)"
+        },
+        {
+          "sha": "f0b504e8",
+          "trailer": "Assisted-by: Claude Opus 5 (Claude Code)"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "scikit-learn",
+      "github": "scikit-learn/scikit-learn",
+      "policy_url": "https://scikit-learn.org/dev/developers/contributing.html#automated-contributions-policy",
+      "commits_scanned": 300,
+      "commits_with_trailer": 2,
+      "trailer_rate_pct": 0.67,
+      "trailer_tools_seen": [
+        "copilot",
+        "cursor"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "0963bff6",
+          "trailer": "Co-authored-by: Cursor <cursoragent@cursor.com>"
+        },
+        {
+          "sha": "20868a7f",
+          "trailer": "Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.github.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "SciPy",
+      "github": "scipy/scipy",
+      "policy_url": "https://scipy.github.io/devdocs/dev/conduct/ai_policy.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 2,
+      "trailer_rate_pct": 0.67,
+      "trailer_tools_seen": [
+        "claude"
+      ],
+      "sample_disclosed_commits": [
+        {
+          "sha": "a8d5feff",
+          "trailer": "Co-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "sha": "0f7f9b2a",
+          "trailer": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "scan_status": "completed"
+    },
+    {
+      "project": "cilium",
+      "github": "cilium/community",
+      "policy_url": "https://github.com/cilium/community/blob/main/AI-POLICY.md",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Django",
+      "github": "django/django",
+      "policy_url": "https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/submitting-patches/#ai-assisted-contributions",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "curl",
+      "github": "curl/curl",
+      "policy_url": "https://curl.se/dev/contribute.html#on-ai-use-in-curl",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "GDAL",
+      "github": "OSGeo/gdal",
+      "policy_url": "https://gdal.org/en/stable/community/ai_tool_policy.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Joomla",
+      "github": "joomla/joomla-cms",
+      "policy_url": "https://developer.joomla.org/generative-ai-policy.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Kubernetes",
+      "github": "kubernetes/kubernetes",
+      "policy_url": "https://www.kubernetes.dev/docs/guide/pull-requests/#ai-guidance",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Matplotlib",
+      "github": "matplotlib/matplotlib",
+      "policy_url": "https://matplotlib.org/devdocs/devel/contribute.html#generative-ai",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "QGIS",
+      "github": "qgis/QGIS-Enhancement-Proposals",
+      "policy_url": "https://github.com/qgis/QGIS-Enhancement-Proposals/blob/master/qep-408-ai-tool-policy.md",
+      "commits_scanned": 275,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Processing/p5.js",
+      "github": "processing/processing4",
+      "policy_url": "https://github.com/processing/processing4/blob/main/AI_USAGE_POLICY.md",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Rust",
+      "github": "rust-lang/rust",
+      "policy_url": "https://forge.rust-lang.org/policies/llm-usage.html",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "STAC",
+      "github": "stac-utils/stac-utils.github.io",
+      "policy_url": "https://github.com/stac-utils/stac-utils.github.io/blob/main/docs/ai-contribution-policy.md",
+      "commits_scanned": 12,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "TorchGeo",
+      "github": "torchgeo/governance",
+      "policy_url": "https://github.com/torchgeo/governance/blob/main/AI-POLICY.md",
+      "commits_scanned": 54,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "SearXNG",
+      "github": "searxng/searxng",
+      "policy_url": "https://github.com/searxng/searxng/blob/master/AI_POLICY.rst",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    },
+    {
+      "project": "Sphinx",
+      "github": "sphinx-doc/sphinx",
+      "policy_url": "https://github.com/sphinx-doc/sphinx/blob/master/doc/internals/ai-policy.rst",
+      "commits_scanned": 300,
+      "commits_with_trailer": 0,
+      "trailer_rate_pct": 0.0,
+      "trailer_tools_seen": [],
+      "sample_disclosed_commits": [],
+      "scan_status": "completed"
+    }
+  ]
+}
